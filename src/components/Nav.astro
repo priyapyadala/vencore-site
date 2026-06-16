@@ -1,0 +1,102 @@
+---
+import navigation from '../data/navigation.json';
+
+interface Props {
+  current?: string;
+}
+
+const { current = '' } = Astro.props;
+const services = navigation.services;
+
+function navCurrent(key: string) {
+  return current === key || (key === 'services' && current === 'services') ? 'page' : undefined;
+}
+---
+
+<nav id="nav" role="navigation" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/" aria-label="Vencore Design Co. home">
+      <img src="/images/logo.png" alt="Vencore Design Co." width="320" height="129" decoding="async" />
+    </a>
+    <div class="nav-actions">
+      <button type="button" class="nav-ham" id="ham" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navlinks">
+        <a href="/" class:list={[{ active: current === 'home' }]} data-nav="home" aria-current={navCurrent('home')}>Home</a>
+        <a href="/about" class:list={[{ active: current === 'about' }]} data-nav="about" aria-current={navCurrent('about')}>About</a>
+
+        <details class="nav-svc nav-mega" id="nav-mega">
+          <summary class:list={[{ active: current === 'services' }]} data-nav="services" aria-current={navCurrent('services')}>
+            Services<span class="nav-caret" aria-hidden="true"></span>
+          </summary>
+          <div class="nav-mega-panel" id="mega-panel">
+            <ul class="nav-mega-links">
+              <li class="nav-mega-all"><a href="/services">All Services</a></li>
+              {services.map((svc) => (
+                <li>
+                  <a
+                    href={`/services/${svc.slug}`}
+                    data-preview={svc.preview}
+                    data-label={svc.label}
+                  >{svc.label}</a>
+                </li>
+              ))}
+            </ul>
+            <div class="nav-mega-preview" id="mega-preview">
+              {services.map((svc, i) => (
+                <img
+                  src={svc.preview}
+                  alt=""
+                  data-preview-id={svc.slug}
+                  class:list={[{ 'is-visible': i === 0 }]}
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="300"
+                />
+              ))}
+              <div class="nav-mega-preview-cap" id="mega-cap">{services[0]?.label ?? ''}</div>
+            </div>
+          </div>
+          <ul class="nav-svc__list">
+            <li class="nav-svc__all"><a href="/services">All Services</a></li>
+            {services.map((svc) => (
+              <li><a href={`/services/${svc.slug}`}>{svc.label}</a></li>
+            ))}
+          </ul>
+        </details>
+
+        <a href="/projects" class:list={[{ active: current === 'projects' }]} data-nav="projects" aria-current={navCurrent('projects')}>Projects</a>
+        <a href="/insights" class:list={[{ active: current === 'insights' }]} data-nav="insights" aria-current={navCurrent('insights')}>Insights</a>
+        <a href="/careers" class:list={[{ active: current === 'careers' }]} data-nav="careers" aria-current={navCurrent('careers')}>Careers</a>
+        <a href="/contact" class="nav-cta" class:list={[{ active: current === 'contact' }]} data-nav="contact" aria-current={navCurrent('contact')}>Enquire</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-backdrop" id="navbackdrop" hidden aria-hidden="true"></div>
+</nav>
+
+<script>
+  const mega = document.getElementById('nav-mega');
+  const cap = document.getElementById('mega-cap');
+  const links = mega?.querySelectorAll('.nav-mega-links a[data-preview]');
+
+  links?.forEach((link) => {
+    link.addEventListener('mouseenter', () => {
+      const preview = link.getAttribute('data-preview');
+      const label = link.getAttribute('data-label');
+      if (!preview || !cap) return;
+      mega?.querySelectorAll('.nav-mega-preview img').forEach((img) => {
+        const match = img.getAttribute('src') === preview;
+        img.classList.toggle('is-visible', match);
+        if (match && img.getAttribute('loading') === 'lazy') {
+          img.setAttribute('loading', 'eager');
+        }
+      });
+      cap.textContent = label ?? '';
+      links.forEach((l) => l.classList.remove('is-active'));
+      link.classList.add('is-active');
+    });
+  });
+</script>

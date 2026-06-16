@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import team from '../data/team.json';
+---
+
+<BaseLayout
+  title="About — Vencore Design Co."
+  description="Legacy storytelling from 1970s foundations to Vencore Design Co. — design-led execution in Hyderabad."
+  current="about"
+  ogImage="/images/hero/about-hero.jpeg"
+>
+  <PageHero
+    variant="pg-hero--about"
+    title="Built on <em>Legacy</em>"
+    intro="From Hyderabad's western corridor expansion to today's design-led execution practice."
+    bgImage="/images/hero/about-banner.jpeg"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'About' },
+    ]}
+  />
+
+  <section id="legacy" class="split split--half split--tablet-50-50">
+    <div class="fs-img rv-l">
+      <img src="/images/hero/about-hero.jpeg" alt="Vencore Design Co. — interior execution in Hyderabad" loading="eager" decoding="async" width="1600" height="1067"/>
+      <div class="fs-grad"></div>
+    </div>
+    <div class="fs-txt rv-r">
+      <h2 class="sh2">Legacy <em>Foundation</em></h2>
+      <p class="fs-p">The practice is rooted in a strong real estate and construction legacy established by <strong>the late Shri Kancha Laxmaiah Mudiraj</strong>, a respected personality in Hyderabad's development landscape since the 1970s, associated with plotted developments, land transformation, and early-stage urban expansion across the city's western corridor. The journey is closely connected with Hyderabad's expansion across key residential and commercial growth zones, including <strong>Jubilee Hills, HITEC City, Madhapur, Raidurg, Manikonda, Narsingi, Puppalaguda, Kancha Gachibowli, Alwal, Patancheru, Secunderabad</strong> and surrounding regions.</p>
+      <h2 class="sh2 fs-h2--spaced">Built Through<br/><em>Execution Ecosystem</em></h2>
+      <p class="fs-p">This foundation evolved through established ventures including <strong>KLM Homes Pvt Ltd</strong>, founded in 2003, and <strong>Aditi Housing and Constructions Private Limited</strong> (founded in 2018), now <strong>Surya Devara Infrastructures Pvt Ltd — rebranded</strong> — building strong capability across construction, infrastructure, and project execution.</p>
+      <p class="fs-p">Over the years, the group has been associated with multiple developments and collaborations across Hyderabad, including projects with leading developers and brands such as <strong>Raghava (Project Iris)</strong>, <strong>Elegance (Emperia - 2)</strong>, <strong>Hallmark Builders (Green Living)</strong>, <strong>Tata Motors (Malik Autoworld)</strong>, <strong>Volkswagen (PPS Motors)</strong>, <strong>Apollo Hospitals</strong>, <strong>Domino's Pizza</strong>, and several residential and commercial developments across key growth corridors.</p>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="tl-head rv">
+      <div class="lbl">The Journey</div>
+      <h2 class="sh2 tl-sh2">Our <em>Timeline</em></h2>
+    </div>
+    <div class="tl-items">
+      {team.timeline.map((item, i) => (
+        <div class={`tl-row rv d${(i % 4) + 1}`}>
+          <div class="tl-yr">{item.year}</div>
+          <div class="tl-body">
+            <div class="tl-title">{item.title}</div>
+            <div class="tl-text">{item.text}</div>
+            {item.tags.length > 0 && (
+              <div class="tl-ventures">
+                {item.tags.map((tag) => <span class="tl-ven">{tag}</span>)}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="lead-head rv">
+      <div class="lbl">Leadership</div>
+      <h2 class="sh2">Founders &amp; <em>Managing Directors</em></h2>
+    </div>
+    <div class="lead-grid rv">
+      {team.leadership.map((person) => (
+        <div class="lcard">
+          <div class="lcard-initial">{person.initials}</div>
+          <div class="lcard-role">{person.role}</div>
+          <div class="lcard-name" set:html={person.name.replace(' ', '<br/>')} />
+          <div class="lcard-rule"></div>
+        </div>
+      ))}
+    </div>
+
+    <div class="team-head rv" id="team">
+      <div class="lbl">Core Team</div>
+      <h2 class="sh2">Multidisciplinary <em>Leadership Team</em></h2>
+    </div>
+    <div class="team-grid rv">
+      {team.coreTeam.map((person) => (
+        <div class="tcard">
+          <div class="tcard-initial">{person.initials}</div>
+          <div class="tcard-name">{person.name}</div>
+          <div class="tcard-role">{person.role}</div>
+          <div class="tcard-rule"></div>
+          <div class="tcard-txt">{person.bio}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="lbl rv lbl--center">Partner</div>
+    <h2 class="sh2 rv sh2--spaced">Work with <em>Vencore</em></h2>
+    <a href="/contact" class="btn-solid rv">Request a private briefing ↗</a>
+  </section>
+</BaseLayout>

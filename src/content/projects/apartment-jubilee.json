@@ -1,0 +1,25 @@
+{
+  "title": "Premium Apartment — Jubilee Hills",
+  "slug": "apartment-jubilee",
+  "category": "residential",
+  "location": "Jubilee Hills, Hyderabad",
+  "year": "2023",
+  "area": "4,200 sq ft",
+  "heroImage": "/images/reference/residential-03.jpg",
+  "overview": "Interior transformation of a premium apartment — formal living, master suite, and dining with material-rich finishes.",
+  "scope": ["Space planning and 3D visualization", "Custom joinery and stone work", "Lighting design", "Turnkey fit-out"],
+  "execution": {
+    "timeline": "8 months",
+    "details": "Occupied-building constraints managed with phased works and noise-controlled schedules."
+  },
+  "gallery": [
+    "/images/reference/residential-02.jpg",
+    "/images/reference/residential-04.jpg",
+    "/images/reference/residential-05.jpg",
+    "/images/reference/residential-06.jpg",
+    "/images/hero/hero-alt-6.jpeg",
+    "/images/reference/whatsapp-05.jpg",
+    "/images/reference/whatsapp-06.jpg",
+    "/images/reference/whatsapp-07.jpg"
+  ]
+}

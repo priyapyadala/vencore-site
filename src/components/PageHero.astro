@@ -1,0 +1,67 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  intro?: string;
+  variant?: string;
+  crumbs: Crumb[];
+  titleHtml?: boolean;
+  bgImage?: string;
+  minHeight?: string;
+}
+
+const { title, intro, variant = '', crumbs, titleHtml = true, bgImage, minHeight } = Astro.props;
+
+const styleParts = [
+  minHeight ? `min-height:${minHeight}` : '',
+].filter(Boolean).join(';');
+
+const heroStyle = styleParts || undefined;
+---
+
+<div
+  class:list={['pg-hero', variant, { 'pg-hero--photo': bgImage }]}
+  style={heroStyle}
+>
+  {bgImage && (
+    <ResponsiveImage
+      src={bgImage}
+      alt=""
+      class="pg-hero__photo"
+      decorative
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      width={1600}
+      height={900}
+    />
+  )}
+  <nav class="pg-breadcrumb" aria-label="Breadcrumb">
+    <ol class="pg-breadcrumb-list">
+      {crumbs.map((crumb, i) => (
+        <li class="pg-breadcrumb-item">
+          {i > 0 && <span class="pg-breadcrumb-sep" aria-hidden="true">/</span>}
+          {crumb.href ? (
+            <a href={crumb.href}>{crumb.label}</a>
+          ) : (
+            <span aria-current="page">{crumb.label}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+  {titleHtml ? (
+    <h1 class="pg-h1" set:html={title} />
+  ) : (
+    <h1 class="pg-h1">{title}</h1>
+  )}
+  <div class="pg-rule"></div>
+  {intro && <p class="pg-intro">{intro}</p>}
+</div>
+

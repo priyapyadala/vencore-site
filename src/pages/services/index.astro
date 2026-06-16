@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CTABand from '../../components/CTABand.astro';
+import navigation from '../../data/navigation.json';
+---
+
+<BaseLayout
+  title="Services — Vencore Design Co."
+  description="Architecture, interiors, and turnkey delivery across residential, commercial, office, hospitality, retail, and healthcare."
+  current="services"
+>
+  <PageHero
+    variant="pg-hero--services"
+    title="Our <em>Services</em>"
+    intro="Six specializations under one accountable leadership desk — from concept to handover."
+    bgImage="/images/hero/services-hero.jpeg"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services' },
+    ]}
+  />
+
+  <section class="sec">
+    <div class="container">
+      <div class="pg2">
+        {navigation.services.map((svc) => (
+          <a href={`/services/${svc.slug}`} class="proj-card-link rv">
+            <div class="pc2">
+              <div class="pc2-bar"></div>
+              <img src={svc.preview} alt={svc.label} loading="lazy" decoding="async" width="800" height="600"/>
+              <div class="pc2-veil"></div>
+              <div class="pc2-info">
+                <div class="pc2-cat">Service</div>
+                <div class="pc2-name">{svc.label}</div>
+                <div class="pc2-loc">{svc.description}</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand title="Not sure which service fits? <em>Talk to us</em>" body="Describe your typology and site — we map scope, timeline, and the right delivery model." />
+</BaseLayout>

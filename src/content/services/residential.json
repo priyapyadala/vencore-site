@@ -1,0 +1,24 @@
+{
+  "title": "Residential Interiors",
+  "slug": "residential",
+  "category": "residential",
+  "heroImage": "/images/reference/residential-01.jpg",
+  "megaMenuPreview": "/images/reference/residential-02.jpg",
+  "philosophy": "Every residence is a private world — we design layered interiors that balance daylight, material warmth, and bespoke joinery. From villas to premium apartments, our approach treats each home as a curated environment, not a catalogue of finishes.",
+  "scope": [
+    "Full-home turnkey design and build",
+    "Bespoke joinery, kitchens, and wardrobes",
+    "Layered lighting and material palettes",
+    "White-glove handover with snag close-out"
+  ],
+  "concepts": [
+    { "src": "/images/reference/residential-01.jpg", "alt": "Layered contemporary living", "category": "Residential · Living", "name": "Layered contemporary living", "note": "Daylight · texture" },
+    { "src": "/images/reference/residential-02.jpg", "alt": "Formal drawing suite", "category": "Residential · Living", "name": "Formal drawing suite", "note": "Mouldings · stone" },
+    { "src": "/images/reference/residential-03.jpg", "alt": "Master bedroom", "category": "Residential · Suite", "name": "Master bedroom", "note": "Cove lighting" },
+    { "src": "/images/reference/residential-04.jpg", "alt": "Formal dining", "category": "Residential · Dining", "name": "Formal dining", "note": "Onyx · timber" },
+    { "src": "/images/reference/residential-05.jpg", "alt": "Spa ensuite", "category": "Residential · Ensuite", "name": "Spa ensuite", "note": "Stone · rainfall" },
+    { "src": "/images/reference/residential-06.jpg", "alt": "Reading lounge", "category": "Residential · Lounge", "name": "Reading lounge", "note": "Sheer drapes" },
+    { "src": "/images/hero/hero-alt-7.jpeg", "alt": "Villa atrium", "category": "Residential · Villa", "name": "Villa atrium", "note": "Double-height light" }
+  ],
+  "relatedProjectSlugs": ["villa-raidurg", "apartment-jubilee"]
+}

@@ -1,0 +1,48 @@
+{
+  "contact": {
+    "address": [
+      "Vaishnavi Cymbol, Financial District,",
+      "Nanakramguda, Hyderabad — Telangana"
+    ],
+    "phone": {
+      "display": "+91 98660 14663",
+      "href": "tel:+919866014663"
+    },
+    "emails": [
+      { "address": "hello@vencoredesign.co", "href": "mailto:hello@vencoredesign.co" },
+      { "address": "sales@vencoredesign.co", "href": "mailto:sales@vencoredesign.co" },
+      { "address": "careers@vencoredesign.co", "href": "mailto:careers@vencoredesign.co" }
+    ],
+    "maps": "https://maps.google.com/maps?q=Vaishnavi+Cymbol+Financial+District+Nanakramguda+Hyderabad"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/vencoredesignco/",
+    "whatsapp": "https://wa.me/917093127880?text=Hi%20Vencore%20Design%20Co.%2C%20I%27d%20like%20to%20discuss%20a%20project."
+  },
+  "group": {
+    "title": "Part of KLM Homes Group",
+    "companies": [
+      "KLM Homes Pvt Ltd",
+      "Aditi Housing and Constructions Pvt Ltd",
+      "Surya Devara Infrastructures Pvt Ltd"
+    ]
+  },
+  "footerLinks": [
+    { "label": "Services", "href": "/services" },
+    { "label": "Projects", "href": "/projects" },
+    { "label": "About", "href": "/about" },
+    { "label": "Insights", "href": "/insights" },
+    { "label": "Careers", "href": "/careers" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "companyLinks": [
+    { "label": "About Vencore", "href": "/about" },
+    { "label": "Our Journey", "href": "/about#timeline" },
+    { "label": "Our Team", "href": "/about#team" },
+    { "label": "Projects", "href": "/projects" },
+    { "label": "Design Process", "href": "/services" },
+    { "label": "Insights", "href": "/insights" },
+    { "label": "Careers", "href": "/careers" },
+    { "label": "Contact Us", "href": "/contact" }
+  ]
+}

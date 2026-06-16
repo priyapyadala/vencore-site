@@ -1,0 +1,20 @@
+---
+import process from '../data/process.json';
+---
+
+<section class="sec">
+  <div class="container">
+    <div class="lbl rv">Execution Approach</div>
+    <h2 class="sh2 rv">Execution <em>approach</em></h2>
+    <p class="rv prose-muted">{process.intro}</p>
+    <div class="process-grid rv">
+      {process.steps.map((step) => (
+        <div class="process-step">
+          <div class="process-step-n">{step.number}</div>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

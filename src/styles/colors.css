@@ -1,0 +1,157 @@
+/* ── Semantic color tokens — single source for borders, surfaces, links ── */
+
+:root {
+  --ink-deep: #0a0908;
+
+  /* Cognac-tinted borders (derived from --cognac #5c3318) */
+  --border-subtle: rgba(92, 51, 24, 0.08);
+  --border-default: rgba(92, 51, 24, 0.1);
+  --border-medium: rgba(92, 51, 24, 0.12);
+  --border-strong: rgba(92, 51, 24, 0.14);
+  --border-cognac-09: rgba(92, 51, 24, 0.09);
+  --border-cognac-15: rgba(92, 51, 24, 0.15);
+  --border-cognac-25: rgba(92, 51, 24, 0.25);
+  --surface-cognac-06: rgba(92, 51, 24, 0.06);
+
+  /* Gold-tinted borders & fills (use --gold-rgb) */
+  --border-gold-subtle: rgba(var(--gold-rgb), 0.12);
+  --border-gold: rgba(var(--gold-rgb), 0.22);
+  --border-gold-medium: rgba(var(--gold-rgb), 0.28);
+  --border-gold-strong: rgba(var(--gold-rgb), 0.35);
+  --border-gold-nav: rgba(var(--gold-rgb), 0.45);
+  --surface-gold-06: rgba(var(--gold-rgb), 0.06);
+  --surface-gold-08: rgba(var(--gold-rgb), 0.08);
+  --surface-gold-10: rgba(var(--gold-rgb), 0.1);
+  --surface-gold-12: rgba(var(--gold-rgb), 0.12);
+
+  /* Dark / hero panel surfaces */
+  --surface-dark-14: rgba(0, 0, 0, 0.14);
+  --surface-dark-22: rgba(0, 0, 0, 0.22);
+  --border-on-dark: rgba(247, 240, 228, 0.1);
+  --border-on-dark-strong: rgba(247, 240, 228, 0.12);
+  --text-on-dark-faint: rgba(247, 240, 228, 0.5);
+  --text-on-dark-muted: rgba(247, 240, 228, 0.55);
+  --text-on-dark-secondary: rgba(247, 240, 228, 0.72);
+
+  /* Ink-tinted shadows */
+  --shadow-tint-rgb: 35, 21, 9;
+  --shadow-card: 0 12px 32px rgba(var(--shadow-tint-rgb), 0.07);
+  --shadow-card-hover: 0 20px 48px rgba(var(--shadow-tint-rgb), 0.09);
+  --shadow-elevated-form: 0 18px 48px rgba(var(--shadow-tint-rgb), 0.06);
+  --shadow-map: 0 12px 36px rgba(var(--shadow-tint-rgb), 0.08);
+  --shadow-card-sm: 0 8px 24px rgba(var(--shadow-tint-rgb), 0.06);
+  --shadow-card-md: 0 10px 28px rgba(var(--shadow-tint-rgb), 0.06);
+  --shadow-card-tight: 0 14px 36px rgba(var(--shadow-tint-rgb), 0.07);
+  --surface-overlay-dark: rgba(var(--charcoal-rgb), 0.68);
+  --gradient-overlay-bottom: linear-gradient(180deg, transparent 45%, rgba(var(--charcoal-rgb), 0.5) 100%);
+  --text-gold-dim: rgba(226, 192, 110, 0.4);
+  --border-on-dark-hover: rgba(247, 240, 228, 0.35);
+  --surface-on-dark-hover: rgba(247, 240, 228, 0.06);
+  --border-gilt-divider: rgba(224, 192, 120, 0.35);
+
+  /* Interactive */
+  --link: var(--cognac);
+  --link-hover: var(--gold);
+  --link-underline: rgba(174, 124, 94, 0.42);
+  --accent-ui: var(--copper);
+  --accent-ui-hover: var(--gold);
+
+  /* Form & status */
+  --color-error: #8b3030;
+  --color-error-muted: #6b2e2e;
+  --color-error-bg: rgba(139, 48, 48, 0.03);
+  --color-error-border: rgba(139, 48, 48, 0.55);
+  --color-success-bg: rgba(92, 51, 24, 0.08);
+  --color-success-border: rgba(92, 51, 24, 0.15);
+
+  /* WhatsApp (contact channels) */
+  --wa-green: #1a6b45;
+  --wa-green-hover: #145a3a;
+  --wa-surface: rgba(26, 107, 69, 0.2);
+  --wa-border: rgba(26, 107, 69, 0.35);
+  --wa-icon: #7dcea0;
+
+  /* Card surfaces on light sections */
+  --surface-card: var(--ivory);
+  --surface-card-muted: var(--warm);
+  --surface-section-alt: var(--chalk);
+
+  /* Neutral borders (less cognac dominance on light UI) */
+  --border-neutral: rgba(var(--charcoal-rgb), 0.08);
+  --border-neutral-medium: rgba(var(--charcoal-rgb), 0.12);
+
+  /* Align legacy semantic aliases */
+  --color-border: var(--border-default);
+  --color-border-accent: var(--border-gold-medium);
+}
+
+/* Content links — consistent cognac → gold */
+.legal-prose a,
+.prose-muted a,
+.ins-related a,
+.thank-you-body a,
+.team-careers a,
+.career-apply--ghost:hover,
+.ins-article-foot a,
+.brief-form-note a,
+.contact-studio .map-link,
+.contact-note a,
+.contact-direct a {
+  color: var(--link);
+  transition: color 0.2s ease;
+}
+
+.legal-prose a:hover,
+.prose-muted a:hover,
+.ins-related a:hover,
+.thank-you-body a:hover,
+.team-careers a:hover,
+.ins-article-foot a:hover,
+.brief-form-note a:hover,
+.contact-studio .map-link:hover,
+.contact-note a:hover,
+.contact-direct a:hover {
+  color: var(--link-hover);
+}
+
+/* Light-surface titles — one heading brown */
+.card-title,
+.insight-card__title,
+.career-title,
+.insights-featured__title,
+.ins-nav-card__title,
+.expect-title,
+.careers-step__title,
+.careers-value__title,
+.career-title,
+.ins-article h2,
+.spec-title,
+.stack-title,
+.detail-title,
+.tl-title,
+.expect h2 {
+  color: var(--color-heading);
+}
+
+/* Editorial accents stay cognac */
+.deck,
+.ins-article .ins-lead,
+.ins-pullquote,
+.ins-article .ins-pullquote,
+.concept-banner strong {
+  color: var(--cognac);
+}
+
+/* UI chrome labels (read more, filters active accent) */
+.insight-card__read,
+.insights-featured__cta,
+.career-apply--ghost,
+.map-link {
+  color: var(--accent-ui);
+}
+
+.insight-card:hover .insight-card__read,
+.insights-featured__card:hover .insights-featured__cta,
+.map-link:hover {
+  color: var(--accent-ui-hover);
+}

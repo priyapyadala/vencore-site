@@ -1,0 +1,26 @@
+{
+  "title": "Corporate HQ — HITEC City",
+  "slug": "corporate-hitec",
+  "category": "commercial",
+  "location": "HITEC City, Hyderabad",
+  "year": "2024",
+  "area": "28,000 sq ft",
+  "heroImage": "/images/reference/corporate-01.jpg",
+  "overview": "Full-floor corporate fit-out with executive boardroom, open workplace, and client-facing reception.",
+  "scope": ["Workplace strategy", "Executive and collaboration zones", "Acoustic planning", "Turnkey MEP coordination"],
+  "execution": {
+    "timeline": "10 months",
+    "details": "Night-shift phasing for occupied tower; single PMO desk for design, procurement, and site."
+  },
+  "gallery": [
+    "/images/reference/corporate-02.jpg",
+    "/images/reference/corporate-03.jpg",
+    "/images/reference/corporate-04.jpg",
+    "/images/reference/corporate-05.jpg",
+    "/images/reference/corporate-06.jpg",
+    "/images/reference/whatsapp-08.jpg",
+    "/images/reference/whatsapp-09.jpg",
+    "/images/reference/whatsapp-10.jpg",
+    "/images/reference/whatsapp-11.jpg"
+  ]
+}

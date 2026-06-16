@@ -1,0 +1,285 @@
+/* ── Shared typography — use across all pages ── */
+
+/* Secondary copy under section headings */
+.section-lead,
+.career-intro,
+.contact-r__lead,
+.insights-intro__copy p,
+.s2-sub,
+.expect-text,
+.careers-topic-card__text,
+.insights-topic-card__text,
+.insight-card__excerpt {
+  font-size: var(--text-small);
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.section-lead,
+.career-intro,
+.contact-r__lead,
+.insights-intro__copy p {
+  max-width: 38ch;
+}
+
+/* Uppercase meta lines (dates, read time, dept) */
+.meta-line,
+.ins-meta-inline,
+.career-tag,
+.ins-article-byline {
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-label);
+  text-transform: uppercase;
+}
+
+.ins-meta-inline,
+.career-tag,
+.ins-article-byline {
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* Topic / category pill */
+.topic-pill,
+.ins-topic {
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-label);
+  text-transform: uppercase;
+  color: var(--cognac);
+  background: var(--surface-gold-12);
+  border: 1px solid var(--border-gold);
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* Card & list titles */
+.card-title,
+.insight-card__title,
+.career-title,
+.insights-featured__title,
+.ins-nav-card__title,
+.expect-title,
+.careers-value__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: var(--leading-snug);
+}
+
+.card-title,
+.insight-card__title,
+.career-title,
+.ins-nav-card__title,
+.expect-title,
+.careers-value__title,
+.careers-step__title {
+  font-size: var(--text-h5);
+}
+
+.insights-featured__title {
+  font-size: var(--text-h3);
+}
+
+.insights-topic-card__title {
+  font-size: var(--text-h5);
+  font-weight: 600;
+  color: var(--warm);
+}
+
+.careers-step__title {
+  font-weight: 600;
+}
+
+.careers-step__no,
+.expect-no {
+  font-family: var(--font-serif);
+  font-size: var(--text-h4);
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+/* Stat numbers */
+.stat-n,
+.insights-stat__n,
+.careers-culture__stat-n {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  font-weight: 500;
+  color: var(--cognac);
+  line-height: 1.15;
+}
+
+.stat-l,
+.insights-stat__l,
+.careers-culture__stat-l {
+  font-size: var(--text-micro);
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-label);
+  text-transform: uppercase;
+  color: var(--stone-muted);
+}
+
+/* Filter pills — projects + insights */
+.filter-pill,
+.proj-filter-btn,
+.ins-filter-btn {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.55rem 1.1rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-label);
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.filter-pill:focus-visible,
+.proj-filter-btn:focus-visible,
+.ins-filter-btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Editorial deck / article lead */
+.deck,
+.ins-article .ins-lead {
+  font-family: var(--font-serif);
+  font-size: var(--text-h4);
+  font-weight: 400;
+  line-height: 1.65;
+  text-align: center;
+  max-width: 36ch;
+  margin-inline: auto;
+  margin-bottom: 2.25rem;
+}
+
+/* Muted body on content pages */
+.prose-muted {
+  font-size: var(--text-small);
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 42rem;
+}
+
+/* Legal & long-form */
+.legal-prose {
+  max-width: 42rem;
+  font-size: var(--text-small);
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.legal-prose h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h4);
+  font-weight: 500;
+  color: var(--color-heading);
+  margin: 2rem 0 0.75rem;
+}
+
+.legal-prose p {
+  margin-bottom: 1rem;
+}
+
+/* Dark panel headings (contact, CTA splits) */
+.panel-title,
+.contact-h {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  color: var(--warm);
+  line-height: var(--leading-tight);
+}
+
+.panel-title em,
+.contact-h em {
+  font-style: italic;
+  color: var(--gilt);
+}
+
+.panel-copy,
+.contact-p {
+  font-size: var(--text-small);
+  line-height: 1.88;
+  color: var(--cream-dim);
+  font-weight: 400;
+  max-width: 26rem;
+}
+
+/* CTA band on dark / cognac backgrounds */
+.band-lead,
+.insights-cta-band__lead,
+.careers-apply-band__lead,
+.contact-map-band__copy p {
+  font-size: var(--text-small);
+  line-height: 1.8;
+  color: var(--cream-dim);
+}
+
+.contact-map-band__copy h2,
+.careers-faq__item summary,
+.contact-faq__item summary {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.contact-map-band__copy h2 {
+  font-size: var(--text-h3);
+  line-height: var(--leading-tight);
+}
+
+.contact-map-band__copy h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.careers-faq__item summary,
+.contact-faq__item summary {
+  font-size: var(--text-h5);
+  font-weight: 600;
+}
+
+/* Article body — match across insight + legacy article-body */
+.ins-article h2,
+.article-body h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.ins-article p,
+.ins-article li,
+.article-body p {
+  font-size: var(--text-small);
+  line-height: 1.8;
+}
+
+.ins-article .ins-pullquote {
+  font-size: var(--text-h4);
+}
+
+/* Section alt background — single convention */
+.sec-alt,
+.sec--alt {
+  background: var(--surface-section-alt);
+}
+
+@media (max-width: 767px) {
+  .deck,
+  .ins-article .ins-lead {
+    text-align: left;
+    max-width: none;
+  }
+}

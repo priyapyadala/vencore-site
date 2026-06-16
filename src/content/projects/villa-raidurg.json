@@ -1,0 +1,32 @@
+{
+  "title": "Contemporary Villa — Raidurg",
+  "slug": "villa-raidurg",
+  "category": "residential",
+  "location": "Raidurg, Hyderabad",
+  "year": "2024",
+  "area": "12,400 sq ft",
+  "heroImage": "/images/reference/residential-01.jpg",
+  "overview": "A full-home turnkey programme for a premium villa — layered living spaces, bespoke joinery, and white-glove handover across 12,400 sq ft.",
+  "scope": [
+    "Architecture coordination and interior concept",
+    "Bespoke kitchens, wardrobes, and joinery",
+    "Layered lighting and AV integration",
+    "Turnkey civil, MEP, and finishes"
+  ],
+  "execution": {
+    "timeline": "14 months — concept to handover",
+    "details": "Phased delivery across three floors with daily site leadership, vendor QC, and documented snag close-out."
+  },
+  "gallery": [
+    "/images/reference/residential-02.jpg",
+    "/images/reference/residential-03.jpg",
+    "/images/reference/residential-04.jpg",
+    "/images/reference/residential-05.jpg",
+    "/images/reference/residential-06.jpg",
+    "/images/hero/hero-alt-5.jpeg",
+    "/images/reference/whatsapp-01.jpg",
+    "/images/reference/whatsapp-02.jpg",
+    "/images/reference/whatsapp-03.jpg",
+    "/images/reference/whatsapp-04.jpg"
+  ]
+}

@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getInsights, getInsightNeighbors } from '../../lib/content';
+import { renderInsightMarkdown } from '../../lib/insight-markdown';
+import { formatInsightDate, readingTime } from '../../lib/format';
+import '../../styles/insights.css';
+
+export function getStaticPaths() {
+  return getInsights().map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { prev, next, related } = getInsightNeighbors(article.slug);
+const readMins = readingTime(article.content);
+const formattedDate = formatInsightDate(article.date);
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.title,
+  datePublished: article.date,
+  description: article.excerpt,
+  image: new URL(article.heroImage, Astro.site).href,
+  articleSection: article.topic,
+  timeRequired: `PT${readMins}M`,
+  author: { '@type': 'Organization', name: 'Vencore Design Co.' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Vencore Design Co.',
+    logo: { '@type': 'ImageObject', url: new URL('/images/logo.png', Astro.site).href },
+  },
+};
+---
+
+<BaseLayout
+  title={article.title}
+  description={article.excerpt}
+  current="insights"
+  ogImage={article.heroImage}
+  ogType="article"
+  articlePublishedTime={article.date}
+  preloadImage={article.heroImage}
+  jsonLd={articleLd}
+>
+  <PageHero
+    variant="pg-hero--article"
+    title={article.title}
+    titleHtml={false}
+    intro={`${formattedDate} · ${readMins} min read`}
+    bgImage={article.heroImage}
+    minHeight="52vh"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Insights', href: '/insights' },
+      { label: article.topic },
+    ]}
+  />
+
+  <div class="ins-article-wrap">
+    <header class="ins-article-header rv">
+      <span class="ins-topic">{article.topic}</span>
+      <p class="ins-article-byline">Vencore Design Co. · Practice note</p>
+      <div class="ins-article-divider" aria-hidden="true"></div>
+    </header>
+
+    <article class="ins-article rv">
+      <p class="ins-lead">{article.excerpt}</p>
+      <div set:html={renderInsightMarkdown(article.content)} />
+    </article>
+  </div>
+
+  {(prev || next) && (
+    <nav class="ins-article-nav rv" aria-label="Article navigation">
+      {prev ? (
+        <a href={`/insights/${prev.slug}`} class="ins-nav-card">
+          <span class="ins-nav-card__dir">← Previous</span>
+          <span class="ins-nav-card__title">{prev.title}</span>
+        </a>
+      ) : (
+        <div></div>
+      )}
+      {next ? (
+        <a href={`/insights/${next.slug}`} class="ins-nav-card ins-nav-card--next">
+          <span class="ins-nav-card__dir">Next →</span>
+          <span class="ins-nav-card__title">{next.title}</span>
+        </a>
+      ) : (
+        <div></div>
+      )}
+    </nav>
+  )}
+
+  <footer class="ins-article-foot rv">
+    <a href="/insights" class="ins-back">← All insights</a>
+    {related.length > 0 && (
+      <div class="ins-related">
+        <span>Related: </span>
+        {related.map((item, i) => (
+          <>
+            {i > 0 && <span> · </span>}
+            <a href={`/insights/${item.slug}`}>{item.title}</a>
+          </>
+        ))}
+      </div>
+    )}
+  </footer>
+
+  <section class="insights-cta-band" aria-labelledby="article-cta-heading">
+    <div class="insights-cta-band__inner rv">
+      <span class="lbl">Next step</span>
+      <h2 class="sh2" id="article-cta-heading">Discuss your <em>programme</em></h2>
+      <p class="insights-cta-band__lead">
+        Ready to apply these ideas to your site? Request a private briefing — our leadership desk responds within two business days.
+      </p>
+      <a href="/contact" class="btn-solid">Request a briefing ↗</a>
+    </div>
+  </section>
+</BaseLayout>

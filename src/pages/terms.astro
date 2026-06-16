@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Terms of Use — Vencore Design Co."
+  description="Terms governing use of the Vencore Design Co. website, imagery, and informational content."
+  noindex={true}
+>
+  <PageHero
+    title="Terms of <em>Use</em>"
+    intro="Last updated: June 2026"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Terms' },
+    ]}
+  />
+
+  <section class="sec">
+    <div class="container rv legal-prose">
+      <h2>Website purpose</h2>
+      <p>This website provides general information about Vencore Design Co. and our design, interior execution, and turnkey delivery services. Content is for informational purposes and does not constitute a binding offer or contract.</p>
+
+      <h2>Imagery and portfolio</h2>
+      <p>Project photography, concept studies, and reference imagery displayed on this site may include representative work, staged interiors, or anonymised programmes. Specific outcomes depend on scope, site conditions, and client requirements.</p>
+
+      <h2>Intellectual property</h2>
+      <p>All text, graphics, logos, and layouts on this site are owned by or licensed to Vencore Design Co. You may not reproduce, distribute, or modify site content without prior written permission.</p>
+
+      <h2>Enquiries and proposals</h2>
+      <p>Submitting a contact form or message does not create a client relationship. Formal engagements begin only after mutual agreement on scope, fees, and signed documentation.</p>
+
+      <h2>External links</h2>
+      <p>Links to third-party sites (including WhatsApp and Google Maps) are provided for convenience. We are not responsible for the content or policies of external websites.</p>
+
+      <h2>Limitation of liability</h2>
+      <p>We strive to keep information accurate and current but make no warranties about completeness or suitability for any particular purpose. Use of this site is at your own discretion.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms: <a href="mailto:hello@vencoredesign.co">hello@vencoredesign.co</a>.</p>
+    </div>
+  </section>
+</BaseLayout>

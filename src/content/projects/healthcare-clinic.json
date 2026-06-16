@@ -1,0 +1,26 @@
+{
+  "title": "Multi-Specialty Clinic",
+  "slug": "healthcare-clinic",
+  "category": "healthcare",
+  "location": "Secunderabad, Hyderabad",
+  "year": "2024",
+  "area": "12,000 sq ft",
+  "heroImage": "/images/reference/hospital-01.jpg",
+  "overview": "Healthcare interior programme — reception, consultation suites, procedure rooms, and staff zones with compliance-ready specifications.",
+  "scope": ["Patient flow and wayfinding", "Consultation and procedure rooms", "Infection-control materials", "Turnkey MEP coordination"],
+  "execution": {
+    "timeline": "9 months",
+    "details": "Clinical advisory input on material specs; phased commissioning for operational readiness."
+  },
+  "gallery": [
+    "/images/reference/hospital-02.jpg",
+    "/images/reference/hospital-03.jpg",
+    "/images/reference/hospital-04.jpg",
+    "/images/reference/hospital-05.jpg",
+    "/images/reference/hospital-06.jpg",
+    "/images/reference/whatsapp-23.jpg",
+    "/images/reference/whatsapp-24.jpg",
+    "/images/reference/whatsapp-25.jpg",
+    "/images/reference/whatsapp-26.jpg"
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "cultureIntro": "Vencore is the design-forward arm of a construction house with roots since the 1970s. We hire people who care about craft, accountability, and the discipline of delivery — not just beautiful drawings.",
+  "pillars": [
+    {
+      "title": "Design with buildability",
+      "text": "Every concept is tested against site reality, vendor capability, and programme constraints before it reaches the client."
+    },
+    {
+      "title": "One accountable desk",
+      "text": "Design, procurement, and site leadership sit under one leadership team — no hand-offs between siloed agencies."
+    },
+    {
+      "title": "Programmes that ship",
+      "text": "From villas to corporate floors, our teams see projects through to snag-free handover — not just concept presentations."
+    }
+  ],
+  "values": [
+    {
+      "no": "01",
+      "title": "Ownership",
+      "text": "You are trusted with real scope, real sites, and real client conversations — early in your tenure."
+    },
+    {
+      "no": "02",
+      "title": "Precision",
+      "text": "Drawings, BOQs, and site checks are held to a standard that protects programme and margin."
+    },
+    {
+      "no": "03",
+      "title": "Calm under pressure",
+      "text": "Launch dates slip when teams panic. We reward clarity, preparation, and steady site leadership."
+    },
+    {
+      "no": "04",
+      "title": "Growth through exposure",
+      "text": "Residential, corporate, hospitality — you will work across typologies with senior mentorship."
+    }
+  ],
+  "roles": [
+    {
+      "slug": "interior-designer",
+      "title": "Interior Designer (Mid)",
+      "dept": "Design",
+      "location": "Hyderabad",
+      "type": "Full-time",
+      "mode": "Studio + site visits",
+      "summary": "Lead design development for premium residential and commercial programmes — from spatial planning through material boards, 3D visualization, and site coordination.",
+      "responsibilities": [
+        "Develop concept, schematic, and detailed interior layouts aligned with client brief and buildability",
+        "Prepare material palettes, joinery details, and lighting intent for client presentations",
+        "Coordinate with execution teams on site dimensions, MEP interfaces, and mock-up approvals",
+        "Support BOQ preparation and vendor sampling with procurement"
+      ],
+      "requirements": [
+        "3–6 years in interior design or architecture (residential / commercial preferred)",
+        "Proficiency in AutoCAD, SketchUp or equivalent, and presentation tools",
+        "Strong material knowledge — stone, veneers, metal, textiles, and lighting",
+        "Ability to communicate design intent clearly to clients and site teams"
+      ],
+      "niceToHave": [
+        "Experience with occupied-building renovations",
+        "Enscape, V-Ray, or similar visualization workflow",
+        "Familiarity with Hyderabad vendor ecosystem"
+      ]
+    },
+    {
+      "slug": "project-engineer",
+      "title": "Project Engineer",
+      "dept": "Execution",
+      "location": "Hyderabad",
+      "type": "Full-time",
+      "mode": "On-site leadership",
+      "summary": "Own day-to-day site execution for turnkey fit-out programmes — schedule control, vendor coordination, quality checks, and snag close-out.",
+      "responsibilities": [
+        "Lead on-ground execution across civil, MEP, joinery, and finishing trades",
+        "Maintain daily site logs, progress reports, and deviation tracking",
+        "Coordinate vendor mobilization, material deliveries, and mock-up sign-offs",
+        "Support PMO with snag lists, punch items, and handover documentation"
+      ],
+      "requirements": [
+        "3–5 years in interior fit-out, construction, or MEP coordination",
+        "Ability to read architectural and interior working drawings",
+        "Experience managing multiple subcontractors on active sites",
+        "Diploma or degree in civil, mechanical, or related engineering discipline"
+      ],
+      "niceToHave": [
+        "Experience in occupied commercial towers or premium residences",
+        "Basic understanding of HVAC, electrical, and plumbing coordination",
+        "Proficiency in MS Project or similar scheduling tools"
+      ]
+    },
+    {
+      "slug": "business-development",
+      "title": "Business Development Executive",
+      "dept": "Strategy",
+      "location": "Hyderabad",
+      "type": "Full-time",
+      "mode": "Client-facing",
+      "summary": "Build and nurture client relationships across corporate, residential, and developer segments — from first briefing through proposal support and programme onboarding.",
+      "responsibilities": [
+        "Identify and qualify opportunities across Hyderabad's design-build market",
+        "Lead client briefings, site visits, and proposal coordination with design leads",
+        "Maintain pipeline visibility and CRM hygiene for leadership review",
+        "Support RFP responses, capability presentations, and reference programme tours"
+      ],
+      "requirements": [
+        "2–5 years in B2B sales, real estate, or design-build business development",
+        "Strong written and verbal communication — comfortable with senior client stakeholders",
+        "Understanding of interior fit-out scope, timelines, and commercial structures",
+        "Self-directed with disciplined follow-through"
+      ],
+      "niceToHave": [
+        "Existing network in corporate real estate or premium residential",
+        "Experience with turnkey vs design-only commercial models",
+        "Background in architecture, interiors, or construction"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "no": "01",
+      "title": "Application",
+      "text": "Submit your CV, portfolio link, and a short note on why Vencore — via our enquiry form or email."
+    },
+    {
+      "no": "02",
+      "title": "Review",
+      "text": "Our leadership desk reviews every application personally. Shortlisted candidates hear back within 5 business days."
+    },
+    {
+      "no": "03",
+      "title": "Conversation",
+      "text": "A 45–60 minute discussion on your work, approach, and the programmes you would join."
+    },
+    {
+      "no": "04",
+      "title": "Offer",
+      "text": "Successful candidates receive a structured offer with role clarity, reporting line, and onboarding plan."
+    }
+  ],
+  "benefits": [
+    "Exposure to multi-crore turnkey programmes",
+    "Direct mentorship from founders and practice leads",
+    "Cross-typology project rotation",
+    "Structured site and studio learning",
+    "Performance-linked growth path",
+    "Hyderabad Financial District studio"
+  ],
+  "faqs": [
+    {
+      "q": "Do you hire fresh graduates?",
+      "a": "We occasionally take on exceptional junior designers and site engineers as trainees. Most open roles expect 2+ years of relevant experience, but we welcome strong portfolios and a clear point of view."
+    },
+    {
+      "q": "Is remote work an option?",
+      "a": "Design roles include studio time and mandatory site visits. Execution roles are primarily on-site. We do not offer fully remote positions at this time."
+    },
+    {
+      "q": "What should I include in my application?",
+      "a": "CV, portfolio or project sheet (PDF or link), current compensation expectations, and notice period. For design roles, include process work — not just renders."
+    },
+    {
+      "q": "How long does the hiring process take?",
+      "a": "Typically 2–3 weeks from application to offer for active roles. We move faster when programme timelines require immediate onboarding."
+    }
+  ]
+}

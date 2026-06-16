@@ -1,0 +1,24 @@
+{
+  "title": "Hospitality",
+  "slug": "hospitality",
+  "category": "hospitality",
+  "heroImage": "/images/reference/experience-01.jpg",
+  "megaMenuPreview": "/images/reference/experience-02.jpg",
+  "philosophy": "Hospitality spaces must create memorable first impressions and sustained comfort. We design lobbies, guest suites, and F&B environments with material richness, lighting drama, and operational practicality.",
+  "scope": [
+    "Hotel lobbies and guest corridors",
+    "Restaurant and bar fit-outs",
+    "Banquet and event spaces",
+    "Turnkey delivery with brand guidelines"
+  ],
+  "concepts": [
+    { "src": "/images/reference/experience-01.jpg", "alt": "Grand lobby", "category": "Hospitality · Lobby", "name": "Grand lobby", "note": "Double height" },
+    { "src": "/images/reference/experience-02.jpg", "alt": "Guest lounge", "category": "Hospitality · Lounge", "name": "Guest lounge", "note": "Warm materials" },
+    { "src": "/images/reference/experience-03.jpg", "alt": "Dining room", "category": "Hospitality · F&B", "name": "Dining room", "note": "Ambient lighting" },
+    { "src": "/images/reference/experience-04.jpg", "alt": "Suite bedroom", "category": "Hospitality · Suite", "name": "Suite bedroom", "note": "Layered textiles" },
+    { "src": "/images/reference/experience-05.jpg", "alt": "Arrival lounge", "category": "Hospitality · Arrival", "name": "Arrival lounge", "note": "Stone · brass" },
+    { "src": "/images/reference/experience-06.jpg", "alt": "Corridor gallery", "category": "Hospitality · Corridor", "name": "Corridor gallery", "note": "Art lighting" },
+    { "src": "/images/reference/experience-07.jpg", "alt": "Pool terrace", "category": "Hospitality · Terrace", "name": "Pool terrace", "note": "Indoor-outdoor" }
+  ],
+  "relatedProjectSlugs": ["hospitality-gachibowli"]
+}

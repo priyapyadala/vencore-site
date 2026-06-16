@@ -1,0 +1,24 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  body?: string;
+  href?: string;
+  ctaLabel?: string;
+}
+
+const {
+  eyebrow = 'Enquire',
+  title,
+  body = 'Share typology, timeline, and scope — we respond with consultation, site visit, or execution roadmap.',
+  href = '/contact',
+  ctaLabel = 'Request a private briefing ↗',
+} = Astro.props;
+---
+
+<section class="cta">
+  <div class="lbl rv lbl--center">{eyebrow}</div>
+  <h2 class="sh2 rv sh2--spaced" set:html={title} />
+  {body && <p class="rv">{body}</p>}
+  <a href={href} class="btn-solid rv">{ctaLabel}</a>
+</section>

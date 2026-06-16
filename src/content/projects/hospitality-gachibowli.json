@@ -1,0 +1,27 @@
+{
+  "title": "Boutique Hotel Lobby — Gachibowli",
+  "slug": "hospitality-gachibowli",
+  "category": "hospitality",
+  "location": "Gachibowli, Hyderabad",
+  "year": "2024",
+  "area": "6,500 sq ft",
+  "heroImage": "/images/reference/experience-01.jpg",
+  "overview": "Double-height lobby and guest lounge with material drama and operational flow for a boutique hospitality programme.",
+  "scope": ["Lobby and reception design", "Guest lounge fit-out", "Lighting and signage", "Turnkey execution"],
+  "execution": {
+    "timeline": "7 months",
+    "details": "Brand guideline compliance with local material sourcing and mock-up approval cycles."
+  },
+  "gallery": [
+    "/images/reference/experience-02.jpg",
+    "/images/reference/experience-03.jpg",
+    "/images/reference/experience-04.jpg",
+    "/images/reference/experience-05.jpg",
+    "/images/reference/experience-06.jpg",
+    "/images/reference/experience-07.jpg",
+    "/images/reference/whatsapp-15.jpg",
+    "/images/reference/whatsapp-16.jpg",
+    "/images/reference/whatsapp-17.jpg",
+    "/images/reference/whatsapp-18.jpg"
+  ]
+}

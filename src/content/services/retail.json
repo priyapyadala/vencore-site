@@ -1,0 +1,25 @@
+{
+  "title": "Retail & Restaurants",
+  "slug": "retail",
+  "category": "retail",
+  "heroImage": "/images/reference/retail-01.jpg",
+  "megaMenuPreview": "/images/reference/retail-02.jpg",
+  "philosophy": "Retail and F&B environments must convert footfall into experience. We create showroom halls, boutique stores, and restaurant interiors where brand narrative, circulation, and display logic work as one system.",
+  "scope": [
+    "Showrooms and brand experience centres",
+    "Restaurant and café fit-outs",
+    "Display systems and lighting",
+    "Fast-track programmes for launches"
+  ],
+  "concepts": [
+    { "src": "/images/reference/retail-01.jpg", "alt": "Luxury showroom", "category": "Retail · Showroom", "name": "Luxury showroom", "note": "Display drama" },
+    { "src": "/images/reference/retail-02.jpg", "alt": "Boutique interior", "category": "Retail · Boutique", "name": "Boutique interior", "note": "Material contrast" },
+    { "src": "/images/reference/retail-03.jpg", "alt": "Restaurant dining", "category": "F&B · Dining", "name": "Restaurant dining", "note": "Ambient mood" },
+    { "src": "/images/reference/retail-04.jpg", "alt": "Bar counter", "category": "F&B · Bar", "name": "Bar counter", "note": "Backlit shelving" },
+    { "src": "/images/reference/retail-05.jpg", "alt": "Display podium", "category": "Retail · Display", "name": "Display podium", "note": "Spotlit focus" },
+    { "src": "/images/reference/retail-06.jpg", "alt": "Customer lounge", "category": "Retail · Lounge", "name": "Customer lounge", "note": "Brand comfort" },
+    { "src": "/images/reference/retail-07.jpg", "alt": "Fitting suite", "category": "Retail · Fitting", "name": "Fitting suite", "note": "Privacy · mirrors" },
+    { "src": "/images/reference/retail-08.jpg", "alt": "Café corner", "category": "F&B · Café", "name": "Café corner", "note": "Quick-service flow" }
+  ],
+  "relatedProjectSlugs": ["retail-showroom"]
+}

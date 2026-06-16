@@ -1,0 +1,66 @@
+{
+  "leadership": [
+    {
+      "initials": "VK",
+      "name": "Shri Venkatesh Kancha",
+      "role": "Founder & Managing Director"
+    },
+    {
+      "initials": "VU",
+      "name": "Shri Venugopal Kancha",
+      "role": "Founder & Managing Director"
+    }
+  ],
+  "coreTeam": [
+    {
+      "initials": "RL",
+      "name": "Rithin Laxman Kancha",
+      "role": "Business Development & Strategy",
+      "bio": "Corporate real estate and project management industry experience — business development, strategic direction, and execution-driven growth."
+    },
+    {
+      "initials": "SK",
+      "name": "Sowmya Kancha",
+      "role": "Procurement & Financial Governance",
+      "bio": "Procurement mastery, vendor governance, and financial controls across multi-crore fit-out programmes."
+    },
+    {
+      "initials": "SD",
+      "name": "Surya Devara Kancha",
+      "role": "Operations & Site Leadership",
+      "bio": "On-ground execution leadership — site teams, schedule control, and quality assurance across active programmes."
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1970s",
+      "title": "Legacy Roots",
+      "text": "The late Shri Kancha Laxmaiah Mudiraj establishes a respected presence in Hyderabad's development landscape — plotted developments, land transformation, and early urban expansion across the western corridor.",
+      "tags": []
+    },
+    {
+      "year": "2003",
+      "title": "KLM Homes Pvt Ltd",
+      "text": "Founded in 2003, building capability across construction, infrastructure, and project execution.",
+      "tags": ["KLM Homes Pvt Ltd"]
+    },
+    {
+      "year": "2018",
+      "title": "Aditi Housing and Constructions",
+      "text": "Founded in 2018, expanding group capability across construction and infrastructure delivery.",
+      "tags": ["Aditi Housing and Constructions Pvt Ltd"]
+    },
+    {
+      "year": "2026",
+      "title": "Surya Devara Infrastructures",
+      "text": "Rebranded as Surya Devara Infrastructures Pvt Ltd — strengthened infrastructure and execution platform.",
+      "tags": ["Surya Devara Infrastructures Pvt Ltd"]
+    },
+    {
+      "year": "Present",
+      "title": "Vencore Design Co.",
+      "text": "The evolved design-forward arm — architecture, interiors, and turnkey project delivery under one accountable leadership desk.",
+      "tags": ["Vencore Design Co."]
+    }
+  ]
+}

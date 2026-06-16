@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "label": "Residential Interiors",
+      "slug": "residential",
+      "preview": "/images/reference/service-02.jpg",
+      "description": "Villas, apartments & premium homes"
+    },
+    {
+      "label": "Commercial & Corporate",
+      "slug": "commercial",
+      "preview": "/images/reference/service-03.jpg",
+      "description": "Corporate floors, lobbies & fit-outs"
+    },
+    {
+      "label": "Office Spaces",
+      "slug": "office",
+      "preview": "/images/reference/service-04.jpg",
+      "description": "Workplace design & agile environments"
+    },
+    {
+      "label": "Hospitality",
+      "slug": "hospitality",
+      "preview": "/images/reference/service-05.jpg",
+      "description": "Hotels, lounges & guest experiences"
+    },
+    {
+      "label": "Retail & Restaurants",
+      "slug": "retail",
+      "preview": "/images/reference/service-06.jpg",
+      "description": "Showrooms, F&B & brand environments"
+    },
+    {
+      "label": "Healthcare",
+      "slug": "healthcare",
+      "preview": "/images/reference/hospital-05.jpg",
+      "description": "Hospitals, clinics & wellness spaces"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Vencore translated our brief into a villa that feels both contemporary and deeply personal — every junction, material, and detail was resolved before a single wall went up.",
+      "client": "Private residential client",
+      "project": "Contemporary Villa — Raidurg"
+    },
+    {
+      "quote": "They delivered our corporate floor on programme without compromising design intent. One team, one point of accountability — exactly what we needed.",
+      "client": "Corporate facilities lead",
+      "project": "Office fit-out — Madhapur"
+    }
+  ]
+}

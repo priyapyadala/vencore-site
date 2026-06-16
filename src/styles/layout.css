@@ -1,0 +1,311 @@
+/* Vencore — layout system, containers, grids, breakpoints */
+
+/* Anchor offset for fixed nav */
+section[id],
+.tl-row[id],
+#team {
+  scroll-margin-top: clamp(88px, 12vw, 120px);
+}
+
+/* Container — content constrained to 1200–1320px */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.container--wide {
+  width: 100%;
+  max-width: min(1440px, 100%);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.container--spread {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* Section spacing — horizontal padding lives on .container only */
+.sec {
+  padding-block: var(--space-2xl);
+  padding-inline: 0;
+}
+
+.sec--spacious {
+  padding-block: var(--space-3xl);
+}
+
+#s-projects.sec,
+#s2.sec,
+#s-proof.sec,
+#s-insights.sec {
+  padding-block: var(--space-3xl);
+}
+
+.sec-alt {
+  background: var(--chalk);
+}
+
+.sec--flush-top {
+  padding-top: 0;
+}
+
+/* Responsive auto-fit grid utility */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--grid-gap-lg);
+}
+
+.grid-auto--tight {
+  gap: var(--grid-gap);
+}
+
+/* Split layouts (image + text) */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 0;
+}
+
+.split--half {
+  min-height: min(640px, 92dvh);
+}
+
+/* Two-column head pattern */
+.split-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: end;
+}
+
+/* CTA two-column — base; desktop rules in components.css */
+.split-cta,
+#s7 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* ── Breakpoints (mobile-first) ── */
+
+/* ≥480px — large mobile */
+/* ≥768px — tablet */
+@media (min-width: 768px) {
+  .split-head {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split--tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split--tablet-44-56 {
+    grid-template-columns: 44% 56%;
+  }
+
+  .split--tablet-50-50 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .expect-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .pg--masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lead-grid,
+  .team-grid,
+  .assoc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ≥1024px — laptop */
+@media (min-width: 1024px) {
+  .split--half {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split--44-56 {
+    grid-template-columns: 44% 56%;
+  }
+
+  .proc,
+  .process-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .pg--masonry {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(320px, 40vw) minmax(220px, 28vw);
+  }
+
+  .pg--masonry .pc:nth-child(1) {
+    grid-column: 1 / 6;
+    grid-row: 1 / 3;
+  }
+  .pg--masonry .pc:nth-child(2) {
+    grid-column: 6 / 9;
+  }
+  .pg--masonry .pc:nth-child(3) {
+    grid-column: 9 / 13;
+  }
+  .pg--masonry .pc:nth-child(4) {
+    grid-column: 6 / 9;
+  }
+  .pg--masonry .pc:nth-child(5) {
+    grid-column: 9 / 11;
+  }
+  .pg--masonry .pc:nth-child(6) {
+    grid-column: 11 / 13;
+  }
+}
+
+/* ≥1440px — large screens */
+@media (min-width: 1440px) {
+  .pg--masonry {
+    grid-template-rows: minmax(400px, 36vw) minmax(280px, 24vw);
+  }
+
+  .sec {
+    padding-block: var(--space-12);
+  }
+}
+
+/* ≤1023px — mobile nav / stacked layouts */
+@media (max-width: 1023px) {
+  .split--half,
+  .split--44-56,
+  #s1,
+  #s5,
+  #s7,
+  #legacy,
+  .eco-grid,
+  .contact-main {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .s1-img,
+  .s5-img,
+  .fs-img {
+    min-height: clamp(200px, 55vw, 320px);
+  }
+
+  .proc {
+    grid-template-columns: 1fr;
+    max-width: 26rem;
+    margin-inline: auto;
+    gap: 0;
+  }
+
+  .proc::before {
+    display: none;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .process-grid::before {
+    display: none;
+  }
+
+  .pg--masonry {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(200px, 38vw);
+    grid-template-rows: none;
+    width: 100%;
+  }
+
+  .pg--masonry .pc:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .proj-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .spot-card {
+    grid-template-columns: 1fr;
+  }
+
+  .spot-img {
+    min-height: 200px;
+    max-height: 260px;
+  }
+
+  .sector-spotlight {
+    grid-template-columns: 1fr;
+  }
+
+  .stack,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .s2-head,
+  .s6-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ≤767px — small tablet / large phone */
+@media (max-width: 767px) {
+  .pg--masonry,
+  .pg2 {
+    grid-template-columns: 1fr;
+  }
+
+  .tg,
+  .s6-head {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-grid,
+  .team-grid,
+  .assoc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .s3-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lcard,
+  .tcard {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+/* ≤479px — mobile */
+@media (max-width: 479px) {
+  .concept-nav a {
+    font-size: var(--text-label);
+    padding: 0.52rem 1rem;
+  }
+
+  /* Single-column process on small phones */
+  .proc,
+  .process-grid {
+    grid-template-columns: 1fr;
+    max-width: 26rem;
+  }
+}

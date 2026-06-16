@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getInsights, getInsightTopics } from '../../lib/content';
+import { formatInsightDate, readingTime } from '../../lib/format';
+import '../../styles/insights.css';
+
+const articles = getInsights();
+const topics = getInsightTopics();
+const featured = articles[0];
+
+const topicDescriptions: Record<string, string> = {
+  Workplace: 'Hybrid offices, agile floors, and brand-aligned corporate fit-outs.',
+  Healthcare: 'Patient flow, clinical materials, and phased hospital programmes.',
+  Delivery: 'Turnkey accountability, BOQ discipline, and handover standards.',
+};
+
+const insightsLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Vencore Insights',
+  description: 'Editorial perspectives on workplace design, healthcare planning, and turnkey delivery.',
+  url: 'https://vencoredesign.co/insights',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Vencore Design Co.',
+  },
+};
+---
+
+<BaseLayout
+  title="Insights — Vencore Design Co."
+  description="Editorial perspectives on workplace design, healthcare planning, and turnkey delivery — from the Vencore practice in Hyderabad."
+  current="insights"
+  ogImage="/images/hero/insights-hero.jpeg"
+  preloadImage="/images/hero/insights-hero.jpeg"
+  jsonLd={insightsLd}
+>
+  <PageHero
+    variant="pg-hero--insights"
+    title="Perspectives from <em>practice</em>"
+    intro="Design, execution, and delivery — editorial notes for owners, developers, and programme leads."
+    bgImage="/images/hero/insights-hero.jpeg"
+    minHeight="48vh"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Insights' },
+    ]}
+  />
+
+  <section class="insights-intro" aria-label="About this section">
+    <div class="insights-intro__inner rv">
+      <div class="insights-intro__copy">
+        <span class="lbl">Editorial</span>
+        <h2 class="sh2">Notes from the <em>programme floor</em></h2>
+        <p>
+          These are not trend reports — they are distilled lessons from turnkey programmes across corporate, healthcare, and residential typologies in Hyderabad.
+        </p>
+      </div>
+      <div class="insights-stats" aria-label="Insights highlights">
+        <div class="insights-stat">
+          <span class="insights-stat__n">{articles.length}</span>
+          <span class="insights-stat__l">Published notes</span>
+        </div>
+        <div class="insights-stat">
+          <span class="insights-stat__n">{topics.length}</span>
+          <span class="insights-stat__l">Practice themes</span>
+        </div>
+        <div class="insights-stat">
+          <span class="insights-stat__n">Hyderabad</span>
+          <span class="insights-stat__l">Execution base</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {featured && (
+    <section class="insights-featured" aria-labelledby="featured-heading" data-featured-topic={featured.topic}>
+      <div class="insights-featured__inner">
+        <span class="lbl insights-featured__label rv" id="featured-heading">Latest</span>
+        <a href={`/insights/${featured.slug}`} class="insights-featured__card rv">
+          <div class="insights-featured__media">
+            <img
+              src={featured.heroImage}
+              alt={featured.title}
+              loading="eager"
+              decoding="async"
+              width="1200"
+              height="750"
+            />
+            <div class="insights-featured__veil" aria-hidden="true"></div>
+          </div>
+          <div class="insights-featured__body">
+            <div class="insights-featured__meta">
+              <span class="ins-topic">{featured.topic}</span>
+              <span class="ins-meta-inline">{formatInsightDate(featured.date)}</span>
+              <span class="ins-meta-inline">{readingTime(featured.content)} min read</span>
+            </div>
+            <h3 class="insights-featured__title">{featured.title}</h3>
+            <p class="insights-featured__excerpt">{featured.excerpt}</p>
+            <span class="insights-featured__cta">Read article ↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <section class="insights-band" aria-labelledby="archive-heading">
+    <div class="insights-band__inner">
+      <div class="insights-band__head rv">
+        <div>
+          <span class="lbl">Archive</span>
+          <h2 class="sh2" id="archive-heading">All <em>insights</em></h2>
+        </div>
+        <div class="insights-filters" role="group" aria-label="Filter by topic">
+          <button type="button" class="ins-filter-btn active" data-ins-filter="all" aria-pressed="true">All</button>
+          {topics.map((topic) => (
+            <button type="button" class="ins-filter-btn" data-ins-filter={topic} aria-pressed="false">{topic}</button>
+          ))}
+        </div>
+      </div>
+
+      <div class="insights-grid rv" id="insights-grid" data-featured-slug={featured?.slug ?? ''}>
+        {articles.map((article) => (
+          <a
+            href={`/insights/${article.slug}`}
+            class:list={[
+              'insight-card',
+              { 'insight-card--featured-dup': featured?.slug === article.slug },
+            ]}
+            data-insight-topic={article.topic}
+            data-insight-slug={article.slug}
+          >
+            <div class="insight-card__media">
+              <div class="insight-card__bar" aria-hidden="true"></div>
+              <img
+                src={article.heroImage}
+                alt={article.title}
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="500"
+              />
+            </div>
+            <div class="insight-card__body">
+              <div class="insight-card__meta">
+                <span class="ins-topic">{article.topic}</span>
+                <span class="ins-meta-inline">{formatInsightDate(article.date)}</span>
+                <span class="ins-meta-inline">{readingTime(article.content)} min</span>
+              </div>
+              <h3 class="insight-card__title">{article.title}</h3>
+              <p class="insight-card__excerpt">{article.excerpt}</p>
+              <span class="insight-card__read">Read ↗</span>
+            </div>
+          </a>
+        ))}
+        <p id="ins-filter-empty" hidden>No articles in this theme yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-topics" aria-labelledby="themes-heading">
+    <div class="insights-topics__inner rv">
+      <span class="lbl">Themes we write about</span>
+      <h2 class="sh2" id="themes-heading">Three lenses on <em>delivery</em></h2>
+      <div class="insights-topics__grid">
+        {topics.map((topic) => (
+          <article class="insights-topic-card">
+            <h3 class="insights-topic-card__title">{topic}</h3>
+            <p class="insights-topic-card__text">{topicDescriptions[topic] ?? 'Perspectives from active programmes.'}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-cta-band" aria-labelledby="insights-cta-heading">
+    <div class="insights-cta-band__inner rv">
+      <span class="lbl">Apply these ideas</span>
+      <h2 class="sh2" id="insights-cta-heading">Discuss your <em>programme</em></h2>
+      <p class="insights-cta-band__lead">
+        Editorial perspectives inform how we plan and deliver. Start with a private briefing — we respond within two business days.
+      </p>
+      <a href="/contact" class="btn-solid">Request a private briefing ↗</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function bindInsightFilter() {
+    const btns = document.querySelectorAll('.ins-filter-btn');
+    const items = document.querySelectorAll('[data-insight-topic]');
+    const emptyEl = document.getElementById('ins-filter-empty');
+    const grid = document.getElementById('insights-grid');
+    const featuredSection = document.querySelector<HTMLElement>('.insights-featured');
+    const featuredSlug = grid?.getAttribute('data-featured-slug') ?? '';
+    const featuredTopic = featuredSection?.getAttribute('data-featured-topic') ?? '';
+    if (!btns.length || !items.length) return;
+
+    const apply = (filter: string) => {
+      let visible = 0;
+      items.forEach((item) => {
+        const topic = item.getAttribute('data-insight-topic');
+        const slug = item.getAttribute('data-insight-slug');
+        const isFeaturedDup = item.classList.contains('insight-card--featured-dup');
+        const topicMatch = filter === 'all' || topic === filter;
+        const show = topicMatch && !(isFeaturedDup && slug === featuredSlug);
+        (item as HTMLElement).style.display = show ? '' : 'none';
+        if (show) visible += 1;
+      });
+      if (featuredSection) {
+        const showFeatured = filter === 'all' || featuredTopic === filter;
+        featuredSection.style.display = showFeatured ? '' : 'none';
+      }
+      if (emptyEl) emptyEl.hidden = visible > 0;
+    };
+
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-ins-filter') ?? 'all';
+        btns.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        apply(filter);
+      });
+    });
+
+    apply('all');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindInsightFilter);
+  } else {
+    bindInsightFilter();
+  }
+</script>

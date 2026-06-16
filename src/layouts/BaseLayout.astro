@@ -1,0 +1,150 @@
+---
+import Loader from '../components/Loader.astro';
+import Lightbox from '../components/Lightbox.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { buildSrcSet, preloadSrc } from '../lib/images';
+import '../styles/base.css';
+import '../styles/colors.css';
+import '../styles/layout.css';
+import '../styles/components.css';
+import '../styles/typography.css';
+import '../styles/mega-menu.css';
+import '../styles/hero.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  articlePublishedTime?: string;
+  noindex?: boolean;
+  preloadImage?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description = 'Vencore Design Co., Hyderabad — Design-led execution across architecture, interiors, and turnkey project delivery.',
+  current = '',
+  ogImage = '/images/logo.png',
+  ogType = 'website',
+  articlePublishedTime,
+  noindex = false,
+  preloadImage,
+  jsonLd,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title.includes('Vencore') ? title : `${title} — Vencore Design Co.`;
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Vencore Design Co.',
+  url: 'https://vencoredesign.co',
+  telephone: '+91-9866014663',
+  email: 'hello@vencoredesign.co',
+  foundingDate: '2003',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Vaishnavi Cymbol, Financial District, Nanakramguda',
+    addressLocality: 'Hyderabad',
+    addressRegion: 'Telangana',
+    addressCountry: 'IN',
+  },
+  areaServed: 'Hyderabad',
+  priceRange: '$$$$',
+  description,
+  image: new URL(ogImage, Astro.site).href,
+};
+
+const extraLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const jsonLdBlocks = [organizationLd, ...extraLd];
+---
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#12100e" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  {preloadImage && (
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href={preloadSrc(preloadImage, 480)}
+        imagesrcset={buildSrcSet(preloadImage)}
+        imagesizes="100vw"
+        media="(max-width: 767px)"
+        fetchpriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={preloadSrc(preloadImage, 768)}
+        imagesrcset={buildSrcSet(preloadImage)}
+        imagesizes="100vw"
+        media="(min-width: 768px)"
+        fetchpriority="high"
+      />
+    </>
+  )}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=optional"
+    as="style"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=optional"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=optional" rel="stylesheet" />
+  </noscript>
+  <link rel="canonical" href={canonical} />
+  <meta property="og:site_name" content="Vencore Design Co." />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+  {ogType === 'article' && articlePublishedTime && (
+    <meta property="article:published_time" content={articlePublishedTime} />
+  )}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+  {jsonLdBlocks.map((block) => (
+    <script type="application/ld+json" set:html={JSON.stringify(block)} />
+  ))}
+</head>
+<body data-page={current}>
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <Loader />
+  <Nav current={current} />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+  <Lightbox />
+
+  <script>
+    import '../scripts/site.ts';
+  </script>
+</body>
+</html>

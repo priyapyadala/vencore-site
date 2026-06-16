@@ -1,0 +1,511 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import '../styles/contact.css';
+
+const waUrl =
+  'https://wa.me/917093127880?text=Hi%20Vencore%20Design%20Co.%2C%20I%27d%20like%20to%20discuss%20a%20project.';
+const mapsUrl =
+  'https://maps.google.com/maps?q=Vaishnavi+Cymbol+Financial+District+Nanakramguda+Hyderabad';
+
+const expectSteps = [
+  {
+    no: '01',
+    title: 'Acknowledgement',
+    text: 'We confirm receipt within one business day and assign your enquiry to the right practice lead.',
+  },
+  {
+    no: '02',
+    title: 'Discovery call',
+    text: 'A 20–30 minute conversation on typology, site status, timeline, and delivery model.',
+  },
+  {
+    no: '03',
+    title: 'Site visit',
+    text: 'For active programmes we schedule a walkthrough — occupied or greenfield — at your convenience.',
+  },
+  {
+    no: '04',
+    title: 'Scope outline',
+    text: 'You receive a high-level programme note: phases, indicative timeline, and next steps.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What happens after I submit the form?',
+    a: 'Our team reviews every briefing personally. Expect an acknowledgement within one business day, followed by a discovery call or site visit depending on programme readiness.',
+  },
+  {
+    q: 'Do you take on projects outside Hyderabad?',
+    a: 'Our execution base is Hyderabad and the wider Telangana corridor. We evaluate outstation programmes case by case when turnkey delivery and site leadership can be sustained.',
+  },
+  {
+    q: 'What is the difference between design-only and turnkey?',
+    a: 'Turnkey means one accountable desk from concept through civil, MEP, joinery, and handover. Design-only engagements are scoped separately when clients retain their own execution teams.',
+  },
+  {
+    q: 'Is the first consultation complimentary?',
+    a: 'Yes — the initial discovery conversation is complimentary. Detailed feasibility, 3D studies, and BOQ preparation are scoped as a defined phase once mutual fit is established.',
+  },
+];
+
+const contactLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Enquire — Vencore Design Co.',
+  description: 'Request a private project briefing with Vencore Design Co., Hyderabad.',
+  url: 'https://vencoredesign.co/contact',
+};
+---
+
+<BaseLayout
+  title="Enquire — Vencore Design Co."
+  description="Request a private project briefing — residential, commercial, hospitality, and turnkey fit-outs in Hyderabad. Response within two business days."
+  current="contact"
+  ogImage="/images/hero/contact-hero.jpeg"
+  preloadImage="/images/hero/contact-hero.jpeg"
+  jsonLd={contactLd}
+>
+  <div class="contact-page">
+  <PageHero
+    variant="pg-hero--contact"
+    title="Request a <em>private briefing</em>"
+    intro="Share your typology, site, and timeline — our leadership desk responds with a discovery call or site visit."
+    bgImage="/images/hero/contact-hero.jpeg"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Enquire' },
+    ]}
+  />
+
+  <div class="split-cta contact-main" id="briefing">
+    <aside class="contact-l rv-l">
+      <span class="lbl">Direct lines</span>
+      <h2 class="contact-h">Begin your<br/><em>programme</em></h2>
+      <p class="contact-p">
+        For active sites and launch-critical programmes, reach us directly. Every enquiry is reviewed by our leadership desk — not an automated queue.
+      </p>
+
+      <ul class="contact-assurance" aria-label="How we handle enquiries">
+        <li><strong>Leadership review</strong><span>Every briefing read by our principals</span></li>
+        <li><strong>Two-day response</strong><span>Discovery call or site visit</span></li>
+        <li><strong>Legacy since the 1970s</strong><span>Family-built execution discipline</span></li>
+      </ul>
+
+      <div class="contact-channels">
+        <a href="tel:+919866014663" class="contact-channel">
+          <span class="contact-channel__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          </span>
+          <span>
+            <span class="contact-channel__lbl">Office line</span>
+            <span class="contact-channel__val">+91 98660 14663</span>
+            <span class="contact-channel__note">Mon–Sat · 10:00 – 19:00 IST</span>
+          </span>
+        </a>
+
+        <a href={waUrl} class="contact-channel contact-channel--wa" target="_blank" rel="noopener noreferrer">
+          <span class="contact-channel__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.867L0 24l6.335-1.662A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.37l-.36-.214-3.756.986 1.002-3.648-.234-.375A9.818 9.818 0 1 1 12 21.818z"/></svg>
+          </span>
+          <span>
+            <span class="contact-channel__lbl">WhatsApp desk</span>
+            <span class="contact-channel__val">+91 70931 27880</span>
+            <span class="contact-channel__note">Project enquiries &amp; site updates</span>
+          </span>
+        </a>
+
+        <a href="mailto:hello@vencoredesign.co" class="contact-channel">
+          <span class="contact-channel__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </span>
+          <span>
+            <span class="contact-channel__lbl">Email</span>
+            <span class="contact-channel__val">hello@vencoredesign.co</span>
+            <span class="contact-channel__note">Briefs, drawings &amp; tender documents</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="contact-actions">
+        <a href={waUrl} class="btn-solid btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp now ↗</a>
+        <a href="tel:+919866014663" class="btn-outline">Call office</a>
+      </div>
+
+      <div class="contact-studio">
+        <div class="cinfo-lbl">Studio</div>
+        <p class="contact-studio__address">
+          Vaishnavi Cymbol, Financial District,<br/>
+          Nanakramguda, Hyderabad — Telangana
+        </p>
+        <a href={mapsUrl} class="map-link" target="_blank" rel="noopener noreferrer">Open in Google Maps ↗</a>
+      </div>
+
+      <p class="contact-badge">Response within <span>2 business days</span></p>
+    </aside>
+
+    <div class="contact-r rv-r">
+      <div class="contact-r__head">
+        <span class="lbl">Private briefing</span>
+        <h2 class="sh2" id="brief-heading">Tell us about <em>your project</em></h2>
+        <p class="contact-r__lead">The more context you share, the more purposeful our first conversation. All fields marked with · are required.</p>
+      </div>
+
+      <form id="brief-form-el" class="brief-form brief-form--premium contact-brief-form" novalidate>
+        <p id="careers-prefill-banner" class="brief-prefill-banner" hidden role="status">
+          Your careers enquiry has been pre-filled below — edit as needed.
+        </p>
+
+        <div class="brief-form__progress" role="status" aria-live="polite">
+          <span class="brief-form__progress-label" id="brief-progress-label">0% complete</span>
+          <span class="brief-form__progress-bar" aria-hidden="true"><span class="brief-form__progress-fill" id="brief-progress-fill"></span></span>
+        </div>
+
+        <div class="brief-field brief-field--hp" aria-hidden="true">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="brief-field brief-field--row">
+          <div class="brief-field" data-field="name">
+            <label for="brief-name">Full name ·</label>
+            <input id="brief-name" type="text" name="name" required autocomplete="name" minlength="2" />
+            <span class="brief-field__error" id="err-name" role="alert"></span>
+          </div>
+          <div class="brief-field" data-field="phone">
+            <label for="brief-phone">Phone ·</label>
+            <input id="brief-phone" type="tel" name="phone" required autocomplete="tel" placeholder="+91 98…" inputmode="tel" />
+            <span class="brief-field__error" id="err-phone" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="brief-field" data-field="email">
+          <label for="brief-email">Email ·</label>
+          <input id="brief-email" type="email" name="email" required autocomplete="email" />
+          <span class="brief-field__error" id="err-email" role="alert"></span>
+        </div>
+
+        <div class="brief-field brief-field--row">
+          <div class="brief-field" data-field="typology">
+            <label for="brief-typology">Typology ·</label>
+            <select id="brief-typology" name="typology" required>
+              <option value="">Select programme type…</option>
+              <option value="residential">Residential — villa / apartment</option>
+              <option value="commercial">Commercial &amp; corporate</option>
+              <option value="office">Office &amp; workplace</option>
+              <option value="hospitality">Hospitality</option>
+              <option value="retail">Retail &amp; F&amp;B</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="other">Other / careers</option>
+            </select>
+            <span class="brief-field__error" id="err-typology" role="alert"></span>
+          </div>
+          <div class="brief-field" data-field="area">
+            <label for="brief-area">Approx. area</label>
+            <input id="brief-area" type="text" name="area" placeholder="e.g. 4,200 sq ft" autocomplete="off" />
+            <span class="brief-field__hint">Built-up or carpet — either is fine</span>
+          </div>
+        </div>
+
+        <div class="brief-field brief-field--row">
+          <div class="brief-field" data-field="timeline">
+            <label for="brief-timeline">Target timeline</label>
+            <select id="brief-timeline" name="timeline">
+              <option value="">Select…</option>
+              <option value="immediate">Immediate — under 3 months</option>
+              <option value="3-6">3 – 6 months</option>
+              <option value="6-12">6 – 12 months</option>
+              <option value="12plus">12+ months</option>
+              <option value="exploratory">Exploratory / early stage</option>
+            </select>
+          </div>
+          <div class="brief-field" data-field="budget">
+            <label for="brief-budget">Budget band</label>
+            <select id="brief-budget" name="budget">
+              <option value="">Prefer not to say</option>
+              <option value="under-50l">Under ₹50 lakh</option>
+              <option value="50l-1cr">₹50 lakh – ₹1 crore</option>
+              <option value="1-3cr">₹1 – 3 crore</option>
+              <option value="3-5cr">₹3 – 5 crore</option>
+              <option value="5cr-plus">₹5 crore+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="brief-field" data-field="contact-method">
+          <label for="brief-contact-method">Preferred response</label>
+          <select id="brief-contact-method" name="contact_method">
+            <option value="whatsapp">WhatsApp</option>
+            <option value="phone">Phone call</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+
+        <div class="brief-field brief-field--full" data-field="brief">
+          <label for="brief-message">Project brief ·</label>
+          <textarea
+            id="brief-message"
+            name="brief"
+            rows="5"
+            required
+            minlength="24"
+            placeholder="Location, site status (new build / renovation / occupied), scope expectations, and any reference links…"
+          ></textarea>
+          <span class="brief-field__error" id="err-brief" role="alert"></span>
+        </div>
+
+        <div class="brief-form-actions">
+          <button type="submit" class="btn-solid" id="brief-form-submit">Send private briefing ↗</button>
+          <p class="brief-form-note">
+            Leadership-reviewed enquiry — not an automated queue. By submitting, you agree to our <a href="/privacy">privacy policy</a>.
+            We respond within two business days.
+          </p>
+        </div>
+
+        <p id="brief-form-status" hidden class="brief-form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <section class="expect" aria-labelledby="expect-heading">
+    <div class="expect-inner">
+      <span class="lbl rv">What to expect</span>
+      <h2 class="rv" id="expect-heading">From briefing to <em>first meeting</em></h2>
+      <div class="expect-grid rv">
+        {expectSteps.map((step) => (
+          <article class="expect-card">
+            <div class="expect-no">{step.no}</div>
+            <h3 class="expect-title">{step.title}</h3>
+            <p class="expect-text">{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-map-band" aria-labelledby="map-heading">
+    <div class="contact-map-band__inner">
+      <div class="contact-map-band__copy rv">
+        <span class="lbl">Visit</span>
+        <h2 id="map-heading">Our <em>studio</em></h2>
+        <p>
+          Meetings are by appointment. We welcome walkthroughs of active sites across Hyderabad — from Financial District towers to Jubilee Hills residences.
+        </p>
+        <p class="contact-map-band__hours">Mon – Sat · 10:00 – 19:00 IST</p>
+      </div>
+      <div class="contact-map-frame rv">
+        <iframe
+          title="Vencore Design Co. — Vaishnavi Cymbol, Nanakramguda, Hyderabad"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Vaishnavi+Cymbol+Financial+District+Nanakramguda+Hyderabad&output=embed"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-faq" aria-labelledby="faq-heading">
+    <div class="contact-faq__inner">
+      <div class="contact-faq__head rv">
+        <span class="lbl">Common questions</span>
+        <h2 class="sh2" id="faq-heading">Before you <em>enquire</em></h2>
+      </div>
+      <div class="contact-faq__list rv">
+        {faqs.map((item) => (
+          <details class="contact-faq__item">
+            <summary>{item.q}</summary>
+            <p class="contact-faq__body">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="links-band">
+    <p>Review our recent programmes while you prepare your brief.</p>
+    <div class="mini-links">
+      <a href="/projects">Projects</a>
+      <a href="/services">Services</a>
+      <a href="/about">Our story</a>
+    </div>
+  </section>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ web3formsKey: import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '' }}>
+  const form = document.getElementById('brief-form-el');
+  const status = document.getElementById('brief-form-status');
+  const submitBtn = document.getElementById('brief-form-submit');
+  const prefillBanner = document.getElementById('careers-prefill-banner');
+  const progressFill = document.getElementById('brief-progress-fill');
+  const progressLabel = document.getElementById('brief-progress-label');
+  const params = new URLSearchParams(window.location.search);
+
+  const rules = {
+    name: {
+      test: (v) => v.trim().length >= 2,
+      message: 'Please enter your full name.',
+    },
+    phone: {
+      test: (v) => /^[\d\s+\-()]{10,}$/.test(v.replace(/\s/g, '')),
+      message: 'Enter a valid phone number with country code.',
+    },
+    email: {
+      test: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+      message: 'Enter a valid email address.',
+    },
+    typology: {
+      test: (v) => v.length > 0,
+      message: 'Select a programme type.',
+    },
+    brief: {
+      test: (v) => v.trim().length >= 24,
+      message: 'Share a little more context — at least a few sentences.',
+    },
+  };
+
+  const tracked = ['name', 'phone', 'email', 'typology', 'brief'];
+
+  function fieldWrap(name) {
+    return form?.querySelector(`[data-field="${name}"]`);
+  }
+
+  function showFieldError(name, message) {
+    const wrap = fieldWrap(name);
+    const err = document.getElementById(`err-${name}`);
+    if (wrap) wrap.classList.toggle('is-invalid', Boolean(message));
+    if (wrap) wrap.classList.toggle('is-valid', !message);
+    if (err) err.textContent = message || '';
+  }
+
+  function validateField(name) {
+    const input = form?.querySelector(`[name="${name === 'brief' ? 'brief' : name}"]`);
+    if (!input || !rules[name]) return true;
+    const value = input.value;
+    const ok = rules[name].test(value);
+    showFieldError(name, ok ? '' : rules[name].message);
+    return ok;
+  }
+
+  function updateProgress() {
+    if (!progressFill || !progressLabel) return;
+    let done = 0;
+    tracked.forEach((name) => {
+      const input = form?.querySelector(`[name="${name}"]`);
+      if (input && rules[name]?.test(input.value)) done += 1;
+    });
+    const pct = Math.round((done / tracked.length) * 100);
+    progressFill.style.width = `${pct}%`;
+    progressLabel.textContent = `${pct}% complete`;
+  }
+
+  if (params.get('intent') === 'careers' || params.get('role')) {
+    const brief = form?.querySelector('[name="brief"]');
+    const typology = form?.querySelector('[name="typology"]');
+    if (typology) typology.value = 'other';
+    if (brief && !brief.value) {
+      brief.value = `Career enquiry — Role: ${params.get('role') || 'general'}. Please share your experience and portfolio link.`;
+    }
+    if (prefillBanner) prefillBanner.hidden = false;
+    updateProgress();
+  }
+
+  tracked.forEach((name) => {
+    const input = form?.querySelector(`[name="${name}"]`);
+    input?.addEventListener('blur', () => {
+      validateField(name);
+      updateProgress();
+    });
+    input?.addEventListener('input', () => {
+      if (fieldWrap(name)?.classList.contains('is-invalid')) validateField(name);
+      updateProgress();
+    });
+  });
+
+  function showStatus(message, ok) {
+    if (!status) return;
+    status.textContent = message;
+    status.hidden = false;
+    status.className = `brief-form-status ${ok ? 'brief-form-status--ok' : 'brief-form-status--err'}`;
+    status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.querySelector('[name="botcheck"]')?.checked) return;
+
+    let valid = true;
+    tracked.forEach((name) => {
+      if (!validateField(name)) valid = false;
+    });
+    if (!valid) {
+      showStatus('Please correct the highlighted fields before sending.', false);
+      const firstInvalid = form.querySelector('.is-invalid input, .is-invalid select, .is-invalid textarea');
+      firstInvalid?.focus();
+      return;
+    }
+
+    const fd = new FormData(form);
+    const labels = {
+      typology: fd.get('typology'),
+      timeline: fd.get('timeline'),
+      budget: fd.get('budget'),
+      contact_method: fd.get('contact_method'),
+    };
+    const payload = {
+      name: fd.get('name'),
+      email: fd.get('email'),
+      phone: fd.get('phone'),
+      typology: labels.typology,
+      area: fd.get('area') || '—',
+      timeline: labels.timeline || '—',
+      budget: labels.budget || '—',
+      contact_method: labels.contact_method,
+      brief: fd.get('brief'),
+    };
+    const message = Object.entries(payload)
+      .map(([k, v]) => `${k}: ${v}`)
+      .join('\n');
+
+    form.classList.add('is-sending');
+    submitBtn?.setAttribute('disabled', 'true');
+    if (submitBtn) submitBtn.textContent = 'Sending…';
+    status.hidden = true;
+
+    if (web3formsKey) {
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: web3formsKey,
+            subject: `Vencore briefing — ${payload.typology}`,
+            email: payload.email,
+            message,
+            botcheck: fd.get('botcheck') ? 'checked' : '',
+          }),
+        });
+        const json = await res.json();
+        if (json.success) {
+          window.location.href = '/thank-you';
+          return;
+        }
+        showStatus('Something went wrong. Please try WhatsApp or call us directly.', false);
+      } catch {
+        showStatus('Network error. Please try again or contact us directly.', false);
+      } finally {
+        form.classList.remove('is-sending');
+        submitBtn?.removeAttribute('disabled');
+        if (submitBtn) submitBtn.textContent = 'Send private briefing ↗';
+      }
+      return;
+    }
+
+    window.location.href = `mailto:hello@vencoredesign.co?subject=${encodeURIComponent(`Vencore briefing — ${payload.typology}`)}&body=${encodeURIComponent(message)}`;
+    form.classList.remove('is-sending');
+    submitBtn?.removeAttribute('disabled');
+    if (submitBtn) submitBtn.textContent = 'Send private briefing ↗';
+  });
+
+  updateProgress();
+</script>

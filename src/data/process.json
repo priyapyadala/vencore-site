@@ -1,0 +1,31 @@
+{
+  "title": "Execution Approach",
+  "intro": "A disciplined five-stage methodology — from first brief to white-glove handover.",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Brief & Discovery",
+      "description": "Site walkthrough, stakeholder alignment, programme definition, and budget band confirmation."
+    },
+    {
+      "number": "02",
+      "title": "Concept & Design Development",
+      "description": "Spatial planning, material palettes, 3D visualization, and BOQ preparation aligned to buildability."
+    },
+    {
+      "number": "03",
+      "title": "Technical Documentation",
+      "description": "Working drawings, MEP coordination, vendor specifications, and procurement schedules."
+    },
+    {
+      "number": "04",
+      "title": "Turnkey Execution",
+      "description": "Site leadership, civil & fit-out, quality controls, and daily progress reporting."
+    },
+    {
+      "number": "05",
+      "title": "Snag, Handover & Aftercare",
+      "description": "Commissioning, snag close-out, documentation, and post-handover support."
+    }
+  ]
+}

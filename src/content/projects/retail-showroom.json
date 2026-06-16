@@ -1,0 +1,28 @@
+{
+  "title": "Luxury Auto Showroom",
+  "slug": "retail-showroom",
+  "category": "retail",
+  "location": "Hyderabad",
+  "year": "2023",
+  "area": "8,000 sq ft",
+  "heroImage": "/images/reference/retail-01.jpg",
+  "overview": "Brand-aligned showroom with display lighting, customer lounge, and back-of-house service zones.",
+  "scope": ["Showroom layout and display", "Customer lounge", "Lighting design", "Fast-track fit-out"],
+  "execution": {
+    "timeline": "5 months",
+    "details": "Launch-critical schedule with parallel civil and services works."
+  },
+  "gallery": [
+    "/images/reference/retail-02.jpg",
+    "/images/reference/retail-03.jpg",
+    "/images/reference/retail-04.jpg",
+    "/images/reference/retail-05.jpg",
+    "/images/reference/retail-06.jpg",
+    "/images/reference/retail-07.jpg",
+    "/images/reference/retail-08.jpg",
+    "/images/reference/whatsapp-19.jpg",
+    "/images/reference/whatsapp-20.jpg",
+    "/images/reference/whatsapp-21.jpg",
+    "/images/reference/whatsapp-22.jpg"
+  ]
+}

@@ -1,0 +1,36 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro';
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  images: GalleryImage[];
+  group: string;
+  class?: string;
+}
+
+const { images, group, class: className = '' } = Astro.props;
+---
+
+<div class={`cs-gallery lightbox-gallery ${className}`.trim()} data-lightbox-group={group}>
+  {images.map((img, i) => (
+    <button
+      type="button"
+      class="lightbox-trigger"
+      data-lightbox-src={img.src}
+      data-lightbox-alt={img.alt}
+      aria-label={`View image ${i + 1} of ${images.length}: ${img.alt}`}
+    >
+      <ResponsiveImage
+        src={img.src}
+        alt={img.alt}
+        sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 400px"
+        width={1200}
+        height={900}
+      />
+    </button>
+  ))}
+</div>

@@ -1,0 +1,25 @@
+{
+  "title": "Agile Office — Madhapur",
+  "slug": "office-madhapur",
+  "category": "office",
+  "location": "Madhapur, Hyderabad",
+  "year": "2023",
+  "area": "15,000 sq ft",
+  "heroImage": "/images/reference/office-01.jpg",
+  "overview": "Hybrid workplace design with focus pods, town-hall, and breakout lounges for a growing tech team.",
+  "scope": ["Agile space planning", "Modular workstations", "Town-hall and AV", "Brand-aligned finishes"],
+  "execution": {
+    "timeline": "6 months",
+    "details": "Fast-track programme with pre-fabricated joinery and parallel procurement lanes."
+  },
+  "gallery": [
+    "/images/reference/office-02.jpg",
+    "/images/reference/office-03.jpg",
+    "/images/reference/office-04.jpg",
+    "/images/reference/office-05.jpg",
+    "/images/reference/office-06.jpg",
+    "/images/reference/whatsapp-12.jpg",
+    "/images/reference/whatsapp-13.jpg",
+    "/images/reference/whatsapp-14.jpg"
+  ]
+}

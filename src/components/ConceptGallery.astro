@@ -1,0 +1,44 @@
+---
+import type { ServiceConcept } from '../lib/content';
+
+interface Props {
+  concepts: ServiceConcept[];
+  group?: string;
+}
+
+const { concepts, group = 'concept-studies' } = Astro.props;
+---
+
+<section class="svc-decks" aria-labelledby="concept-heading">
+  <div class="svc-decks-intro rv">
+    <span class="lbl">Design direction</span>
+    <h2 class="sh2" id="concept-heading">Concept <em>studies</em></h2>
+    <p>Mood-led design studies showing spatial direction and material intent — not site photographs. Select any study to view full size.</p>
+  </div>
+  <div class="cat-block rv">
+    <div class="pg2 concept-gallery" data-lightbox-group={group}>
+      {concepts.map((c, i) => {
+        const caption = `${c.category} · ${c.name} · ${c.note}`;
+        return (
+          <button
+            type="button"
+            class="concept-card pc2 lightbox-trigger"
+            data-lightbox-src={c.src}
+            data-lightbox-alt={caption}
+            aria-label={`View concept study ${i + 1} of ${concepts.length}: ${c.name}`}
+          >
+            <span class="pc2-bar" aria-hidden="true"></span>
+            <img src={c.src} alt="" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="pc2-veil" aria-hidden="true"></span>
+            <span class="pc2-info">
+              <span class="pc2-cat">{c.category}</span>
+              <span class="pc2-name">{c.name}</span>
+              <span class="pc2-loc">{c.note}</span>
+            </span>
+            <span class="concept-card__zoom" aria-hidden="true">↗</span>
+          </button>
+        );
+      })}
+    </div>
+  </div>
+</section>

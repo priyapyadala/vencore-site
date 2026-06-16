@@ -1,0 +1,85 @@
+{
+  "intro": "Vencore Design Co. is a Design & Build and Project Delivery firm delivering end-to-end interior fit-outs, turnkey execution, and built-space solutions across residential, commercial, and lifestyle environments.",
+  "leadershipIntro": "Vencore Design Co. is led by Founders & Managing Directors Shri Venkatesh Kancha and Shri Venugopal Kancha, bringing together a design-led execution mindset with strong real estate and delivery experience.",
+  "coreTeamIntro": "Supporting the Managing Directors is a multidisciplinary leadership team:",
+  "deliveryEcosystem": {
+    "title": "Design & Delivery Ecosystem",
+    "body": [
+      "Vencore Design Co. operates within a strong ecosystem of award-winning design consultants, structural and MEP experts, LEED-accredited sustainability professionals, and premium international product partners.",
+      "This ensures every project is supported by global-quality materials, technically sound systems, and design-driven execution standards."
+    ],
+    "badges": [
+      "Award-winning design consultants",
+      "Structural & MEP experts",
+      "LEED-accredited professionals",
+      "Premium international partners"
+    ]
+  },
+  "whatWeDo": [
+    "Luxury Residential Interiors",
+    "Interior Fit-outs (Corporate & Commercial)",
+    "Retail & Showroom Spaces",
+    "Restaurants, Cafés & Hospitality Projects",
+    "Experience Centres & Brand Environments",
+    "Turnkey Design + Build Execution",
+    "Renovation & Retrofit Projects",
+    "General Contracting Solutions"
+  ],
+  "capabilityLanes": [
+    {
+      "no": "01",
+      "title": "Design",
+      "text": "Concept planning, layout optimization, visualizations, and buildable BOQs — aligned with what your site, budget, and timeline can actually deliver.",
+      "tags": ["Concept", "Space planning", "3D / BOQ"]
+    },
+    {
+      "no": "02",
+      "title": "Execution",
+      "text": "Civil, core-shell, MEP coordination, and fit-out management under senior site leadership with daily controls on quality and schedule.",
+      "tags": ["Site teams", "Fit-out", "PMO"]
+    },
+    {
+      "no": "03",
+      "title": "Supply",
+      "text": "Curated vendor bench, negotiated sourcing, logistics, and QC — materials arrive ready for installation, not fire-fighting on site.",
+      "tags": ["Procurement", "Vendor mgmt", "QC"]
+    },
+    {
+      "no": "04",
+      "title": "Installation",
+      "text": "Joinery, modular systems, finishes, lighting, and AV — installed, tested, snagged, and documented for a clean handover.",
+      "tags": ["Joinery", "Commissioning", "Handover"]
+    }
+  ],
+  "engagementModels": [
+    "Design + Build full-scope contracts",
+    "Execution-only site delivery support",
+    "Procurement and installation packages",
+    "Custom mixed-scope engagement on request"
+  ],
+  "ongoingProjects": [
+    { "name": "Raghava Iris", "meta": "Demo works (Tower-3, Landlord Share scope)" },
+    { "name": "Villa development", "meta": "Raghava Sage" },
+    { "name": "Commercial retail projects", "meta": "Shaikpet and Manikonda" },
+    { "name": "Residential & PG/hostel developments", "meta": "Raidurg" },
+    { "name": "Sowjanya Dental Clinic", "meta": "Retrofit upgrade, Himayatnagar" },
+    { "name": "Mane Salon", "meta": "Interior fit-out, Shaikpet" }
+  ],
+  "completedProjects": [
+    { "name": "Residential apartments", "meta": "Prashanth Hills" },
+    { "name": "Residential interiors", "meta": "Manikonda" },
+    { "name": "Residential works", "meta": "Madura Nagar" },
+    { "name": "4 PG / Hostel developments", "meta": "Raidurg" },
+    { "name": "Two Villa projects", "meta": "Raidurg (Contemporary & Neo-classic execution)" },
+    { "name": "Multiple interior and residential execution works", "meta": "Across Hyderabad" }
+  ],
+  "partners": [
+    { "name": "Hallmark Builders", "logo": "/images/partners/hallmark.png" },
+    { "name": "Domino's Pizza",    "logo": "/images/partners/dominos.png" },
+    { "name": "Tata Motors",       "logo": "/images/partners/tata.png" },
+    { "name": "Volkswagen",        "logo": "/images/partners/volkswagen.png" },
+    { "name": "Apollo Hospitals",  "logo": "/images/partners/apollo.png" },
+    { "name": "Elegance",          "logo": null },
+    { "name": "Raghava",           "logo": null }
+  ]
+}

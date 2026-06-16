@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy — Vencore Design Co."
+  description="How Vencore Design Co. collects, uses, and protects information submitted through our website and contact channels."
+  noindex={true}
+>
+  <PageHero
+    title="Privacy <em>Policy</em>"
+    intro="Last updated: June 2026"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Privacy' },
+    ]}
+  />
+
+  <section class="sec">
+    <div class="container rv legal-prose">
+      <h2>Information we collect</h2>
+      <p>When you submit our contact or careers enquiry form, we collect the details you provide — typically your name, email, phone number, project typology, timeline, budget band, and project brief. We may also receive messages you send via WhatsApp or email.</p>
+
+      <h2>How we use your information</h2>
+      <p>We use this information solely to respond to your enquiry, schedule consultations or site visits, and prepare proposals related to design and build services. We do not sell, rent, or trade personal data to third parties for marketing purposes.</p>
+
+      <h2>Third-party services</h2>
+      <p>Our contact form may be processed by Web3Forms to deliver messages to our team. Embedded maps are provided by Google Maps. These services have their own privacy policies governing data they process.</p>
+
+      <h2>Data retention</h2>
+      <p>We retain enquiry records for as long as needed to respond to your request and maintain business correspondence, unless you ask us to delete your information sooner.</p>
+
+      <h2>Your rights</h2>
+      <p>You may request access to, correction of, or deletion of personal data we hold about you by emailing <a href="mailto:hello@vencoredesign.co">hello@vencoredesign.co</a>.</p>
+
+      <h2>Contact</h2>
+      <p>Vencore Design Co., Vaishnavi Cymbol, Financial District, Nanakramguda, Hyderabad. Email: <a href="mailto:hello@vencoredesign.co">hello@vencoredesign.co</a> · Phone: <a href="tel:+919866014663">+91 98660 14663</a>.</p>
+    </div>
+  </section>
+</BaseLayout>

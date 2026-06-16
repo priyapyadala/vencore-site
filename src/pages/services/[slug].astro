@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ConceptGallery from '../../components/ConceptGallery.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import CTABand from '../../components/CTABand.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
+import { titleCase } from '../../lib/format';
+import { getServices, getProjects } from '../../lib/content';
+
+export function getStaticPaths() {
+  return getServices().map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const allProjects = getProjects();
+const related = allProjects.filter((p) => service.relatedProjectSlugs.includes(p.slug));
+const heroIntro = service.scope[0] ?? service.philosophy;
+---
+
+<BaseLayout
+  title={`${service.title} — Vencore Design Co.`}
+  description={service.philosophy.slice(0, 155)}
+  current="services"
+  ogImage={service.heroImage}
+  preloadImage={service.heroImage}
+>
+  <PageHero
+    variant="pg-hero--services"
+    title={service.title}
+    titleHtml={false}
+    intro={heroIntro}
+    bgImage={service.heroImage}
+    minHeight="48vh"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services' },
+      { label: service.title },
+    ]}
+  />
+
+  <section class="sec">
+    <div class="container">
+      <div class="lbl rv">Philosophy</div>
+      <h2 class="sh2 rv">Design <em>intent</em></h2>
+      <p class="rv prose-muted">{service.philosophy}</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="lbl rv">Scope</div>
+      <h2 class="sh2 rv">What we <em>deliver</em></h2>
+      <ul class="stack-list rv svc-detail-list">
+        {service.scope.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <ProcessSteps />
+
+  <ConceptGallery concepts={service.concepts} group={`concepts-${service.slug}`} />
+
+  {related.length > 0 && (
+    <section class="sec">
+      <div class="container">
+        <div class="lbl rv">Related work</div>
+        <h2 class="sh2 rv">Selected <em>projects</em></h2>
+        <div class="pg2 rv">
+          {related.map((proj) => (
+            <a href={`/projects/${proj.slug}`} class="proj-card-link">
+              <div class="pc2">
+                <div class="pc2-bar"></div>
+                <ResponsiveImage src={proj.heroImage} alt={proj.title} sizes="(max-width:767px) 100vw, 33vw" width={1200} height={800} />
+                <div class="pc2-veil"></div>
+                <div class="pc2-info">
+                  <div class="pc2-cat">{titleCase(proj.category)}</div>
+                  <div class="pc2-name">{proj.title}</div>
+                  <div class="pc2-loc">{proj.location}</div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTABand title={`Discuss your <em>${service.title.toLowerCase()}</em> scope`} />
+</BaseLayout>

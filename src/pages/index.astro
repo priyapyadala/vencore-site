@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import navigation from '../data/navigation.json';
+import { titleCase } from '../lib/format';
+import { taglineWords } from '../lib/stagger';
+import { getProjects, getInsights } from '../lib/content';
+
+const featuredProjects = getProjects().slice(0, 4);
+const latestInsights = getInsights().slice(0, 2);
+const heroImage = '/images/hero/services-hero.jpeg';
+const storyImage = '/images/hero/hero-alt-7.jpeg';
+const taglines = ['Built on Legacy', 'Driven by Execution', 'Defined by Design'];
+const testimonials = navigation.testimonials;
+---
+
+<BaseLayout
+  title="Vencore Design Co. — Built on Legacy"
+  description="Design-led execution across residential, commercial & lifestyle environments. Premium Design & Build and turnkey interior fit-outs in Hyderabad."
+  current="home"
+  ogImage={heroImage}
+  preloadImage={heroImage}
+>
+  <section id="s0">
+    <div class="h-bg" aria-hidden="true">
+      <div class="h-bg-plate">
+        <ResponsiveImage
+          src={heroImage}
+          alt=""
+          class="h-bg-plate__img"
+          sizes="100vw"
+          loading="eager"
+          fetchpriority="high"
+          width={1600}
+          height={1067}
+        />
+      </div>
+      <div class="h-bg-vignette"></div>
+    </div>
+    <div class="h-noise" aria-hidden="true"></div>
+    <div class="h-hero-body">
+      <div class="h-content container">
+        <div class="h-text">
+          <div class="h-eyebrow"><span class="h-line"></span>Hyderabad · Legacy since the 1970s</div>
+          {taglines.map((line, i) => {
+            const words = taglineWords(line, i);
+            const Tag = i === 0 ? 'h1' : 'p';
+            return (
+              <Tag class:list={['h-tagline', 'h-tagline--stagger']} data-line={i}>
+                {words.map(({ word, style }) => (
+                  <span class="hw" style={style}><em>{word}</em></span>
+                ))}
+              </Tag>
+            );
+          })}
+          <p class="h-tagline-sub">Design-led execution across residential, commercial &amp; lifestyle environments.</p>
+          <div class="h-rule"></div>
+          <div class="h-btns">
+            <a href="/contact" class="btn-solid btn-solid--hero btn-solid--lg">Request a private briefing ↗</a>
+            <a href="/services" class="btn-ghost">Explore services</a>
+          </div>
+          <a href="/projects/villa-raidurg" class="h-card--compact h-mobile-featured">
+            <span class="h-card-tag h-card-tag--concept">Featured</span>
+            <span class="h-card-title">Contemporary Villa — Raidurg</span>
+            <span class="h-card-meta">12,400 sq ft · Turnkey</span>
+            <span class="h-card-cta" aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <aside class="h-side" aria-label="Featured program">
+          <a href="/projects/villa-raidurg" class="h-card" style="text-decoration:none;color:inherit">
+            <div class="h-card-tag h-card-tag--concept">Featured program</div>
+            <div class="h-card-title">Contemporary Villa<br/>— Raidurg</div>
+            <div class="h-card-rule"></div>
+            <div class="h-card-meta">Turnkey scope · 12,400 sq ft<br/><strong>Design-led execution</strong></div>
+          </a>
+        </aside>
+      </div>
+      <div class="h-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <svg class="h-scroll-svg" width="2" height="40" viewBox="0 0 2 40" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="hScrollGrad" x1="1" y1="0" x2="1" y2="40" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="var(--gold)" />
+              <stop offset="100%" stop-color="transparent" />
+            </linearGradient>
+          </defs>
+          <line class="h-scroll-draw" x1="1" y1="0" x2="1" y2="40" stroke="url(#hScrollGrad)" stroke-width="1.5" pathLength="40" />
+        </svg>
+      </div>
+    </div>
+    <div class="h-stats" aria-label="Trust highlights">
+      <div class="hs">
+        <div class="hs-n" data-stat="type" data-value="1970s">1970s</div>
+        <div class="hs-l">
+          <span class="hs-l-full">Family legacy</span>
+          <span class="hs-l-short">Legacy</span>
+        </div>
+      </div>
+      <div class="hs">
+        <div class="hs-n" data-stat="count" data-value="100" data-suffix="+">100+</div>
+        <div class="hs-l">
+          <span class="hs-l-full">Projects delivered</span>
+          <span class="hs-l-short">Projects</span>
+        </div>
+      </div>
+      <div class="hs">
+        <div class="hs-n hs-city" data-stat="type" data-value="Hyderabad">Hyderabad</div>
+        <div class="hs-l">
+          <span class="hs-l-full">City-wide execution</span>
+          <span class="hs-l-short">City-wide</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mq" aria-hidden="true"><div class="mq-t">
+    <span class="mi">Design &amp; Build</span><span class="mx"> ✦ </span>
+    <span class="mi">Interior Execution</span><span class="mx"> ✦ </span>
+    <span class="mi">Turnkey Solutions</span><span class="mx"> ✦ </span>
+    <span class="mi">Architecture</span><span class="mx"> ✦ </span>
+    <span class="mi">Project Management</span><span class="mx"> ✦ </span>
+  </div></div>
+
+  <section id="s1" class="split split--half split--tablet-50-50">
+    <div class="s1-img rv-l">
+      <ResponsiveImage
+        src={storyImage}
+        alt="Warm contemporary living room — Vencore Design Co."
+        width={1600}
+        height={1067}
+        sizes="(min-width:1024px) 50vw, 100vw"
+      />
+      <div class="s1-grad"></div>
+      <div class="s1-stamp">
+        <div class="s1-stamp-n">Founded in Legacy</div>
+        <div class="s1-stamp-l">Since the 1970s · Hyderabad</div>
+      </div>
+    </div>
+    <div class="s1-txt rv-r">
+      <div class="lbl">Our Story</div>
+      <h2 class="sh2">From <em>KLM Homes</em> to<br/>Vencore Design Co.</h2>
+      <p class="s1-p"><strong>Vencore is the evolved design-forward arm</strong> of a construction house grounded in a legacy established by the late Shri Kancha Laxmaiah Mudiraj since the 1970s, and matured through KLM Homes Pvt Ltd (founded 2003) and Aditi Housing and Constructions Private Limited (founded 2018), now Surya Devara Infrastructures Pvt Ltd — rebranded. That execution discipline now pairs with meticulous interiors, procurement mastery, and white-glove handovers.<br/><br/>Led by <strong>Shri Venkatesh Kancha</strong> and <strong>Shri Venugopal Kancha</strong> as Founders &amp; Managing Directors, the same stewardship speaks the language of design-led businesses and luxury residences across Hyderabad's growth corridors.</p>
+      <a href="/about" class="s1-link">Read Our Full Story ↗</a>
+    </div>
+  </section>
+
+  <section id="s-projects" class="sec">
+    <div class="container">
+      <div class="s2-head rv">
+        <div>
+          <div class="lbl">Portfolio</div>
+          <h2 class="sh2">Selected <em>work</em></h2>
+        </div>
+        <p class="s2-sub">Recent programmes across residential, corporate, hospitality, and healthcare typologies.</p>
+      </div>
+      <div class="pg2 pg2--mosaic rv">
+        {featuredProjects.map((proj, i) => (
+          <a href={`/projects/${proj.slug}`} class="proj-card-link" class:list={{ 'proj-card-link--feat': i === 0 }}>
+            <div class="pc2">
+              <div class="pc2-bar"></div>
+              <ResponsiveImage src={proj.heroImage} alt={proj.title} sizes="(max-width:767px) 100vw, 50vw" width={1200} height={800} />
+              <div class="pc2-veil"></div>
+              <div class="pc2-info">
+                <div class="pc2-cat">{titleCase(proj.category)}</div>
+                <div class="pc2-name">{proj.title}</div>
+                <div class="pc2-loc">{proj.location} · {proj.year}</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="s2-more rv"><a href="/projects" class="btn-solid btn-sm">All projects ↗</a></div>
+    </div>
+  </section>
+
+  <section id="s2" class="sec">
+    <div class="container">
+      <div class="s2-head rv">
+        <div>
+          <div class="lbl">Services</div>
+          <h2 class="sh2">Design · Execution ·<br/><em>Delivery</em></h2>
+        </div>
+        <p class="s2-sub">Six specializations — one accountable partner from brief to handover.</p>
+      </div>
+      <div class="svc-rows svc-rows--list rv">
+        {navigation.services.map((svc, i) => (
+          <a
+            href={`/services/${svc.slug}`}
+            class="svc-row"
+            style={`--svc-bg:url('${svc.preview}')`}
+          >
+            <span class="svc-row-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <span class="svc-row-body">
+              <span class="svc-row-title">{svc.label}</span>
+              <span class="svc-row-txt">{svc.description}</span>
+            </span>
+            <span class="svc-row-arr" aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+      <div class="s2-more rv"><a href="/services" class="btn-solid btn-sm">All services ↗</a></div>
+    </div>
+  </section>
+
+  <section id="s-proof" class="sec s-proof">
+    <div class="container">
+      <div class="s-proof-head rv">
+        <div class="lbl">Client voices</div>
+        <h2 class="sh2">Trusted by <em>discerning clients</em></h2>
+      </div>
+      <div class="s-proof-grid rv">
+        {testimonials.map((t) => (
+          <blockquote class="proof-card">
+            <span class="proof-mark" aria-hidden="true">"</span>
+            <p class="proof-quote">{t.quote}</p>
+            <hr class="proof-rule" />
+            <footer class="proof-foot">
+              <cite class="proof-client">{t.client}</cite>
+              <span class="proof-project">{t.project}</span>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {latestInsights.length > 0 && (
+    <section id="s-insights" class="sec sec-alt">
+      <div class="container">
+        <div class="s2-head rv">
+          <div>
+            <div class="lbl">Insights</div>
+            <h2 class="sh2">Perspectives from <em>practice</em></h2>
+          </div>
+          <p class="s2-sub">Editorial notes on workplace design, healthcare planning, and turnkey delivery.</p>
+        </div>
+        <div class="insight-editorial rv">
+          {latestInsights.map((article) => (
+            <a href={`/insights/${article.slug}`} class="insight-editorial__item">
+              <div class="insight-editorial__img">
+                <img src={article.heroImage} alt={article.title} loading="lazy" decoding="async" width="800" height="600"/>
+              </div>
+              <div class="insight-editorial__body">
+                <time class="insight-editorial__date" datetime={article.date}>{article.date}</time>
+                <h3 class="insight-editorial__title">{article.title}</h3>
+                <p class="insight-editorial__excerpt">{article.excerpt}</p>
+                <span class="insight-editorial__read">Read article ↗</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="s2-more rv"><a href="/insights" class="btn-solid btn-sm">All insights ↗</a></div>
+      </div>
+    </section>
+  )}
+
+  <CTABand title="Begin your <em>project briefing</em>" />
+
+  <script>
+    import '../scripts/home-effects.ts';
+  </script>
+</BaseLayout>

@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import careers from '../data/careers.json';
+import '../styles/careers.css';
+
+const applyBase = '/contact?intent=careers';
+
+const jobPostings = careers.roles.map((role) => ({
+  '@context': 'https://schema.org',
+  '@type': 'JobPosting',
+  title: role.title,
+  description: `${role.summary} Responsibilities: ${role.responsibilities.join('; ')}`,
+  datePosted: '2026-01-01',
+  employmentType: 'FULL_TIME',
+  hiringOrganization: {
+    '@type': 'Organization',
+    name: 'Vencore Design Co.',
+    sameAs: 'https://vencoredesign.co',
+  },
+  jobLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Hyderabad',
+      addressRegion: 'Telangana',
+      addressCountry: 'IN',
+    },
+  },
+  applicantLocationRequirements: {
+    '@type': 'Country',
+    name: 'India',
+  },
+  url: `https://vencoredesign.co/careers#role-${role.slug}`,
+}));
+---
+
+<BaseLayout
+  title="Careers — Vencore Design Co."
+  description="Join Vencore Design Co. in Hyderabad — interior design, site execution, and business development roles across premium turnkey programmes."
+  current="careers"
+  ogImage="/images/hero/careers-hero.jpeg"
+  preloadImage="/images/hero/careers-hero.jpeg"
+  jsonLd={jobPostings}
+>
+  <PageHero
+    variant="pg-hero--careers"
+    title="Build programmes<br/>that <em>ship</em>"
+    intro="Join a design-led execution practice — where drawings meet site reality and premium interiors reach handover."
+    bgImage="/images/hero/careers-hero.jpeg"
+    minHeight="48vh"
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Careers' },
+    ]}
+  />
+
+  <section class="careers-culture" aria-labelledby="culture-heading">
+    <div class="careers-culture__visual rv-l">
+      <img
+        src="/images/reference/office-03.jpg"
+        alt="Vencore team — workplace and site execution"
+        loading="eager"
+        decoding="async"
+        width="1200"
+        height="900"
+      />
+      <div class="careers-culture__veil" aria-hidden="true"></div>
+      <div class="careers-culture__stat">
+        <div class="careers-culture__stat-n">100+ programmes</div>
+        <div class="careers-culture__stat-l">Delivered across Hyderabad since 2003</div>
+      </div>
+    </div>
+    <div class="careers-culture__body rv-r">
+      <span class="lbl">Why Vencore</span>
+      <h2 class="sh2" id="culture-heading">Design discipline.<br/><em>Execution depth.</em></h2>
+      <p class="careers-culture__intro">{careers.cultureIntro}</p>
+      <div class="wpts">
+        {careers.pillars.map((pillar) => (
+          <div class="wpt">
+            <div class="wpt-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+                <path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="wpt-title">{pillar.title}</div>
+              <p class="wpt-txt">{pillar.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-values" aria-labelledby="values-heading">
+    <div class="careers-values__inner">
+      <div class="careers-values__head rv">
+        <span class="lbl">How we work</span>
+        <h2 class="sh2" id="values-heading">Culture &amp; <em>standards</em></h2>
+      </div>
+      <div class="careers-values__grid rv">
+        {careers.values.map((value) => (
+          <article class="careers-value">
+            <div class="careers-value__no">{value.no}</div>
+            <h3 class="careers-value__title">{value.title}</h3>
+            <p class="careers-value__text">{value.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="career-wrap" id="open-roles" aria-labelledby="roles-heading">
+    <span class="lbl rv">Open roles</span>
+    <h2 class="sh2 rv" id="roles-heading">Current <em>opportunities</em></h2>
+    <p class="career-intro rv">
+      Hyderabad-based roles across design, execution, and client development. Select a position to read the full brief, then apply with your CV and portfolio.
+    </p>
+    <div class="career-grid rv">
+      {careers.roles.map((role) => (
+        <article class="career-card" id={`role-${role.slug}`}>
+          <span class="career-dept">{role.dept}</span>
+          <h3 class="career-title">{role.title}</h3>
+          <div class="career-card__tags">
+            <span class="career-tag">{role.location}</span>
+            <span class="career-tag">{role.type}</span>
+            <span class="career-tag">{role.mode}</span>
+          </div>
+          <p class="career-summary">{role.summary}</p>
+
+          <details class="career-details">
+            <summary>View full role brief</summary>
+            <div class="career-jd">
+              <h4>Responsibilities</h4>
+              <ul>
+                {role.responsibilities.map((item) => <li>{item}</li>)}
+              </ul>
+              <h4>Requirements</h4>
+              <ul>
+                {role.requirements.map((item) => <li>{item}</li>)}
+              </ul>
+              <h4>Nice to have</h4>
+              <ul>
+                {role.niceToHave.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </details>
+
+          <div class="career-card__actions">
+            <a href={`${applyBase}&role=${role.slug}`} class="btn-solid btn-sm career-apply">
+              Apply for this role ↗
+            </a>
+            <a href={`mailto:hello@vencoredesign.co?subject=${encodeURIComponent(`Application — ${role.title}`)}`} class="career-apply--ghost">
+              Email CV directly
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="career-general rv">
+      <p>Don't see your role? We welcome enquiries from architects, interior designers, site engineers, and client partners who share our execution discipline.</p>
+      <div class="career-general-actions">
+        <a href={`${applyBase}&role=general`} class="btn-solid btn-sm">General application ↗</a>
+        <a href="/about#team" class="btn-ghost">Meet the team</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-process" aria-labelledby="process-heading">
+    <div class="careers-process__inner">
+      <div class="careers-process__head rv">
+        <span class="lbl">Hiring process</span>
+        <h2 class="sh2" id="process-heading">From application to <em>onboarding</em></h2>
+      </div>
+      <div class="careers-process__grid rv">
+        {careers.process.map((step) => (
+          <article class="careers-step">
+            <div class="careers-step__no">{step.no}</div>
+            <h3 class="careers-step__title">{step.title}</h3>
+            <p class="careers-step__text">{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-benefits" aria-labelledby="benefits-heading">
+    <div class="careers-benefits__inner rv">
+      <span class="lbl">What you gain</span>
+      <h2 class="sh2" id="benefits-heading">More than a <em>job title</em></h2>
+      <ul class="careers-benefits__list">
+        {careers.benefits.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="careers-faq" aria-labelledby="careers-faq-heading">
+    <div class="careers-faq__inner">
+      <div class="careers-faq__head rv">
+        <span class="lbl">Before you apply</span>
+        <h2 class="sh2" id="careers-faq-heading">Common <em>questions</em></h2>
+      </div>
+      <div class="careers-faq__list rv">
+        {careers.faqs.map((item) => (
+          <details class="careers-faq__item">
+            <summary>{item.q}</summary>
+            <p class="careers-faq__body">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-apply-band" aria-labelledby="apply-heading">
+    <div class="careers-apply-band__inner rv">
+      <span class="lbl">Ready?</span>
+      <h2 class="sh2" id="apply-heading">Start your <em>application</em></h2>
+      <p class="careers-apply-band__lead">
+        Send your CV, portfolio link, and a short note on the programmes you want to build.
+        We review every application personally.
+      </p>
+      <div class="careers-apply-band__actions">
+        <a href={`${applyBase}&role=general`} class="btn-solid">Apply now ↗</a>
+        <a href="mailto:hello@vencoredesign.co?subject=Career%20enquiry%20—%20Vencore" class="btn-outline">hello@vencoredesign.co</a>
+      </div>
+      <p class="careers-team-link">
+        Curious about who you'd work with? <a href="/about#team">Explore our leadership team</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

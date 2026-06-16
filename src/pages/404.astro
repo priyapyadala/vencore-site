@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Page Not Found — Vencore Design Co."
+  description="The page you requested could not be found. Explore our services, projects, or contact us."
+  noindex={true}
+>
+  <PageHero
+    variant="pg-hero--404"
+    title="Page not <em>found</em>"
+    intro="The link may be outdated or the page may have moved. Start from home, browse our work, or request a briefing."
+    crumbs={[
+      { label: 'Home', href: '/' },
+      { label: '404' },
+    ]}
+  />
+
+  <section class="sec">
+    <div class="container rv" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
+      <a href="/" class="btn-solid">Back to home ↗</a>
+      <a href="/projects" class="btn-ghost">View projects</a>
+      <a href="/contact" class="btn-ghost">Contact us</a>
+    </div>
+  </section>
+</BaseLayout>
