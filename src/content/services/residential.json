@@ -2,8 +2,8 @@
   "title": "Residential Interiors",
   "slug": "residential",
   "category": "residential",
-  "heroImage": "/images/reference/residential-01.jpg",
-  "megaMenuPreview": "/images/reference/residential-02.jpg",
+  "heroImage": "/images/reference/reshero-residential-ext.png",
+  "megaMenuPreview": "/images/reference/whatsapp-03.jpg",
   "philosophy": "Every residence is a private world — we design layered interiors that balance daylight, material warmth, and bespoke joinery. From villas to premium apartments, our approach treats each home as a curated environment, not a catalogue of finishes.",
   "scope": [
     "Full-home turnkey design and build",
@@ -12,13 +12,20 @@
     "White-glove handover with snag close-out"
   ],
   "concepts": [
-    { "src": "/images/reference/residential-01.jpg", "alt": "Layered contemporary living", "category": "Residential · Living", "name": "Layered contemporary living", "note": "Daylight · texture" },
-    { "src": "/images/reference/residential-02.jpg", "alt": "Formal drawing suite", "category": "Residential · Living", "name": "Formal drawing suite", "note": "Mouldings · stone" },
-    { "src": "/images/reference/residential-03.jpg", "alt": "Master bedroom", "category": "Residential · Suite", "name": "Master bedroom", "note": "Cove lighting" },
-    { "src": "/images/reference/residential-04.jpg", "alt": "Formal dining", "category": "Residential · Dining", "name": "Formal dining", "note": "Onyx · timber" },
-    { "src": "/images/reference/residential-05.jpg", "alt": "Spa ensuite", "category": "Residential · Ensuite", "name": "Spa ensuite", "note": "Stone · rainfall" },
-    { "src": "/images/reference/residential-06.jpg", "alt": "Reading lounge", "category": "Residential · Lounge", "name": "Reading lounge", "note": "Sheer drapes" },
-    { "src": "/images/hero/hero-alt-7.jpeg", "alt": "Villa atrium", "category": "Residential · Villa", "name": "Villa atrium", "note": "Double-height light" }
+    { "src": "/images/reference/whatsapp-01.jpg", "alt": "Open-plan living room with entertainment wall and built-in bookshelves", "category": "Residential · Living", "name": "Open-plan living & study", "note": "Entertainment wall · bookshelves" },
+    { "src": "/images/reference/whatsapp-13.jpg", "alt": "Luxury formal lounge with glass chandelier and marble coffee table", "category": "Residential · Living", "name": "Luxury formal lounge", "note": "Glass chandelier · marble" },
+    { "src": "/images/reference/whatsapp-21.jpg", "alt": "Biophilic living room with tall indoor tree and neutral palette", "category": "Residential · Living", "name": "Biophilic living room", "note": "Indoor planting · neutral tones" },
+    { "src": "/images/reference/residential-04.jpg", "alt": "Minimalist living room with stone flooring and curated furniture", "category": "Residential · Living", "name": "Minimalist living room", "note": "Stone floor · curated pieces" },
+    { "src": "/images/reference/whatsapp-07.jpg", "alt": "Dark contemporary lounge with curved emerald velvet sectional sofa", "category": "Residential · Lounge", "name": "Curved velvet lounge", "note": "Emerald velvet · dark drama" },
+    { "src": "/images/reference/whatsapp-04.jpg", "alt": "Master bedroom with floor-to-ceiling gold drapes and layered lighting", "category": "Residential · Suite", "name": "Master bedroom suite", "note": "Floor-to-ceiling drapes · gold" },
+    { "src": "/images/reference/whatsapp-05.jpg", "alt": "Classical master suite with tufted headboard and cream tones", "category": "Residential · Suite", "name": "Classical master suite", "note": "Tufted headboard · cream tones" },
+    { "src": "/images/reference/whatsapp-16.jpg", "alt": "Guest bedroom with upholstered panel headboard and natural light", "category": "Residential · Bedroom", "name": "Guest bedroom suite", "note": "Upholstered panel · soft light" },
+    { "src": "/images/reference/whatsapp-14.jpg", "alt": "Luxury spa bathroom with black oval freestanding tub and gold backlit wall", "category": "Residential · Ensuite", "name": "Luxury spa bathroom", "note": "Oval tub · gold backlit wall" },
+    { "src": "/images/reference/whatsapp-06.jpg", "alt": "Open kitchen with island bar counter, pendant lighting and dark wood finishes", "category": "Residential · Kitchen", "name": "Open kitchen & bar counter", "note": "Island bar · pendant cluster" },
+    { "src": "/images/reference/whatsapp-11.jpg", "alt": "Formal dining room with crystal chandelier and draped silk curtains", "category": "Residential · Dining", "name": "Classical formal dining", "note": "Crystal chandelier · silk drapes" },
+    { "src": "/images/reference/whatsapp-20.jpg", "alt": "Round marble dining table with crystal drop chandelier", "category": "Residential · Dining", "name": "Round marble dining suite", "note": "Crystal drop · round marble" },
+    { "src": "/images/reference/whatsapp-19.jpg", "alt": "Grand reception hall with multiple seating groups, chandelier and marble floor", "category": "Residential · Hall", "name": "Grand reception hall", "note": "Multiple seating · marble inlay" },
+    { "src": "/images/reference/whatsapp-25.jpg", "alt": "Home media room with backlit joinery wall and dark custom sofas", "category": "Residential · Entertainment", "name": "Home media room", "note": "Backlit joinery · dark sofas" }
   ],
   "relatedProjectSlugs": ["villa-raidurg", "apartment-jubilee"]
 }

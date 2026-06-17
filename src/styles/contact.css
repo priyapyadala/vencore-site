@@ -435,7 +435,7 @@
 }
 
 .contact-page .contact-brief-form .brief-field label {
-  font-size: var(--text-micro);
+  font-size: var(--text-label);
   font-weight: 600;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;

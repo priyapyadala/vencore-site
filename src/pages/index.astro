@@ -196,11 +196,11 @@ const testimonials = navigation.testimonials;
         </div>
         <p class="s2-sub">Five specializations — one accountable partner from brief to handover.</p>
       </div>
-      <div class="svc-rows svc-rows--list rv">
+      <div class="svc-rows svc-rows--list">
         {navigation.services.map((svc, i) => (
           <a
             href={`/services/${svc.slug}`}
-            class="svc-row"
+            class:list={['svc-row', 'rv', `d${i + 1}`]}
             style={`--svc-bg:url('${svc.preview}')`}
           >
             <span class="svc-row-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>

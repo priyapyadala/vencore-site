@@ -2,8 +2,8 @@
   "title": "Healthcare",
   "slug": "healthcare",
   "category": "healthcare",
-  "heroImage": "/images/reference/hospital-01.jpg",
-  "megaMenuPreview": "/images/reference/hospital-02.jpg",
+  "heroImage": "/images/reference/hospital-03.jpg",
+  "megaMenuPreview": "/images/reference/hospital-04.jpg",
   "philosophy": "Healthcare interiors must balance clinical precision with human comfort. We design hospitals, clinics, and wellness spaces where infection control, wayfinding, and patient dignity are never compromised.",
   "scope": [
     "Hospital reception and waiting areas",
@@ -12,12 +12,12 @@
     "Compliance-ready material specifications"
   ],
   "concepts": [
-    { "src": "/images/reference/hospital-01.jpg", "alt": "Hospital reception", "category": "Healthcare · Reception", "name": "Hospital reception", "note": "Calm palette" },
-    { "src": "/images/reference/hospital-02.jpg", "alt": "Consultation suite", "category": "Healthcare · Consult", "name": "Consultation suite", "note": "Privacy · lighting" },
-    { "src": "/images/reference/hospital-03.jpg", "alt": "Recovery ward", "category": "Healthcare · Ward", "name": "Recovery ward", "note": "Patient comfort" },
-    { "src": "/images/reference/hospital-04.jpg", "alt": "Staff lounge", "category": "Healthcare · Staff", "name": "Staff lounge", "note": "Rest · recharge" },
-    { "src": "/images/reference/hospital-05.jpg", "alt": "Procedure suite", "category": "Healthcare · Procedure", "name": "Procedure suite", "note": "Clinical-grade" },
-    { "src": "/images/reference/hospital-06.jpg", "alt": "Diagnostic corridor", "category": "Healthcare · Wayfinding", "name": "Diagnostic corridor", "note": "Clear signage" }
+    { "src": "/images/reference/hospital-01.jpg", "alt": "Patient waiting lounge with calm palette and comfortable soft seating", "category": "Healthcare · Waiting", "name": "Patient waiting lounge", "note": "Calm palette · soft seating" },
+    { "src": "/images/reference/hospital-02.jpg", "alt": "Hospital reception desk and corridor with clean lines and clear wayfinding", "category": "Healthcare · Reception", "name": "Hospital reception & corridor", "note": "Clean lines · wayfinding" },
+    { "src": "/images/reference/hospital-05.jpg", "alt": "Clinical dental treatment room with procedure chair and hygienic surfaces", "category": "Healthcare · Treatment", "name": "Clinical treatment room", "note": "Procedure chair · hygienic finishes" },
+    { "src": "/images/reference/hospital-06.jpg", "alt": "Patient ward and recovery room with comfortable bed and natural light", "category": "Healthcare · Ward", "name": "Patient ward & recovery room", "note": "Comfort · natural light" },
+    { "src": "/images/reference/renovation-03.jpg", "alt": "Holistic wellness lounge with natural light, indoor planting and relaxed seating", "category": "Healthcare · Wellness", "name": "Holistic wellness lounge", "note": "Natural light · biophilic" },
+    { "src": "/images/reference/renovation-04.jpg", "alt": "Medical consultation area with glass walls, plants and calm bright environment", "category": "Healthcare · Consultation", "name": "Medical consultation area", "note": "Glass walls · calm environment" }
   ],
   "relatedProjectSlugs": ["healthcare-clinic"]
 }

@@ -2,8 +2,8 @@
   "title": "Commercial & Corporate",
   "slug": "commercial",
   "category": "commercial",
-  "heroImage": "/images/reference/corporate-01.jpg",
-  "megaMenuPreview": "/images/reference/corporate-02.jpg",
+  "heroImage": "/images/reference/corporate-04.jpg",
+  "megaMenuPreview": "/images/reference/corporate-03.jpg",
   "philosophy": "Corporate and office environments must communicate brand authority while enabling focused, flexible work. We deliver fit-outs that balance executive presence, collaboration zones, agile workplaces, and operational efficiency — all under one turnkey contract.",
   "scope": [
     "Corporate floors and executive cabins",
@@ -14,14 +14,16 @@
     "Phased fit-outs for occupied buildings"
   ],
   "concepts": [
-    { "src": "/images/reference/corporate-01.jpg", "alt": "Executive boardroom", "category": "Corporate · Boardroom", "name": "Executive boardroom", "note": "Timber · brass" },
-    { "src": "/images/reference/corporate-02.jpg", "alt": "Collaboration lounge", "category": "Corporate · Lounge", "name": "Collaboration lounge", "note": "Soft seating" },
-    { "src": "/images/reference/corporate-03.jpg", "alt": "Open workplace", "category": "Corporate · Workplace", "name": "Open workplace", "note": "Agile zones" },
-    { "src": "/images/reference/corporate-04.jpg", "alt": "Reception hall", "category": "Corporate · Lobby", "name": "Reception hall", "note": "Stone · lighting" },
-    { "src": "/images/reference/office-01.jpg", "alt": "Agile workplace", "category": "Office · Open plan", "name": "Agile workplace", "note": "Hybrid zones" },
-    { "src": "/images/reference/office-03.jpg", "alt": "Focus pods", "category": "Office · Focus", "name": "Focus pods", "note": "Acoustic privacy" },
-    { "src": "/images/reference/office-05.jpg", "alt": "Town-hall", "category": "Office · Town-hall", "name": "Town-hall", "note": "AV · tiered seating" },
-    { "src": "/images/reference/corporate-06.jpg", "alt": "Private meeting", "category": "Corporate · Meeting", "name": "Private meeting", "note": "Acoustic glass" }
+    { "src": "/images/reference/corporate-01.jpg", "alt": "Open-plan corporate office with glass partitions and minimal furniture", "category": "Corporate · Workplace", "name": "Open-plan corporate office", "note": "Glass partitions · minimal" },
+    { "src": "/images/reference/corporate-02.jpg", "alt": "Corporate office reception and entrance lobby with branded finishes", "category": "Corporate · Reception", "name": "Office reception & lobby", "note": "Branded entrance · plant wall" },
+    { "src": "/images/reference/corporate-05.jpg", "alt": "Private executive cabin with desk, leather seating and artwork wall", "category": "Corporate · Executive", "name": "Executive cabin", "note": "Private desk · artwork wall" },
+    { "src": "/images/reference/corporate-06.jpg", "alt": "Acoustic glass-walled meeting room with minimal interiors", "category": "Corporate · Meeting", "name": "Glass-walled meeting room", "note": "Acoustic glass · clean lines" },
+    { "src": "/images/reference/office-01.jpg", "alt": "White workstation clusters in a bright open-plan office", "category": "Office · Open-plan", "name": "Workstation clusters", "note": "White furniture · structured layout" },
+    { "src": "/images/reference/office-02.jpg", "alt": "Contemporary office corridor and circulation spine with linear design", "category": "Office · Circulation", "name": "Office corridor & spine", "note": "Linear design · wayfinding" },
+    { "src": "/images/reference/office-03.jpg", "alt": "Open-plan workplace with amber feature wall and task lighting", "category": "Office · Workplace", "name": "Feature wall workplace", "note": "Amber accent · task lighting" },
+    { "src": "/images/reference/office-04.jpg", "alt": "Dark contemporary workplace with black workstations and focused zones", "category": "Office · Workplace", "name": "Dark contemporary workplace", "note": "Dark palette · focused zones" },
+    { "src": "/images/reference/office-05.jpg", "alt": "Minimalist bright open workplace with clean geometry", "category": "Office · Open-plan", "name": "Minimalist open workplace", "note": "Bright · clean geometry" },
+    { "src": "/images/reference/office-06.jpg", "alt": "Collaborative open floor with warm wood flooring and open planning", "category": "Office · Collaborative", "name": "Collaborative open floor", "note": "Wood floor · open planning" }
   ],
   "relatedProjectSlugs": ["corporate-hitec", "office-madhapur"]
 }

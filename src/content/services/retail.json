@@ -2,7 +2,7 @@
   "title": "Retail & Restaurants",
   "slug": "retail",
   "category": "retail",
-  "heroImage": "/images/reference/retail-01.jpg",
+  "heroImage": "/images/reference/hero-retail-ext.jpeg",
   "megaMenuPreview": "/images/reference/retail-02.jpg",
   "philosophy": "Retail and F&B environments must convert footfall into experience. We create showroom halls, boutique stores, and restaurant interiors where brand narrative, circulation, and display logic work as one system.",
   "scope": [
@@ -12,14 +12,13 @@
     "Fast-track programmes for launches"
   ],
   "concepts": [
-    { "src": "/images/reference/retail-01.jpg", "alt": "Luxury showroom", "category": "Retail · Showroom", "name": "Luxury showroom", "note": "Display drama" },
-    { "src": "/images/reference/retail-02.jpg", "alt": "Boutique interior", "category": "Retail · Boutique", "name": "Boutique interior", "note": "Material contrast" },
-    { "src": "/images/reference/retail-03.jpg", "alt": "Restaurant dining", "category": "F&B · Dining", "name": "Restaurant dining", "note": "Ambient mood" },
-    { "src": "/images/reference/retail-04.jpg", "alt": "Bar counter", "category": "F&B · Bar", "name": "Bar counter", "note": "Backlit shelving" },
-    { "src": "/images/reference/retail-05.jpg", "alt": "Display podium", "category": "Retail · Display", "name": "Display podium", "note": "Spotlit focus" },
-    { "src": "/images/reference/retail-06.jpg", "alt": "Customer lounge", "category": "Retail · Lounge", "name": "Customer lounge", "note": "Brand comfort" },
-    { "src": "/images/reference/retail-07.jpg", "alt": "Fitting suite", "category": "Retail · Fitting", "name": "Fitting suite", "note": "Privacy · mirrors" },
-    { "src": "/images/reference/retail-08.jpg", "alt": "Café corner", "category": "F&B · Café", "name": "Café corner", "note": "Quick-service flow" }
+    { "src": "/images/reference/retail-01.jpg", "alt": "Large brand retail showroom with wall-mounted product displays and spotlit fixtures", "category": "Retail · Showroom", "name": "Brand retail showroom", "note": "Wall displays · spotlit" },
+    { "src": "/images/reference/retail-03.jpg", "alt": "Dark luxury showroom corridor with backlit display panels along the walls", "category": "Retail · Showroom", "name": "Dark showroom corridor", "note": "Backlit panels · dark drama" },
+    { "src": "/images/reference/retail-04.jpg", "alt": "Modern retail floor with track lighting, product shelves and glass shopfront", "category": "Retail · Store", "name": "Track-lit retail floor", "note": "Track lighting · glass frontage" },
+    { "src": "/images/reference/retail-05.jpg", "alt": "Large beauty and wellness salon with rows of white styling chairs and bright lighting", "category": "Retail · Salon", "name": "Beauty & wellness salon", "note": "White styling stations · bright" },
+    { "src": "/images/reference/retail-06.jpg", "alt": "Children's lifestyle boutique with light wood tones and playful product displays", "category": "Retail · Boutique", "name": "Children's lifestyle boutique", "note": "Light wood · playful display" },
+    { "src": "/images/reference/retail-08.jpg", "alt": "Contemporary café and lounge with overhead plant canopy and curved seating", "category": "F&B · Café", "name": "Eclectic café & lounge", "note": "Plant canopy · curved seating" },
+    { "src": "/images/reference/turnkey-04.jpg", "alt": "Sports and fashion boutique with clothing racks, suspended display units and branded fit-out", "category": "Retail · Fashion", "name": "Sports & fashion boutique", "note": "Clothing racks · branded fit-out" }
   ],
   "relatedProjectSlugs": ["retail-showroom"]
 }

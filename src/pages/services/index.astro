@@ -89,7 +89,7 @@ import company from '../../data/company.json';
         </div>
         <p class="s2-sub">Six practice areas under one accountable leadership desk — from concept to handover.</p>
       </div>
-      <div class="pg2 rv">
+      <div class="pg2 pg2--svc rv">
         {navigation.services.map((svc) => (
           <a href={`/services/${svc.slug}`} class="proj-card-link">
             <div class="pc2">
@@ -132,6 +132,18 @@ import company from '../../data/company.json';
 </BaseLayout>
 
 <style>
+  /* Services typology grid — 5 cards: 3+2 on ≥600px, 1-col on phones */
+  .pg2--svc {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 767px) {
+    /* override global pg2 → 1-col; use 2 cols for service cards on mid-phones */
+    .pg2--svc { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  }
+  @media (max-width: 499px) {
+    .pg2--svc { grid-template-columns: 1fr; gap: 0.65rem; }
+  }
+
   .svc-cap-head {
     max-width: 42rem;
     margin-bottom: 1.75rem;

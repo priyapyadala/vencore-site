@@ -53,6 +53,7 @@ function bindReveal(root: ParentNode = document) {
     els.forEach((el) => el.classList.add('on'));
     return;
   }
+  const mobileReveal = window.matchMedia('(max-width: 1023px)').matches;
   if (!revealObserver) {
     revealObserver = new IntersectionObserver(
       (entries) => {
@@ -62,20 +63,19 @@ function bindReveal(root: ParentNode = document) {
           revealObserver?.unobserve(en.target);
         });
       },
-      { threshold: 0, rootMargin: '0px 0px -10% 0px' },
+      {
+        threshold: mobileReveal ? 0.08 : 0,
+        rootMargin: mobileReveal ? '0px 0px -4% 0px' : '0px 0px -10% 0px',
+      },
     );
   }
   els.forEach((el) => {
     if ((el as HTMLElement).dataset.rvBound === '1') return;
     (el as HTMLElement).dataset.rvBound = '1';
     revealObserver?.observe(el);
-    // Safety net: some mobile browsers (e.g. iOS Safari) can fail to fire
-    // IntersectionObserver callbacks for elements taller than the viewport
-    // or in certain scroll contexts. Force-reveal after a short delay so
-    // content never stays permanently hidden.
     setTimeout(() => {
       if (!el.classList.contains('on')) el.classList.add('on');
-    }, 2000);
+    }, mobileReveal ? 900 : 2000);
   });
 }
 
@@ -305,6 +305,32 @@ function bindLightbox() {
   );
 }
 
+function bindSvcRowTouch() {
+  if (!window.matchMedia('(hover: none)').matches) return;
+  // Enables :active on iOS Safari for link elements
+  document.addEventListener('touchstart', () => {}, { passive: true });
+
+  document.querySelectorAll<HTMLElement>('.svc-row').forEach((row) => {
+    const press = () => row.classList.add('is-pressed');
+    const release = () => row.classList.remove('is-pressed');
+
+    row.addEventListener('touchstart', press, { passive: true });
+    row.addEventListener('touchend', release, { passive: true });
+    row.addEventListener('touchcancel', release, { passive: true });
+    row.addEventListener('blur', release);
+    row.addEventListener(
+      'touchmove',
+      (e) => {
+        const touch = e.touches[0];
+        if (!touch) return;
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (target && !row.contains(target)) release();
+      },
+      { passive: true },
+    );
+  });
+}
+
 function bindMarquee() {
   const mq = document.querySelector('.mq-t');
   if (!mq || (mq as HTMLElement).dataset.mqTripled === '1') return;
@@ -412,6 +438,7 @@ function init() {
   bindLoader();
   bindNav();
   bindReveal();
+  bindSvcRowTouch();
   bindProjectFilter();
   bindLightbox();
   bindMarquee();

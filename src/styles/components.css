@@ -655,15 +655,28 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   background:var(--ivory);
   transition:max-height .4s var(--ease-out),background .3s ease;
 }
+.svc-row.rv{
+  transition:
+    opacity .9s ease,
+    transform .9s ease,
+    max-height .4s var(--ease-out),
+    background .3s ease;
+}
 .svc-row:last-child{border-bottom:none;}
 .svc-row::before{
   content:'';position:absolute;inset:0;
   background-image:var(--svc-bg);background-size:cover;background-position:center;
-  opacity:0;transition:opacity .4s ease;pointer-events:none;
+  opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:0;
+}
+.svc-row::after{
+  content:'';position:absolute;inset:0;
+  background:var(--charcoal);
+  opacity:0;transition:opacity .3s ease;pointer-events:none;z-index:0;
 }
 .svc-row:hover,.svc-row:focus-visible{
   max-height:100px;background:var(--charcoal);
 }
+.svc-row:hover::after,.svc-row:focus-visible::after{opacity:1;}
 .svc-row:hover::before,.svc-row:focus-visible::before{opacity:.18;}
 .svc-row-n{
   position:relative;z-index:1;flex-shrink:0;
@@ -1453,6 +1466,13 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   .rv,.rv-l,.rv-r{
     transition:opacity .55s ease,transform .55s ease;
   }
+  .svc-row.rv{
+    transition:
+      opacity .55s ease,
+      transform .55s ease,
+      max-height .4s var(--ease-out),
+      background .3s ease;
+  }
   .rv{transform:translateY(18px);}
   .rv-l{transform:translateX(-14px);}
   .rv-r{transform:translateX(14px);}
@@ -1945,17 +1965,34 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   .contact-actions{align-items:stretch;}
 }
 
-/* ── Service rows: touch devices — remove hover-only max-height clip ── */
+/* ── Service rows: touch devices — match desktop compact look ── */
 @media(hover:none){
   .svc-row{
-    max-height:none;
-    padding-block:.75rem;
+    /* Keep same 72px clip as desktop — matches laptop layout exactly */
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
   }
-  .svc-row-arr{
-    transform:translate3d(0,0,0);
-    opacity:1;
+  .svc-row::after{transition:opacity .15s ease;}
+  /* Arrow stays hidden by default (same as desktop) — appears only on is-pressed */
+  /* Remove :active dark flash that fires during iOS scroll */
+  .svc-row:focus-visible{
+    background:var(--charcoal);
+    max-height:100px;
   }
+  .svc-row:focus-visible::after{opacity:1;}
+  .svc-row:focus-visible::before{opacity:.18;}
+  .svc-row:focus-visible .svc-row-n{color:rgba(var(--cognac-rgb),.12);}
+  .svc-row:focus-visible .svc-row-title{color:var(--ivory);}
+  .svc-row:focus-visible .svc-row-txt{color:rgba(250,247,242,.65);}
 }
+/* is-pressed = intentional tap (JS-controlled), expands row like desktop hover */
+.svc-row.is-pressed{max-height:100px;background:var(--charcoal);}
+.svc-row.is-pressed::after{opacity:1;}
+.svc-row.is-pressed::before{opacity:.18;}
+.svc-row.is-pressed .svc-row-n{color:rgba(var(--cognac-rgb),.12);}
+.svc-row.is-pressed .svc-row-title{color:var(--ivory);}
+.svc-row.is-pressed .svc-row-txt{color:rgba(250,247,242,.65);}
+.svc-row.is-pressed .svc-row-arr{transform:translate3d(0,0,0);opacity:1;}
 
 /* ── Mobile touch targets & responsive fixes ── */
 @media(max-width:767px){
@@ -2260,7 +2297,7 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   border-color:var(--gold);
 }
 .brief-field{display:flex;flex-direction:column;gap:.35rem;}
-.brief-field label{font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);}
+.brief-field label{font-size:var(--text-label);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);}
 .brief-field input,.brief-field select,.brief-field textarea{
   font-family:var(--font-sans);font-size:var(--text-body);
   padding:.65rem .75rem;border:1px solid var(--color-border);
