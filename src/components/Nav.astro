@@ -112,6 +112,15 @@ function navCurrent(key: string) {
     }
   });
 
+  // iOS Safari fix: <details> toggling is unreliable inside position:fixed +
+  // overflow:auto + CSS transform containers. Intercept summary tap and manually
+  // drive the open attribute so all iPhones work correctly.
+  summary?.addEventListener('click', (e) => {
+    if (!mega) return;
+    e.preventDefault();
+    mega.open = !mega.open;
+  });
+
   // Close on outside click (desktop hover-driven <details> can stay stuck open after a click).
   document.addEventListener('click', (e) => {
     if (mega?.open && !mega.contains(e.target as Node)) {
