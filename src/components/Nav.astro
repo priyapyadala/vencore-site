@@ -114,13 +114,21 @@ function navCurrent(key: string) {
     }
   });
 
-  // iOS Safari fix: <details> toggling is unreliable inside position:fixed +
-  // overflow:auto + CSS transform containers. Intercept summary tap and manually
-  // drive the open attribute so all iPhones work correctly.
+  // Mobile accordion: the service list lives outside <details> (#nav-svc-list),
+  // so we toggle a plain CSS class on it instead of relying on iOS's flaky
+  // <details> behaviour. Desktop ignores this (list hidden, mega panel on hover).
+  const svcList = document.getElementById('nav-svc-list');
+  const isMobile = () => window.matchMedia('(max-width: 1279px)').matches;
   summary?.addEventListener('click', (e) => {
     if (!mega) return;
-    e.preventDefault();
-    mega.open = !mega.open;
+    if (isMobile()) {
+      e.preventDefault();
+      const open = svcList?.classList.toggle('is-open');
+      summary.setAttribute('aria-expanded', open ? 'true' : 'false');
+    } else {
+      e.preventDefault();
+      mega.open = !mega.open;
+    }
   });
 
   // Close on outside click (desktop hover-driven <details> can stay stuck open after a click).

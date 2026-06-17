@@ -214,12 +214,18 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
     width:100%;padding:1rem 1.2rem!important;min-height:44px;
     font-size:.72rem!important;letter-spacing:.14em!important;
     color:var(--bronze)!important;justify-content:space-between;
-    pointer-events:none; /* label only — links below are the tap targets */
   }
   .nav-svc > summary::after{display:none;}
-  .nav-svc > summary .nav-caret{display:none;}
-  /* Always show — list is outside <details> so no UA-stylesheet hiding */
-  .nav-svc__list{display:block!important;}
+  .nav-svc > summary .nav-caret{margin-left:auto;opacity:.55;transition:transform .25s ease;}
+  /* Collapsible accordion — list is outside <details>, toggled via .is-open */
+  .nav-svc__list{
+    display:block;
+    max-height:0;overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .nav-svc__list.is-open{max-height:32rem;}
+  /* Rotate caret when list is open (sibling of #nav-svc-list's controller) */
+  .nav-svc:has(+ #nav-svc-list.is-open) > summary .nav-caret{transform:rotate(180deg);opacity:.8;}
   .nav-svc__list a{
     display:block;padding:1rem 1.2rem 1rem 1.75rem;min-height:44px;
     font-size:.68rem!important;letter-spacing:.1em!important;
