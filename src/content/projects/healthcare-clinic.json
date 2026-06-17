@@ -5,21 +5,36 @@
   "location": "Secunderabad, Hyderabad",
   "year": "2024",
   "area": "12,000 sq ft",
+  "featuredRank": 7,
   "heroImage": "/images/reference/hospital-01.jpg",
   "overview": "Healthcare interior programme — reception, consultation suites, procedure rooms, and staff zones with compliance-ready specifications.",
+  "brief": "A multi-specialty clinic required patient flows that reduce anxiety at reception, clear wayfinding to consultation and procedure rooms, and materials specified for clinical hygiene standards.",
+  "approach": "Clinical advisory input shaped material selections and room adjacencies before joinery production. Phased commissioning allowed partial operational readiness while remaining zones completed.",
+  "materials": ["Infection-control rated surfaces", "Calming palette in waiting areas", "Clinical-grade lighting", "Wayfinding and signage integration"],
   "scope": ["Patient flow and wayfinding", "Consultation and procedure rooms", "Infection-control materials", "Turnkey MEP coordination"],
   "execution": {
     "timeline": "9 months",
     "details": "Clinical advisory input on material specs; phased commissioning for operational readiness."
   },
+  "outcome": {
+    "area": "12,000 sq ft",
+    "timeline": "9 months",
+    "handover": "Q2 2024",
+    "summary": "Consultation wing opened on schedule; procedure suites commissioned in a second phase with zero rework on infection-control specifications."
+  },
+  "processStrip": [
+    { "label": "Concept", "src": "/images/reference/hospital-02.jpg", "alt": "Clinic — patient flow planning" },
+    { "label": "Site", "src": "/images/reference/hospital-03.jpg", "alt": "Clinic — procedure room fit-out" },
+    { "label": "Finish", "src": "/images/reference/hospital-04.jpg", "alt": "Clinic — completed reception" }
+  ],
+  "relatedProjectSlugs": ["office-madhapur"],
   "gallery": [
+    "/images/reference/hospital-01.jpg",
     "/images/reference/hospital-02.jpg",
     "/images/reference/hospital-03.jpg",
     "/images/reference/hospital-04.jpg",
     "/images/reference/hospital-05.jpg",
     "/images/reference/hospital-06.jpg",
-    "/images/reference/whatsapp-23.jpg",
-    "/images/reference/whatsapp-24.jpg",
     "/images/reference/whatsapp-25.jpg",
     "/images/reference/whatsapp-26.jpg"
   ]

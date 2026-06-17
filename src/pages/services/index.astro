@@ -3,17 +3,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CTABand from '../../components/CTABand.astro';
 import navigation from '../../data/navigation.json';
+import company from '../../data/company.json';
 ---
 
 <BaseLayout
   title="Services — Vencore Design Co."
-  description="Architecture, interiors, and turnkey delivery across residential, commercial, office, hospitality, retail, and healthcare."
+  description={company.intro}
   current="services"
 >
   <PageHero
     variant="pg-hero--services"
-    title="Our <em>Services</em>"
-    intro="Six specializations under one accountable leadership desk — from concept to handover."
+    title="What We <em>Do</em>"
+    intro={company.intro}
     bgImage="/images/hero/services-hero.jpeg"
     crumbs={[
       { label: 'Home', href: '/' },
@@ -21,11 +22,76 @@ import navigation from '../../data/navigation.json';
     ]}
   />
 
-  <section class="sec">
+  <section class="sec" id="capabilities">
     <div class="container">
-      <div class="pg2">
+      <div class="svc-cap-head rv">
+        <div class="lbl">Capabilities</div>
+        <h2 class="sh2">Design, build &amp; <em>deliver</em></h2>
+        <p class="svc-cap-lead">One accountable partner from brief to handover — design, execution, procurement, and installation under one roof. Fewer seams between designers and contractors.</p>
+      </div>
+      <div class="stack-grid rv">
+        <div class="stack-card">
+          <ul class="stack-list">
+            {company.whatWeDo.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--alt" id="capability-stack">
+    <div class="container">
+      <div class="s2-head rv">
+        <div>
+          <div class="lbl">Capability Stack</div>
+          <h2 class="sh2">Design · Execution · Supply · <em>Installation</em></h2>
+        </div>
+        <p class="s2-sub">Four integrated lanes keep teams aligned and owners informed — one contract, one leadership desk, and measurable milestones from BOQ sign-off to final handover.</p>
+      </div>
+      <div class="lane-grid rv">
+        {company.capabilityLanes.map((lane) => (
+          <div class="lane-card">
+            <span class="lane-no" aria-hidden="true">{lane.no}</span>
+            <h3 class="lane-title">{lane.title}</h3>
+            <p class="lane-text">{lane.text}</p>
+            <ul class="lane-tags">
+              {lane.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="engagement">
+    <div class="container">
+      <div class="svc-cap-head rv">
+        <div class="lbl">Engagement Models</div>
+        <h2 class="sh2">How we <em>work with you</em></h2>
+        <p class="svc-cap-lead">Take the full programme, or just the lanes you need — scope is shaped around how you contract and deliver.</p>
+      </div>
+      <ul class="engage-list rv">
+        {company.engagementModels.map((model) => (
+          <li class="engage-item">{model}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec sec--alt">
+    <div class="container">
+      <div class="s2-head rv">
+        <div>
+          <div class="lbl">Specializations</div>
+          <h2 class="sh2">Explore by <em>typology</em></h2>
+        </div>
+        <p class="s2-sub">Six practice areas under one accountable leadership desk — from concept to handover.</p>
+      </div>
+      <div class="pg2 rv">
         {navigation.services.map((svc) => (
-          <a href={`/services/${svc.slug}`} class="proj-card-link rv">
+          <a href={`/services/${svc.slug}`} class="proj-card-link">
             <div class="pc2">
               <div class="pc2-bar"></div>
               <img src={svc.preview} alt={svc.label} loading="lazy" decoding="async" width="800" height="600"/>
@@ -42,5 +108,151 @@ import navigation from '../../data/navigation.json';
     </div>
   </section>
 
+  <section id="ecosystem">
+    <div class="eco-grid container rv">
+      <div class="eco-txt">
+        <div class="lbl">{company.deliveryEcosystem.title}</div>
+        <h2 class="sh2 eco-sh2">Global-quality <em>partnerships</em></h2>
+        {company.deliveryEcosystem.body.map((para) => (
+          <p class="eco-p">{para}</p>
+        ))}
+        <div class="eco-badges">
+          {company.deliveryEcosystem.badges.map((badge) => (
+            <span class="eco-badge">{badge}</span>
+          ))}
+        </div>
+      </div>
+      <div class="eco-img rv-r">
+        <img src="/images/hero/hero-alt-6.jpeg" alt="Design and build execution — Vencore Design Co." loading="lazy" decoding="async" width="1200" height="800" />
+      </div>
+    </div>
+  </section>
+
   <CTABand title="Not sure which service fits? <em>Talk to us</em>" body="Describe your typology and site — we map scope, timeline, and the right delivery model." />
 </BaseLayout>
+
+<style>
+  .svc-cap-head {
+    max-width: 42rem;
+    margin-bottom: 1.75rem;
+  }
+  .svc-cap-lead {
+    margin-top: 1rem;
+    font-size: var(--text-body);
+    line-height: 1.8;
+    color: var(--stone);
+    max-width: 40rem;
+  }
+  .stack-grid {
+    max-width: 36rem;
+  }
+  #ecosystem .container {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+  }
+
+  /* ── Capability Stack — 4 lanes ── */
+  .lane-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  @media (min-width: 700px) {
+    .lane-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1100px) {
+    .lane-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .lane-card {
+    position: relative;
+    padding: 1.75rem 1.5rem 1.5rem;
+    background: var(--ivory);
+    border: 1px solid var(--border-neutral);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .lane-no {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(var(--gold-rgb), 0.55);
+    display: block;
+    margin-bottom: 0.65rem;
+  }
+  .lane-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cognac);
+    margin-bottom: 0.5rem;
+  }
+  .lane-text {
+    font-size: var(--text-small);
+    line-height: 1.65;
+    color: var(--stone);
+    margin-bottom: 1rem;
+  }
+  .lane-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0;
+  }
+  .lane-tags li {
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    background: rgba(var(--gold-rgb), 0.08);
+    border: 1px solid rgba(var(--gold-rgb), 0.22);
+    border-radius: 999px;
+    padding: 0.28rem 0.7rem;
+  }
+
+  /* ── Engagement models ── */
+  .engage-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    max-width: 44rem;
+  }
+  @media (min-width: 700px) {
+    .engage-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .engage-item {
+    position: relative;
+    padding: 1.1rem 1.25rem 1.1rem 2.6rem;
+    background: var(--ivory);
+    border: 1px solid var(--border-neutral);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-small);
+    line-height: 1.5;
+    color: var(--body);
+  }
+  .engage-item::before {
+    content: '✦';
+    position: absolute;
+    left: 1.1rem;
+    top: 1.1rem;
+    color: var(--gold);
+    font-size: 0.85rem;
+  }
+</style>

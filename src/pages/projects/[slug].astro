@@ -2,8 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ImageGallery from '../../components/ImageGallery.astro';
 import PageHero from '../../components/PageHero.astro';
-import CTABand from '../../components/CTABand.astro';
-import { getProjects } from '../../lib/content';
+import CaseStudyProcess from '../../components/CaseStudyProcess.astro';
+import RelatedProjects from '../../components/RelatedProjects.astro';
+import TestimonialBlock from '../../components/TestimonialBlock.astro';
+import { getProjects, getRelatedProjects } from '../../lib/content';
 
 export function getStaticPaths() {
   return getProjects().map((project) => ({
@@ -13,6 +15,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const related = getRelatedProjects(project.slug, 3);
 ---
 
 <BaseLayout
@@ -36,16 +39,33 @@ const { project } = Astro.props;
     ]}
   />
 
-  <section class="sec">
-    <div class="container">
-      <div class="lbl rv">Overview</div>
-      <h2 class="sh2 rv">Project <em>summary</em></h2>
-      <p class="rv prose-muted">{project.overview}</p>
-    </div>
-  </section>
+  {project.brief && (
+    <section class="sec cs-section">
+      <div class="container cs-section__inner">
+        <div class="lbl rv">The Brief</div>
+        <h2 class="sh2 rv">Client <em>goal</em></h2>
+        <p class="rv prose-muted">{project.brief}</p>
+      </div>
+    </section>
+  )}
 
-  <section class="sec">
-    <div class="container">
+  {project.approach && (
+    <section class="sec sec--alt cs-section">
+      <div class="container cs-section__inner">
+        <div class="lbl rv">Our Approach</div>
+        <h2 class="sh2 rv">Design <em>decisions</em></h2>
+        <p class="rv prose-muted">{project.approach}</p>
+        {project.materials && project.materials.length > 0 && (
+          <ul class="stack-list rv cs-materials">
+            {project.materials.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+      </div>
+    </section>
+  )}
+
+  <section class="sec cs-section">
+    <div class="container cs-section__inner">
       <div class="lbl rv">Scope</div>
       <h2 class="sh2 rv">Deliverables</h2>
       <ul class="stack-list rv svc-detail-list">
@@ -54,14 +74,37 @@ const { project } = Astro.props;
     </div>
   </section>
 
-  <section class="sec">
-    <div class="container">
-      <div class="lbl rv">Execution</div>
-      <h2 class="sh2 rv">Delivery <em>details</em></h2>
-      <p class="rv"><strong>Timeline:</strong> {project.execution.timeline}</p>
-      <p class="rv prose-muted">{project.execution.details}</p>
-    </div>
-  </section>
+  {project.outcome && (
+    <section class="sec sec--alt cs-section">
+      <div class="container cs-section__inner">
+        <div class="lbl rv">Outcome</div>
+        <h2 class="sh2 rv">Measured <em>delivery</em></h2>
+        <dl class="cs-outcome rv">
+          <div class="cs-outcome__row">
+            <dt>Area</dt>
+            <dd>{project.outcome.area}</dd>
+          </div>
+          <div class="cs-outcome__row">
+            <dt>Timeline</dt>
+            <dd>{project.outcome.timeline}</dd>
+          </div>
+          <div class="cs-outcome__row">
+            <dt>Handover</dt>
+            <dd>{project.outcome.handover}</dd>
+          </div>
+        </dl>
+        <p class="rv prose-muted">{project.outcome.summary}</p>
+      </div>
+    </section>
+  )}
+
+  {project.processStrip && project.processStrip.length > 0 && (
+    <section class="sec cs-section">
+      <div class="container">
+        <CaseStudyProcess steps={project.processStrip} />
+      </div>
+    </section>
+  )}
 
   <section class="sec">
     <div class="container">
@@ -78,6 +121,16 @@ const { project } = Astro.props;
     </div>
   </section>
 
+  {project.testimonial && (
+    <section class="sec sec--alt">
+      <div class="container cs-section__inner">
+        <TestimonialBlock testimonial={project.testimonial} project={project.title} />
+      </div>
+    </section>
+  )}
+
+  <RelatedProjects projects={related} />
+
   <section class="cta">
     <div class="cta-actions rv">
       <a href="/projects" class="btn-ghost">← All projects</a>
@@ -85,3 +138,12 @@ const { project } = Astro.props;
     </div>
   </section>
 </BaseLayout>
+
+<script is:inline define:vars={{ projectSlug: project.slug, projectTitle: project.title }}>
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'project_view', {
+      project_slug: projectSlug,
+      project_title: projectTitle,
+    });
+  }
+</script>

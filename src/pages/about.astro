@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import PartnerStrip from '../components/PartnerStrip.astro';
 import team from '../data/team.json';
+import company from '../data/company.json';
 ---
 
 <BaseLayout
@@ -30,10 +32,12 @@ import team from '../data/team.json';
       <h2 class="sh2">Legacy <em>Foundation</em></h2>
       <p class="fs-p">The practice is rooted in a strong real estate and construction legacy established by <strong>the late Shri Kancha Laxmaiah Mudiraj</strong>, a respected personality in Hyderabad's development landscape since the 1970s, associated with plotted developments, land transformation, and early-stage urban expansion across the city's western corridor. The journey is closely connected with Hyderabad's expansion across key residential and commercial growth zones, including <strong>Jubilee Hills, HITEC City, Madhapur, Raidurg, Manikonda, Narsingi, Puppalaguda, Kancha Gachibowli, Alwal, Patancheru, Secunderabad</strong> and surrounding regions.</p>
       <h2 class="sh2 fs-h2--spaced">Built Through<br/><em>Execution Ecosystem</em></h2>
-      <p class="fs-p">This foundation evolved through established ventures including <strong>KLM Homes Pvt Ltd</strong>, founded in 2003, and <strong>Aditi Housing and Constructions Private Limited</strong> (founded in 2018), now <strong>Surya Devara Infrastructures Pvt Ltd — rebranded</strong> — building strong capability across construction, infrastructure, and project execution.</p>
+      <p class="fs-p">This foundation evolved through established ventures including <strong>KLM Homes Pvt Ltd</strong>, founded in 2003, and <strong>Aditi Housing and Constructions Private Limited</strong> (founded 2018), now <strong>Surya Devara Infrastructures Pvt Ltd</strong> — rebranded — building strong capability across construction, infrastructure, and project execution.</p>
       <p class="fs-p">Over the years, the group has been associated with multiple developments and collaborations across Hyderabad, including projects with leading developers and brands such as <strong>Raghava (Project Iris)</strong>, <strong>Elegance (Emperia - 2)</strong>, <strong>Hallmark Builders (Green Living)</strong>, <strong>Tata Motors (Malik Autoworld)</strong>, <strong>Volkswagen (PPS Motors)</strong>, <strong>Apollo Hospitals</strong>, <strong>Domino's Pizza</strong>, and several residential and commercial developments across key growth corridors.</p>
     </div>
   </section>
+
+  <PartnerStrip label="Developers & brands we've worked with" />
 
   <section id="timeline">
     <div class="tl-head rv">
@@ -62,6 +66,7 @@ import team from '../data/team.json';
     <div class="lead-head rv">
       <div class="lbl">Leadership</div>
       <h2 class="sh2">Founders &amp; <em>Managing Directors</em></h2>
+      <p class="about-lead">{company.leadershipIntro}</p>
     </div>
     <div class="lead-grid rv">
       {team.leadership.map((person) => (
@@ -70,6 +75,7 @@ import team from '../data/team.json';
           <div class="lcard-role">{person.role}</div>
           <div class="lcard-name" set:html={person.name.replace(' ', '<br/>')} />
           <div class="lcard-rule"></div>
+          {'bio' in person && person.bio && <p class="lcard-txt">{person.bio}</p>}
         </div>
       ))}
     </div>
@@ -77,6 +83,7 @@ import team from '../data/team.json';
     <div class="team-head rv" id="team">
       <div class="lbl">Core Team</div>
       <h2 class="sh2">Multidisciplinary <em>Leadership Team</em></h2>
+      <p class="about-lead">{company.coreTeamIntro}</p>
     </div>
     <div class="team-grid rv">
       {team.coreTeam.map((person) => (
@@ -97,3 +104,13 @@ import team from '../data/team.json';
     <a href="/contact" class="btn-solid rv">Request a private briefing ↗</a>
   </section>
 </BaseLayout>
+
+<style>
+  .about-lead {
+    max-width: 42rem;
+    margin-top: 1rem;
+    font-size: var(--text-body);
+    line-height: 1.85;
+    color: var(--stone);
+  }
+</style>

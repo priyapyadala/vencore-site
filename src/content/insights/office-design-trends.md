@@ -3,6 +3,8 @@ title: "Office Design Trends for 2026"
 slug: "office-design-trends"
 date: "2026-01-15"
 topic: "Workplace"
+author: "Vencore Practice"
+relatedService: "office"
 excerpt: "How hybrid work is reshaping corporate interior programmes — flexibility, wellbeing, and brand identity in the workplace."
 heroImage: "/images/reference/office-05.jpg"
 ---

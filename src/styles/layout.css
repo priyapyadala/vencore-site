@@ -46,7 +46,7 @@ section[id],
 }
 
 .sec-alt {
-  background: var(--chalk);
+  background: var(--warm);
 }
 
 .sec--flush-top {

@@ -5,22 +5,67 @@
   "location": "HITEC City, Hyderabad",
   "year": "2024",
   "area": "28,000 sq ft",
+  "featuredRank": 2,
   "heroImage": "/images/reference/corporate-01.jpg",
   "overview": "Full-floor corporate fit-out with executive boardroom, open workplace, and client-facing reception.",
-  "scope": ["Workplace strategy", "Executive and collaboration zones", "Acoustic planning", "Turnkey MEP coordination"],
+  "brief": "A growing technology firm needed a full-floor headquarters that signals maturity to clients while supporting hybrid work — focused pods, collaboration lounges, and an executive suite that hosts board-level meetings without a separate off-site venue.",
+  "approach": "Workplace strategy led the plan: we mapped actual meeting culture before sizing rooms, then specified acoustic glass, modular AV, and durable stone-and-timber finishes at client touch points. Night-shift phasing kept the tower operational while MEP upgrades and ceiling works progressed floor by floor.",
+  "materials": [
+    "Acoustic glass partitions",
+    "Stone and timber at reception and boardroom",
+    "Modular carpet tile in open workplace",
+    "Integrated AV and lighting scenes"
+  ],
+  "scope": [
+    "Workplace strategy",
+    "Executive and collaboration zones",
+    "Acoustic planning",
+    "Turnkey MEP coordination"
+  ],
   "execution": {
     "timeline": "10 months",
     "details": "Night-shift phasing for occupied tower; single PMO desk for design, procurement, and site."
   },
+  "outcome": {
+    "area": "28,000 sq ft",
+    "timeline": "10 months",
+    "handover": "Q2 2024",
+    "summary": "Full floor handed over in a single programme with documented commissioning — reception, workplace, and executive zones opened together without phased client disruption."
+  },
+  "processStrip": [
+    {
+      "label": "Concept",
+      "src": "/images/reference/corporate-02.jpg",
+      "alt": "Corporate HQ HITEC City — workplace concept"
+    },
+    {
+      "label": "Site",
+      "src": "/images/reference/corporate-03.jpg",
+      "alt": "Corporate HQ HITEC City — fit-out in progress"
+    },
+    {
+      "label": "Finish",
+      "src": "/images/reference/corporate-04.jpg",
+      "alt": "Corporate HQ HITEC City — completed reception"
+    }
+  ],
+  "testimonial": {
+    "quote": "They delivered our corporate floor on programme without compromising design intent. One team, one point of accountability — exactly what we needed.",
+    "name": "Priya",
+    "role": "Facilities Lead",
+    "attribution": "first-name-role"
+  },
+  "relatedProjectSlugs": ["office-madhapur", "villa-raidurg"],
   "gallery": [
+    "/images/reference/corporate-01.jpg",
     "/images/reference/corporate-02.jpg",
     "/images/reference/corporate-03.jpg",
     "/images/reference/corporate-04.jpg",
     "/images/reference/corporate-05.jpg",
     "/images/reference/corporate-06.jpg",
-    "/images/reference/whatsapp-08.jpg",
-    "/images/reference/whatsapp-09.jpg",
-    "/images/reference/whatsapp-10.jpg",
-    "/images/reference/whatsapp-11.jpg"
+    "/images/reference/whatsapp-13.jpg",
+    "/images/reference/whatsapp-14.jpg",
+    "/images/reference/whatsapp-15.jpg",
+    "/images/reference/whatsapp-16.jpg"
   ]
 }

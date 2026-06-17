@@ -63,7 +63,14 @@ const articleLd = {
   <div class="ins-article-wrap">
     <header class="ins-article-header rv">
       <span class="ins-topic">{article.topic}</span>
-      <p class="ins-article-byline">Vencore Design Co. · Practice note</p>
+      <p class="ins-article-byline">
+        {article.author ?? 'Vencore Practice'} · {formattedDate} · {readMins} min read
+      </p>
+      {article.relatedService && (
+        <a href={`/services/${article.relatedService}`} class="ins-service-pill">
+          Related service →
+        </a>
+      )}
       <div class="ins-article-divider" aria-hidden="true"></div>
     </header>
 
@@ -101,7 +108,7 @@ const articleLd = {
         <span>Related: </span>
         {related.map((item, i) => (
           <>
-            {i > 0 && <span> · </span>}
+            {i > 0 && <span class="ins-related__sep"> · </span>}
             <a href={`/insights/${item.slug}`}>{item.title}</a>
           </>
         ))}

@@ -1,8 +1,4 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import matter from 'gray-matter';
-
-const root = process.cwd();
+import { getCollection } from 'astro:content';
 
 export interface ServiceConcept {
   src: string;
@@ -24,6 +20,26 @@ export interface Service {
   relatedProjectSlugs: string[];
 }
 
+export interface ProjectTestimonial {
+  quote: string;
+  name: string;
+  role: string;
+  attribution: 'first-name-role' | 'full' | 'anonymous';
+}
+
+export interface ProjectProcessStep {
+  label: string;
+  src: string;
+  alt: string;
+}
+
+export interface ProjectOutcome {
+  area: string;
+  timeline: string;
+  handover: string;
+  summary: string;
+}
+
 export interface Project {
   title: string;
   slug: string;
@@ -31,10 +47,18 @@ export interface Project {
   location: string;
   year: string;
   area: string;
+  featuredRank?: number;
   heroImage: string;
   overview: string;
+  brief?: string;
+  approach?: string;
+  materials?: string[];
   scope: string[];
   execution: { timeline: string; details: string };
+  outcome?: ProjectOutcome;
+  processStrip?: ProjectProcessStep[];
+  testimonial?: ProjectTestimonial;
+  relatedProjectSlugs?: string[];
   gallery: string[];
 }
 
@@ -45,62 +69,83 @@ export interface Insight {
   excerpt: string;
   heroImage: string;
   topic: string;
+  author?: string;
+  relatedService?: string;
   content: string;
 }
 
-function readJsonDir<T>(dir: string): T[] {
-  const full = path.join(root, dir);
-  if (!fs.existsSync(full)) return [];
-  return fs
-    .readdirSync(full)
-    .filter((f) => f.endsWith('.json'))
-    .map((f) => JSON.parse(fs.readFileSync(path.join(full, f), 'utf-8')) as T);
-}
+const [projectEntries, serviceEntries, insightEntries] = await Promise.all([
+  getCollection('projects'),
+  getCollection('services'),
+  getCollection('insights'),
+]);
+
+const projects: Project[] = projectEntries.map((entry) => entry.data);
+const services: Service[] = serviceEntries.map((entry) => entry.data);
+const insights: Insight[] = insightEntries
+  .map((entry) => ({
+    title: entry.data.title,
+    slug: entry.data.slug,
+    date: entry.data.date,
+    excerpt: entry.data.excerpt,
+    heroImage: entry.data.heroImage,
+    topic: entry.data.topic,
+    author: entry.data.author,
+    relatedService: entry.data.relatedService,
+    content: entry.body ?? '',
+  }))
+  .sort((a, b) => (a.date < b.date ? 1 : -1));
 
 export function getServices(): Service[] {
-  return readJsonDir<Service>('src/content/services');
+  return services;
 }
 
 export function getService(slug: string): Service | undefined {
-  return getServices().find((s) => s.slug === slug);
+  return services.find((s) => s.slug === slug);
 }
 
 export function getProjects(): Project[] {
-  return readJsonDir<Project>('src/content/projects');
+  return projects;
+}
+
+export function getFeaturedProjects(limit = 4): Project[] {
+  return [...projects]
+    .sort((a, b) => (a.featuredRank ?? 99) - (b.featuredRank ?? 99))
+    .slice(0, limit);
+}
+
+export function getRelatedProjects(slug: string, limit = 3): Project[] {
+  const project = getProject(slug);
+  if (!project) return [];
+  const preferred = project.relatedProjectSlugs ?? [];
+  const all = projects.filter((p) => p.slug !== slug);
+  const picked: Project[] = [];
+  for (const s of preferred) {
+    const match = all.find((p) => p.slug === s);
+    if (match) picked.push(match);
+  }
+  for (const p of all) {
+    if (picked.length >= limit) break;
+    if (picked.some((x) => x.slug === p.slug)) continue;
+    if (p.category === project.category) picked.push(p);
+  }
+  return picked.slice(0, limit);
 }
 
 export function getProject(slug: string): Project | undefined {
-  return getProjects().find((p) => p.slug === slug);
+  return projects.find((p) => p.slug === slug);
 }
 
 export function getInsights(): Insight[] {
-  const full = path.join(root, 'src/content/insights');
-  if (!fs.existsSync(full)) return [];
-  return fs
-    .readdirSync(full)
-    .filter((f) => f.endsWith('.md'))
-    .map((f) => {
-      const raw = fs.readFileSync(path.join(full, f), 'utf-8');
-      const { data, content } = matter(raw);
-      return {
-        title: data.title as string,
-        slug: data.slug as string,
-        date: data.date as string,
-        excerpt: data.excerpt as string,
-        heroImage: data.heroImage as string,
-        topic: (data.topic as string) || 'Practice',
-        content,
-      };
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  return insights;
 }
 
 export function getInsight(slug: string): Insight | undefined {
-  return getInsights().find((i) => i.slug === slug);
+  return insights.find((i) => i.slug === slug);
 }
 
 export function getInsightTopics(): string[] {
-  const topics = new Set(getInsights().map((i) => i.topic));
+  const topics = new Set(insights.map((i) => i.topic));
   return [...topics];
 }
 
@@ -109,13 +154,12 @@ export function getInsightNeighbors(slug: string): {
   next?: Insight;
   related: Insight[];
 } {
-  const articles = getInsights();
-  const index = articles.findIndex((a) => a.slug === slug);
+  const index = insights.findIndex((a) => a.slug === slug);
   if (index === -1) return { related: [] };
 
-  const prev = index < articles.length - 1 ? articles[index + 1] : undefined;
-  const next = index > 0 ? articles[index - 1] : undefined;
-  const related = articles.filter((a) => a.slug !== slug).slice(0, 2);
+  const prev = index < insights.length - 1 ? insights[index + 1] : undefined;
+  const next = index > 0 ? insights[index - 1] : undefined;
+  const related = insights.filter((a) => a.slug !== slug).slice(0, 2);
 
   return { prev, next, related };
 }

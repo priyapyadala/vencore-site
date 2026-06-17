@@ -1,23 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/CTABand.astro';
+import PartnerStrip from '../components/PartnerStrip.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import navigation from '../data/navigation.json';
+import company from '../data/company.json';
 import { titleCase } from '../lib/format';
-import { taglineWords } from '../lib/stagger';
-import { getProjects, getInsights } from '../lib/content';
+import { getFeaturedProjects, getInsights } from '../lib/content';
 
-const featuredProjects = getProjects().slice(0, 4);
+const featuredProjects = getFeaturedProjects(4);
 const latestInsights = getInsights().slice(0, 2);
 const heroImage = '/images/hero/services-hero.jpeg';
+const heroVideo = '/video/hero-loop.webm';
 const storyImage = '/images/hero/hero-alt-7.jpeg';
-const taglines = ['Built on Legacy', 'Driven by Execution', 'Defined by Design'];
 const testimonials = navigation.testimonials;
 ---
 
 <BaseLayout
   title="Vencore Design Co. — Built on Legacy"
-  description="Design-led execution across residential, commercial & lifestyle environments. Premium Design & Build and turnkey interior fit-outs in Hyderabad."
+  description={company.intro}
   current="home"
   ogImage={heroImage}
   preloadImage={heroImage}
@@ -25,6 +26,17 @@ const testimonials = navigation.testimonials;
   <section id="s0">
     <div class="h-bg" aria-hidden="true">
       <div class="h-bg-plate">
+        <video
+          class="h-bg-plate__video"
+          src={heroVideo}
+          poster={heroImage}
+          muted
+          loop
+          playsinline
+          autoplay
+          aria-hidden="true"
+          tabindex="-1"
+        />
         <ResponsiveImage
           src={heroImage}
           alt=""
@@ -43,22 +55,20 @@ const testimonials = navigation.testimonials;
       <div class="h-content container">
         <div class="h-text">
           <div class="h-eyebrow"><span class="h-line"></span>Hyderabad · Legacy since the 1970s</div>
-          {taglines.map((line, i) => {
-            const words = taglineWords(line, i);
-            const Tag = i === 0 ? 'h1' : 'p';
-            return (
-              <Tag class:list={['h-tagline', 'h-tagline--stagger']} data-line={i}>
-                {words.map(({ word, style }) => (
-                  <span class="hw" style={style}><em>{word}</em></span>
-                ))}
-              </Tag>
-            );
-          })}
-          <p class="h-tagline-sub">Design-led execution across residential, commercial &amp; lifestyle environments.</p>
+          <h1 class="h-headline">
+            Design. Build.<br/><em>Deliver.</em>
+          </h1>
+          <p class="h-tagline-sub">One accountable partner from brief to handover — design, execution, procurement, and installation under one roof.</p>
+          <p class="h-tagline-sub h-tagline-sub--2">Fewer seams between designers and contractors. Backed by fifty years of group execution in Hyderabad.</p>
           <div class="h-rule"></div>
           <div class="h-btns">
             <a href="/contact" class="btn-solid btn-solid--hero btn-solid--lg">Request a private briefing ↗</a>
             <a href="/services" class="btn-ghost">Explore services</a>
+          </div>
+          <div class="h-chips">
+            <span class="h-chip">Built on Legacy</span>
+            <span class="h-chip">Driven by Execution</span>
+            <span class="h-chip">Defined by Design</span>
           </div>
           <a href="/projects/villa-raidurg" class="h-card--compact h-mobile-featured">
             <span class="h-card-tag h-card-tag--concept">Featured</span>
@@ -140,10 +150,12 @@ const testimonials = navigation.testimonials;
     <div class="s1-txt rv-r">
       <div class="lbl">Our Story</div>
       <h2 class="sh2">From <em>KLM Homes</em> to<br/>Vencore Design Co.</h2>
-      <p class="s1-p"><strong>Vencore is the evolved design-forward arm</strong> of a construction house grounded in a legacy established by the late Shri Kancha Laxmaiah Mudiraj since the 1970s, and matured through KLM Homes Pvt Ltd (founded 2003) and Aditi Housing and Constructions Private Limited (founded 2018), now Surya Devara Infrastructures Pvt Ltd — rebranded. That execution discipline now pairs with meticulous interiors, procurement mastery, and white-glove handovers.<br/><br/>Led by <strong>Shri Venkatesh Kancha</strong> and <strong>Shri Venugopal Kancha</strong> as Founders &amp; Managing Directors, the same stewardship speaks the language of design-led businesses and luxury residences across Hyderabad's growth corridors.</p>
+      <p class="s1-p"><strong>Vencore Design Co. is a Design &amp; Build and Project Delivery firm</strong> delivering end-to-end interior fit-outs, turnkey execution, and built-space solutions across residential, commercial, and lifestyle environments. The practice is rooted in a legacy established by the late Shri Kancha Laxmaiah Mudiraj since the 1970s, and matured through <strong>KLM Homes Pvt Ltd</strong> (founded 2003) and <strong>Surya Devara Infrastructures Pvt Ltd</strong> (founded 2018, formerly Aditi Housing).<br/><br/>Led by <strong>Shri Venkatesh Kancha</strong> and <strong>Shri Venugopal Kancha</strong> as Founders &amp; Managing Directors, the same stewardship pairs design-led execution with procurement mastery and white-glove handovers across Hyderabad's growth corridors.</p>
       <a href="/about" class="s1-link">Read Our Full Story ↗</a>
     </div>
   </section>
+
+  <PartnerStrip />
 
   <section id="s-projects" class="sec">
     <div class="container">
@@ -216,7 +228,7 @@ const testimonials = navigation.testimonials;
             <p class="proof-quote">{t.quote}</p>
             <hr class="proof-rule" />
             <footer class="proof-foot">
-              <cite class="proof-client">{t.client}</cite>
+              <cite class="proof-client">{t.name}, {t.role}</cite>
               <span class="proof-project">{t.project}</span>
             </footer>
           </blockquote>

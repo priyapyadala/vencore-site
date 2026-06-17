@@ -38,6 +38,7 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title.includes('Vencore') ? title : `${title} — Vencore Design Co.`;
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 
 const organizationLd = {
   '@context': 'https://schema.org',
@@ -96,22 +97,9 @@ const jsonLdBlocks = [organizationLd, ...extraLd];
       />
     </>
   )}
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=optional"
-    as="style"
-  />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=optional"
-    media="print"
-    onload="this.media='all'"
-  />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=optional" rel="stylesheet" />
-  </noscript>
+  <link rel="preload" href="/fonts/cormorant-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/outfit-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="canonical" href={canonical} />
   <meta property="og:site_name" content="Vencore Design Co." />
   <meta property="og:locale" content="en_IN" />
@@ -128,8 +116,20 @@ const jsonLdBlocks = [organizationLd, ...extraLd];
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
   {jsonLdBlocks.map((block) => (
-    <script type="application/ld+json" set:html={JSON.stringify(block)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(block)} />
   ))}
+  {gaId && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+      <script is:inline define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', gaId, { anonymize_ip: true });
+      </script>
+    </>
+  )}
 </head>
 <body data-page={current}>
   <div id="scroll-progress" aria-hidden="true"></div>

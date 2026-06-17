@@ -5,21 +5,37 @@
   "location": "Jubilee Hills, Hyderabad",
   "year": "2023",
   "area": "4,200 sq ft",
-  "heroImage": "/images/reference/residential-03.jpg",
+  "featuredRank": 3,
+  "heroImage": "/images/hero/hero-alt-5.jpeg",
   "overview": "Interior transformation of a premium apartment — formal living, master suite, and dining with material-rich finishes.",
+  "brief": "A family apartment in Jubilee Hills needed a full interior refresh without structural changes — clearer zoning between formal entertaining and private suites, plus storage that disappears into joinery.",
+  "approach": "We opened sightlines between dining and living while keeping acoustic separation to bedrooms through layered doors and soft finishes. Stone, veneer, and integrated lighting were mock-up approved before procurement.",
+  "materials": ["Veneered joinery", "Feature stone in dining", "Layered cove lighting", "Performance fabrics"],
   "scope": ["Space planning and 3D visualization", "Custom joinery and stone work", "Lighting design", "Turnkey fit-out"],
   "execution": {
     "timeline": "8 months",
     "details": "Occupied-building constraints managed with phased works and noise-controlled schedules."
   },
+  "outcome": {
+    "area": "4,200 sq ft",
+    "timeline": "8 months",
+    "handover": "Q3 2023",
+    "summary": "Phased handover allowed the family to remain in residence — formal zones completed first, suites finished in a final two-week close-out."
+  },
+  "processStrip": [
+    { "label": "Concept", "src": "/images/reference/whatsapp-05.jpg", "alt": "Jubilee Hills apartment — concept layout" },
+    { "label": "Site", "src": "/images/reference/whatsapp-06.jpg", "alt": "Jubilee Hills apartment — joinery install" },
+    { "label": "Finish", "src": "/images/reference/whatsapp-07.jpg", "alt": "Jubilee Hills apartment — completed dining" }
+  ],
+  "relatedProjectSlugs": ["villa-raidurg"],
   "gallery": [
-    "/images/reference/residential-02.jpg",
-    "/images/reference/residential-04.jpg",
-    "/images/reference/residential-05.jpg",
-    "/images/reference/residential-06.jpg",
-    "/images/hero/hero-alt-6.jpeg",
     "/images/reference/whatsapp-05.jpg",
     "/images/reference/whatsapp-06.jpg",
-    "/images/reference/whatsapp-07.jpg"
+    "/images/reference/whatsapp-07.jpg",
+    "/images/reference/whatsapp-08.jpg",
+    "/images/reference/whatsapp-09.jpg",
+    "/images/reference/whatsapp-10.jpg",
+    "/images/reference/whatsapp-11.jpg",
+    "/images/reference/whatsapp-12.jpg"
   ]
 }

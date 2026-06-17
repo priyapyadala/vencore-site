@@ -7,20 +7,29 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/sync-images.mjs",
+    "prebuild": "node scripts/validate-project-images.mjs && node scripts/sync-images.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "validate:images": "node scripts/validate-project-images.mjs",
     "generate:images": "node scripts/generate-images.mjs",
     "sync:images": "node scripts/sync-images.mjs",
+    "lighthouse": "node scripts/lighthouse-ci.mjs",
+    "test:smoke": "playwright test",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.4.5",
-    "gray-matter": "^4.0.3"
+    "astro": "^6.4.5"
   },
   "devDependencies": {
-    "sharp": "^0.35.0"
+    "@astrojs/check": "^0.9.9",
+    "@fontsource/cormorant": "^5.2.8",
+    "@fontsource/outfit": "^5.2.8",
+    "@playwright/test": "^1.52.0",
+    "chrome-launcher": "^1.2.0",
+    "lighthouse": "^12.6.0",
+    "sharp": "^0.35.0",
+    "typescript": "^6.0.3"
   }
 }

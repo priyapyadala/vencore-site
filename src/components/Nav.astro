@@ -78,25 +78,52 @@ function navCurrent(key: string) {
 </nav>
 
 <script>
-  const mega = document.getElementById('nav-mega');
+  const mega = document.getElementById('nav-mega') as HTMLDetailsElement | null;
+  const summary = mega?.querySelector('summary');
   const cap = document.getElementById('mega-cap');
-  const links = mega?.querySelectorAll('.nav-mega-links a[data-preview]');
+  const links = mega?.querySelectorAll<HTMLAnchorElement>('.nav-mega-links a[data-preview]');
+
+  function showPreview(link: HTMLAnchorElement) {
+    const preview = link.getAttribute('data-preview');
+    const label = link.getAttribute('data-label');
+    if (!preview || !cap) return;
+    mega?.querySelectorAll('.nav-mega-preview img').forEach((img) => {
+      const match = img.getAttribute('src') === preview;
+      img.classList.toggle('is-visible', match);
+      if (match && img.getAttribute('loading') === 'lazy') {
+        img.setAttribute('loading', 'eager');
+      }
+    });
+    cap.textContent = label ?? '';
+    links?.forEach((l) => l.classList.remove('is-active'));
+    link.classList.add('is-active');
+  }
 
   links?.forEach((link) => {
-    link.addEventListener('mouseenter', () => {
-      const preview = link.getAttribute('data-preview');
-      const label = link.getAttribute('data-label');
-      if (!preview || !cap) return;
-      mega?.querySelectorAll('.nav-mega-preview img').forEach((img) => {
-        const match = img.getAttribute('src') === preview;
-        img.classList.toggle('is-visible', match);
-        if (match && img.getAttribute('loading') === 'lazy') {
-          img.setAttribute('loading', 'eager');
-        }
-      });
-      cap.textContent = label ?? '';
-      links.forEach((l) => l.classList.remove('is-active'));
-      link.classList.add('is-active');
-    });
+    link.addEventListener('mouseenter', () => showPreview(link));
+    link.addEventListener('focus', () => showPreview(link));
+  });
+
+  // Close the mega menu on Escape, returning focus to the trigger.
+  mega?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mega.open) {
+      mega.open = false;
+      summary?.focus();
+    }
+  });
+
+  // Close on outside click (desktop hover-driven <details> can stay stuck open after a click).
+  document.addEventListener('click', (e) => {
+    if (mega?.open && !mega.contains(e.target as Node)) {
+      mega.open = false;
+    }
+  });
+
+  // Close when focus moves outside the menu entirely (keyboard tabbing away).
+  mega?.addEventListener('focusout', (e) => {
+    const next = e.relatedTarget as Node | null;
+    if (mega.open && (!next || !mega.contains(next))) {
+      mega.open = false;
+    }
   });
 </script>

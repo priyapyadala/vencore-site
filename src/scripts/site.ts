@@ -20,7 +20,30 @@ function bindLoader() {
   else if (document.readyState === 'interactive' || document.readyState === 'complete') finish();
   else document.addEventListener('DOMContentLoaded', finish, { once: true });
 
-  window.setTimeout(hide, 1800);
+  window.setTimeout(hide, 1200);
+}
+
+function bindHeroVideo() {
+  const video = document.querySelector<HTMLVideoElement>('.h-bg-plate__video');
+  if (!video || reduced || window.matchMedia('(max-width: 1023px)').matches) return;
+  const markReady = () => video.setAttribute('data-ready', 'true');
+  if (video.readyState >= 2) markReady();
+  else {
+    video.addEventListener('canplay', markReady, { once: true });
+    video.addEventListener('error', () => video.remove(), { once: true });
+  }
+}
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+function trackEvent(name: string, params: Record<string, string> = {}) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', name, params);
+  }
 }
 
 function bindReveal(root: ParentNode = document) {
@@ -39,13 +62,20 @@ function bindReveal(root: ParentNode = document) {
           revealObserver?.unobserve(en.target);
         });
       },
-      { threshold: 0.06 },
+      { threshold: 0, rootMargin: '0px 0px -10% 0px' },
     );
   }
   els.forEach((el) => {
     if ((el as HTMLElement).dataset.rvBound === '1') return;
     (el as HTMLElement).dataset.rvBound = '1';
     revealObserver?.observe(el);
+    // Safety net: some mobile browsers (e.g. iOS Safari) can fail to fire
+    // IntersectionObserver callbacks for elements taller than the viewport
+    // or in certain scroll contexts. Force-reveal after a short delay so
+    // content never stays permanently hidden.
+    setTimeout(() => {
+      if (!el.classList.contains('on')) el.classList.add('on');
+    }, 2000);
   });
 }
 
@@ -76,7 +106,7 @@ function bindNav() {
     first?.focus();
   };
 
-  const mobileNav = window.matchMedia('(max-width: 1199px)');
+  const mobileNav = window.matchMedia('(max-width: 1279px)');
 
   const focusablesInMenu = () =>
     Array.from(
@@ -362,6 +392,21 @@ function bindMagneticCursor() {
   document.addEventListener('mouseleave', onLeave);
 }
 
+function bindConversionTracking() {
+  document.querySelectorAll<HTMLAnchorElement>('a[href*="wa.me"], a[href*="whatsapp"]').forEach((el) => {
+    el.addEventListener('click', () => trackEvent('whatsapp_click', { link_url: el.href }));
+  });
+  document.querySelectorAll<HTMLAnchorElement>('a[href^="tel:"]').forEach((el) => {
+    el.addEventListener('click', () => trackEvent('phone_click', { link_url: el.href }));
+  });
+  document.querySelectorAll<HTMLAnchorElement>('[data-analytics="whatsapp_click"]').forEach((el) => {
+    el.addEventListener('click', () => trackEvent('whatsapp_click', { link_url: el.href }));
+  });
+  document.querySelectorAll<HTMLAnchorElement>('[data-analytics="enquire_click"]').forEach((el) => {
+    el.addEventListener('click', () => trackEvent('enquire_click', { link_url: el.href }));
+  });
+}
+
 function init() {
   document.documentElement.classList.remove('no-js');
   bindLoader();
@@ -370,6 +415,8 @@ function init() {
   bindProjectFilter();
   bindLightbox();
   bindMarquee();
+  bindConversionTracking();
+  bindHeroVideo();
   if (!reduced) {
     bindScrollProgress();
     bindMagneticCursor();

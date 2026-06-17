@@ -5,23 +5,38 @@
   "location": "Gachibowli, Hyderabad",
   "year": "2024",
   "area": "6,500 sq ft",
+  "featuredRank": 6,
   "heroImage": "/images/reference/experience-01.jpg",
   "overview": "Double-height lobby and guest lounge with material drama and operational flow for a boutique hospitality programme.",
+  "brief": "A boutique hotel operator wanted a lobby that reads premium on arrival — double-height volume, warm materiality, and staff flows that stay invisible to guests.",
+  "approach": "We sequenced mock-ups for stone and brass before full procurement, aligned lighting scenes for day and evening arrival, and coordinated signage with the operator's brand guidelines.",
+  "materials": ["Feature stone and brass", "Layered lobby lighting", "Acoustic ceiling in lounge", "Durable high-traffic flooring"],
   "scope": ["Lobby and reception design", "Guest lounge fit-out", "Lighting and signage", "Turnkey execution"],
   "execution": {
     "timeline": "7 months",
     "details": "Brand guideline compliance with local material sourcing and mock-up approval cycles."
   },
+  "outcome": {
+    "area": "6,500 sq ft",
+    "timeline": "7 months",
+    "handover": "Q1 2024",
+    "summary": "Lobby and lounge handed over ahead of soft opening — lighting scenes signed off with operator during a single evening walkthrough."
+  },
+  "processStrip": [
+    { "label": "Concept", "src": "/images/reference/experience-02.jpg", "alt": "Gachibowli hotel — lobby concept" },
+    { "label": "Site", "src": "/images/reference/experience-03.jpg", "alt": "Gachibowli hotel — lobby fit-out" },
+    { "label": "Finish", "src": "/images/reference/experience-04.jpg", "alt": "Gachibowli hotel — completed lounge" }
+  ],
+  "relatedProjectSlugs": ["retail-showroom"],
   "gallery": [
+    "/images/reference/experience-01.jpg",
     "/images/reference/experience-02.jpg",
     "/images/reference/experience-03.jpg",
     "/images/reference/experience-04.jpg",
     "/images/reference/experience-05.jpg",
     "/images/reference/experience-06.jpg",
     "/images/reference/experience-07.jpg",
-    "/images/reference/whatsapp-15.jpg",
-    "/images/reference/whatsapp-16.jpg",
-    "/images/reference/whatsapp-17.jpg",
-    "/images/reference/whatsapp-18.jpg"
+    "/images/reference/whatsapp-23.jpg",
+    "/images/reference/whatsapp-24.jpg"
   ]
 }

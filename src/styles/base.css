@@ -1,5 +1,59 @@
 /* Vencore Design Co. — base tokens, reset, typography */
 
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cormorant-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/cormorant-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cormorant-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/outfit-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/outfit-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/outfit-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 *,
 *::before,
 *::after {
@@ -17,51 +71,58 @@ html {
 }
 
 :root {
-  /* ── Brand palette (raw) ── */
-  --ink: #12100e;
-  --charcoal: #1a1816;
-  --charcoal-rgb: 26, 24, 22;
-  --espresso: #231509;
-  --cognac: #5c3318;
-  --copper: #a86830;
+  /* ── Brand palette (raw) — relit premium direction ── */
+  --ink: #11100e;
+  --umber: #221c17;
+  --umber-rgb: 34, 28, 23;
+  --charcoal: #181715;
+  --charcoal-rgb: 24, 23, 21;
+  --espresso: #2a2219;
+  --cognac: #7a4728;
+  --cognac-rgb: 122, 71, 40;
+  --bronze: #9b6b3d;
+  --bronze-rgb: 155, 107, 61;
+  --copper: var(--bronze);
   --terra: #a86b52;
   --terra-deep: #804636;
-  --gold-restrained: #b8956a;
-  --gold: var(--gold-restrained);
-  --gold-rgb: 184, 149, 106;
-  --gold-light-rgb: 212, 186, 148;
-  --gilt: #d4b87a;
-  --ivory: #faf7f2;
-  --warm: #f7f0e4;
+  --antique-gold: #c7a46a;
+  --gold: var(--antique-gold);
+  --gold-rgb: 199, 164, 106;
+  --gold-light-rgb: 223, 197, 140;
+  --soft-gold: #dfc58c;
+  --gilt: var(--soft-gold);
+  --ivory: #fbf7ef;
+  --warm-paper: #f4eee4;
+  --warm: var(--warm-paper);
   --paper: var(--ivory);
-  --chalk: #f0ebe3;
-  --stone: #6e6256;
-  --stone-muted: #8a8178;
+  --chalk: #f0e9df;
+  --stone: #766d63;
+  --stone-muted: #756c62;
   --body: #2f291f;
   --muted: #5c534a;
   --cream: #ebe3d4;
-  --cream-soft: rgba(241, 232, 216, 0.92);
-  --cream-dim: rgba(225, 214, 196, 0.78);
-  --cream-quiet: rgba(206, 192, 172, 0.65);
+  --cream-soft: rgba(244, 238, 228, 0.92);
+  --cream-dim: rgba(228, 218, 204, 0.78);
+  --cream-quiet: rgba(210, 198, 182, 0.65);
 
   /* ── Semantic palette ── */
-  --color-primary: var(--ink);
+  --color-primary: var(--umber);
   --color-secondary: var(--espresso);
   --color-accent: var(--gold);
   --color-accent-hover: var(--gilt);
   --color-neutral-50: var(--paper);
-  --color-neutral-100: var(--chalk);
+  --color-neutral-100: var(--warm);
   --color-neutral-600: var(--stone);
   --color-neutral-900: var(--body);
-  --color-surface-dark: var(--ink);
+  --color-surface-dark: var(--umber);
   --color-surface-light: var(--paper);
   --color-text: var(--body);
   --color-text-muted: var(--stone-muted);
   --color-text-on-dark: var(--ivory);
   --color-heading: #2a2622;
   /* --color-border, --color-border-accent — aliased in colors.css */
-  --line: rgba(47, 41, 31, 0.08);
-  --shadow-elevated: 0 24px 80px rgba(18, 16, 14, 0.12);
+  --line: rgba(var(--charcoal-rgb), 0.08);
+  --shadow-elevated: 0 24px 80px rgba(var(--umber-rgb), 0.12);
 
   /* ── Layout ── */
   --container-max: 1200px;
@@ -116,39 +177,39 @@ html {
   --tracking-wide: 0.08em;
   --tracking-wider: 0.14em;
 
-  /* ── Image overlays (directional, not muddy) ── */
+  /* ── Image overlays (directional, lighter scrims) ── */
   --overlay-hero: linear-gradient(
     108deg,
-    rgba(var(--charcoal-rgb), 0.58) 0%,
-    rgba(var(--charcoal-rgb), 0.38) 38%,
-    rgba(var(--charcoal-rgb), 0.08) 62%,
-    rgba(var(--charcoal-rgb), 0.28) 100%
+    rgba(var(--charcoal-rgb), 0.5) 0%,
+    rgba(var(--charcoal-rgb), 0.32) 38%,
+    rgba(var(--charcoal-rgb), 0.06) 62%,
+    rgba(var(--charcoal-rgb), 0.24) 100%
   );
   --overlay-hero-mobile: linear-gradient(
     180deg,
-    rgba(var(--charcoal-rgb), 0.62) 0%,
-    rgba(var(--charcoal-rgb), 0.48) 40%,
-    rgba(var(--charcoal-rgb), 0.28) 68%,
-    rgba(var(--charcoal-rgb), 0.55) 100%
+    rgba(var(--charcoal-rgb), 0.52) 0%,
+    rgba(var(--charcoal-rgb), 0.4) 40%,
+    rgba(var(--charcoal-rgb), 0.24) 68%,
+    rgba(var(--charcoal-rgb), 0.46) 100%
   );
   --overlay-hero-bottom: linear-gradient(
     to top,
-    rgba(var(--charcoal-rgb), 0.72) 0%,
-    rgba(var(--charcoal-rgb), 0.28) 38%,
+    rgba(var(--charcoal-rgb), 0.62) 0%,
+    rgba(var(--charcoal-rgb), 0.24) 38%,
     transparent 62%
   );
   --overlay-card: linear-gradient(
     to top,
-    rgba(var(--charcoal-rgb), 0.78) 0%,
-    rgba(var(--charcoal-rgb), 0.22) 50%,
+    rgba(var(--charcoal-rgb), 0.66) 0%,
+    rgba(var(--charcoal-rgb), 0.18) 50%,
     transparent 100%
   );
   --overlay-photo: linear-gradient(
     105deg,
-    rgba(var(--charcoal-rgb), 0.62) 0%,
-    rgba(var(--charcoal-rgb), 0.4) 40%,
-    rgba(var(--charcoal-rgb), 0.12) 62%,
-    rgba(var(--charcoal-rgb), 0.46) 100%
+    rgba(var(--charcoal-rgb), 0.52) 0%,
+    rgba(var(--charcoal-rgb), 0.34) 40%,
+    rgba(var(--charcoal-rgb), 0.1) 62%,
+    rgba(var(--charcoal-rgb), 0.38) 100%
   );
 
   /* ── Motion & focus ── */
@@ -210,7 +271,7 @@ h2,
   font-family: var(--font-serif);
   font-size: var(--text-h2);
   font-weight: 500;
-  line-height: var(--leading-tight);
+  line-height: var(--leading-snug);
   color: var(--color-heading);
 }
 

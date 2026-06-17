@@ -3,12 +3,14 @@
     {
       "initials": "VK",
       "name": "Shri Venkatesh Kancha",
-      "role": "Founder & Managing Director"
+      "role": "Founder & Managing Director",
+      "bio": "Second-generation builder steering Vencore's design-led execution practice — from plotted developments to turnkey interior programmes across Hyderabad."
     },
     {
       "initials": "VU",
       "name": "Shri Venugopal Kancha",
-      "role": "Founder & Managing Director"
+      "role": "Founder & Managing Director",
+      "bio": "Co-founder with deep roots in the group's construction legacy — accountable for client relationships, programme governance, and delivery standards."
     }
   ],
   "coreTeam": [
@@ -16,19 +18,25 @@
       "initials": "RL",
       "name": "Rithin Laxman Kancha",
       "role": "Business Development & Strategy",
-      "bio": "Corporate real estate and project management industry experience — business development, strategic direction, and execution-driven growth."
+      "bio": "Bringing extensive experience in corporate real estate and project management, driving business development, shaping strategic direction, and enabling execution-led growth."
     },
     {
       "initials": "SK",
       "name": "Sowmya Kancha",
       "role": "Procurement & Financial Governance",
-      "bio": "Procurement mastery, vendor governance, and financial controls across multi-crore fit-out programmes."
+      "bio": "Leading procurement strategy with expertise in warehousing coordination, financial governance, and high-value commercial negotiations."
+    },
+    {
+      "initials": "UV",
+      "name": "Uttam Venkat Kancha",
+      "role": "Project Planning & Logistics",
+      "bio": "Driving project planning and execution through robust systems, with a strong focus on logistics and end-to-end supply chain coordination."
     },
     {
       "initials": "SD",
       "name": "Surya Devara Kancha",
-      "role": "Operations & Site Leadership",
-      "bio": "On-ground execution leadership — site teams, schedule control, and quality assurance across active programmes."
+      "role": "Engineering & Experiential Design",
+      "bio": "Integrating engineering expertise with a refined, contemporary approach to lifestyle-driven and experiential environments."
     }
   ],
   "timeline": [
@@ -46,20 +54,14 @@
     },
     {
       "year": "2018",
-      "title": "Aditi Housing and Constructions",
-      "text": "Founded in 2018, expanding group capability across construction and infrastructure delivery.",
-      "tags": ["Aditi Housing and Constructions Pvt Ltd"]
-    },
-    {
-      "year": "2026",
       "title": "Surya Devara Infrastructures",
-      "text": "Rebranded as Surya Devara Infrastructures Pvt Ltd — strengthened infrastructure and execution platform.",
+      "text": "Founded in 2018 (formerly Aditi Housing and Constructions Pvt Ltd, since rebranded), strengthening infrastructure and project execution capability across the group.",
       "tags": ["Surya Devara Infrastructures Pvt Ltd"]
     },
     {
       "year": "Present",
       "title": "Vencore Design Co.",
-      "text": "The evolved design-forward arm — architecture, interiors, and turnkey project delivery under one accountable leadership desk.",
+      "text": "The evolved design-forward arm — interior fit-outs, turnkey execution, and built-space delivery under one accountable leadership desk.",
       "tags": ["Vencore Design Co."]
     }
   ]

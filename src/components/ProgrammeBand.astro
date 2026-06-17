@@ -1,0 +1,73 @@
+---
+import company from '../data/company.json';
+
+type ProjectItem = { name: string; meta?: string };
+interface Props {
+  ongoing?: ProjectItem[];
+  completed?: ProjectItem[];
+}
+
+const {
+  ongoing = company.ongoingProjects,
+  completed = company.completedProjects,
+} = Astro.props;
+---
+
+<section class="proj-band" id="programmes">
+  <div class="proj-head rv">
+    <div>
+      <div class="lbl">Programmes</div>
+      <h2 class="sh2 proj-band__title">Selected <em>Projects</em></h2>
+    </div>
+    <p class="proj-band__lead">Active and recently delivered work across Hyderabad.</p>
+  </div>
+  <div class="proj-cols rv">
+    <div class="proj-col proj-col--ongoing">
+      <div class="proj-col-h">
+        <span class="proj-status ongoing">Ongoing</span>
+        <h3>Selected <em>Ongoing</em> Projects</h3>
+      </div>
+      <ul class="proj-list">
+        {ongoing.map((proj) => (
+          <li>
+            <div>
+              <div class="proj-name">{proj.name}</div>
+              {proj.meta && <div class="proj-meta">{proj.meta}</div>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="proj-col proj-col--done">
+      <div class="proj-col-h">
+        <span class="proj-status done">Completed</span>
+        <h3>Recently <em>Completed</em> Projects</h3>
+      </div>
+      <ul class="proj-list">
+        {completed.map((proj) => (
+          <li>
+            <div>
+              <div class="proj-name">{proj.name}</div>
+              {proj.meta && <div class="proj-meta">{proj.meta}</div>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .proj-band__title {
+    color: var(--warm);
+  }
+  .proj-band__title em {
+    color: var(--gilt);
+  }
+  .proj-band__lead {
+    max-width: 30rem;
+    font-size: var(--text-small);
+    line-height: 1.75;
+    color: var(--cream-dim);
+  }
+</style>

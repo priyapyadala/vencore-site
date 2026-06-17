@@ -1,7 +1,7 @@
 /* ── Insights hub & article pages ── */
 
 .insights-intro {
-  background: var(--chalk);
+  background: var(--warm);
   padding: clamp(2rem, 5vw, 3rem) var(--container-pad);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -97,6 +97,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 38%;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -108,7 +109,8 @@
 .insights-featured__veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(var(--shadow-tint-rgb), 0.35) 100%);
+  background: linear-gradient(180deg, transparent 62%, rgba(var(--charcoal-rgb), 0.18) 100%);
+  pointer-events: none;
 }
 
 .insights-featured__body {
@@ -192,9 +194,16 @@
 }
 
 .ins-filter-btn.active {
-  background: var(--ink);
+  background: var(--umber);
   color: var(--gilt);
-  border-color: var(--ink);
+  border-color: var(--umber);
+}
+
+@media (min-width: 1024px) {
+  .insights-filters {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
 }
 
 .insights-grid {
@@ -241,6 +250,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 36%;
   display: block;
   transition: transform 0.45s ease;
 }
@@ -313,7 +323,7 @@
 
 /* Topics band */
 .insights-topics {
-  background: var(--espresso);
+  background: var(--umber);
   padding: clamp(2.5rem, 5vw, 3.5rem) var(--container-pad);
 }
 
@@ -387,6 +397,16 @@
     align-items: flex-start;
   }
 
+  /* Pull filter bar edge-to-edge so it can scroll without being clipped
+     by the parent container's padding or html overflow-x:clip */
+  .insights-filters {
+    width: 100vw;
+    margin-inline: calc(-1 * var(--container-pad));
+    padding-inline: var(--container-pad);
+    padding-right: var(--container-pad);
+    box-sizing: border-box;
+  }
+
   .ins-article-header {
     text-align: left;
   }
@@ -414,6 +434,33 @@
 .ins-article-header .ins-topic {
   margin-bottom: 0.85rem;
   display: inline-block;
+}
+
+.ins-article-byline {
+  font-size: var(--text-caption);
+  letter-spacing: 0.04em;
+  color: var(--stone-muted);
+  margin: 0;
+}
+
+.ins-service-pill {
+  display: inline-flex;
+  margin-top: 0.85rem;
+  padding: 0.45rem 0.85rem;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--cognac);
+  border: 1px solid rgba(var(--cognac-rgb), 0.2);
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ins-service-pill:hover {
+  background: rgba(var(--gold-rgb), 0.08);
+  color: var(--umber);
 }
 
 .ins-article-divider {

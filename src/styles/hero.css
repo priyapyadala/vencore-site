@@ -17,6 +17,32 @@
 }
 .h-tagline em { font-style: italic; color: var(--gilt); font-weight: 400; }
 .h-tagline[data-line="0"] em { color: var(--gilt); }
+
+/* ── New hero headline: Design. Build. Deliver. ── */
+.h-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--ivory);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: 1.25rem;
+  animation: h-fadeUp 0.7s ease both;
+}
+.h-headline em {
+  font-style: italic;
+  color: var(--gilt);
+  font-weight: 400;
+}
+.h-tagline-sub--2 {
+  margin-top: 0.65rem;
+  color: rgba(250, 247, 242, 0.65);
+}
+@keyframes h-fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .h-tagline-sub {
   font-size: clamp(0.88rem, 1.2vw, 1.02rem);
   color: rgba(250, 247, 242, 0.82);
@@ -87,13 +113,26 @@
   overflow:hidden;
   transform:scale(1.03);
 }
+.h-bg-plate__video,
 .h-bg-plate__img{
   position:absolute;inset:0;
   width:108%;height:108%;
   max-width:none;
   object-fit:cover;
   object-position:32% 40%;
-  filter:saturate(.94) contrast(1.03) brightness(.98);
+  filter:none;
+}
+.h-bg-plate__video{
+  z-index:1;
+  display:none;
+}
+@media(min-width:1024px) and (prefers-reduced-motion:no-preference){
+  .h-bg-plate__video{display:block;}
+  .h-bg-plate__video:not([data-ready="true"]) + .h-bg-plate__img{opacity:1;}
+  .h-bg-plate__video[data-ready="true"] + .h-bg-plate__img{opacity:0;transition:opacity .6s ease;}
+}
+@media(max-width:1023px), (prefers-reduced-motion:reduce){
+  .h-bg-plate__video{display:none!important;}
 }
 .h-bg-plate.is-parallax .h-bg-plate__img{animation:hpan 28s ease-in-out infinite alternate;}
 .h-bg-vignette{
@@ -102,7 +141,11 @@
 }
 @media(max-width:1023px){
   .h-bg-vignette{background:var(--overlay-hero-mobile);}
-  .h-bg-plate__img{object-position:35% 38%;}
+  /* No horizontal overscan on mobile: parallax pans object-position only,
+     so the >viewport plate width is unnecessary and triggers iOS Safari
+     horizontal panning past the clip. Pin the plate to the viewport. */
+  .h-bg-plate{inset:0;transform:none;}
+  .h-bg-plate__img{width:100%;height:100%;object-position:35% 38%;}
 }
 .h-bg-vignette::before{content:none;}
 .h-bg-vignette::after{
@@ -203,8 +246,8 @@
   .h-text .h-tagline[data-line="1"],
   .h-text .h-tagline[data-line="2"]{
     font-size:clamp(1.35rem,5.2vw,1.75rem);
-    line-height:1.1;
-    margin-bottom:.06rem;
+    line-height:1.12;
+    margin-bottom:.08rem;
     white-space:nowrap;
   }
   .h-tagline--stagger{overflow:visible;}
@@ -218,14 +261,14 @@
     content:'';
     display:block;
   }
-  .h-tagline-sub{order:5;margin-top:.85rem;max-width:34ch;line-height:1.58;}
+  .h-tagline-sub{
+    order:5;
+    margin-top:1rem;
+    max-width:34ch;
+    line-height:1.6;
+    color:rgba(250,247,242,.86);
+  }
   .h-rule{display:none;}
-  .h-h1{order:2;}
-  .h-h1-sub{order:3;}
-  .h-value{order:4;}
-  .h-body{order:6;}
-  .h-trust{order:7;}
-  .h-side{display:none;}
   .h-btns{
     order:6;
     margin-top:var(--space-2);
@@ -235,7 +278,7 @@
   .h-card{display:none;}
   .h-card--compact{
     display:grid;
-    grid-template-columns:auto 1fr auto;
+    grid-template-columns:auto minmax(0,1fr) auto;
     grid-template-rows:auto auto;
     align-items:center;
     gap:.35rem .85rem;
@@ -253,11 +296,12 @@
     padding:.3rem .45rem;
     font-size:.48rem;
     letter-spacing:.28em;
-    border:1px solid rgba(196,154,84,.28);
+    border:1px solid rgba(var(--gold-rgb),.28);
     line-height:1.2;
   }
   .h-card--compact .h-card-title{
     grid-column:2;grid-row:1;
+    min-width:0;
     font-size:1.02rem;
     margin-bottom:0;
     line-height:1.2;
@@ -271,6 +315,7 @@
   }
   .h-card--compact .h-card-meta{
     grid-column:2;grid-row:2;
+    min-width:0;
     font-size:.66rem;
     line-height:1.4;
   }
@@ -280,12 +325,12 @@
     display:inline-flex;align-items:center;justify-content:center;
     width:2.25rem;height:2.25rem;
     font-size:.85rem;font-weight:600;color:var(--gilt);text-decoration:none;
-    border:1px solid rgba(196,154,84,.32);
+    border:1px solid rgba(var(--gold-rgb),.32);
     border-radius:50%;
     transition:background .22s,border-color .22s,color .22s;
   }
   .h-card--compact .h-card-cta:hover{
-    background:rgba(196,154,84,.12);
+    background:rgba(var(--gold-rgb),.12);
     border-color:var(--gold);
     color:var(--paper);
   }
@@ -455,7 +500,7 @@
   font-size:var(--text-caption);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   color:rgba(247,240,228,.82);
   padding:.4rem .75rem;
-  border:1px solid rgba(196,154,84,.22);
+  border:1px solid rgba(var(--gold-rgb),.22);
   background:rgba(12,9,7,.35);
   backdrop-filter:blur(6px);
 }
@@ -585,3 +630,24 @@
 .hs-city{font-size:clamp(1.05rem,2.8vw,1.75rem)!important;font-family:var(--font-serif);line-height:1.15;letter-spacing:.02em;color:var(--ivory);font-style:italic;font-weight:400;}
 .hs-l{font-size:var(--text-micro);font-weight:500;letter-spacing:var(--tracking-wide);line-height:var(--leading-label);text-transform:uppercase;color:rgba(250,247,242,.55);margin-top:8px;max-width:14rem;margin-inline:auto;}
 .hs-l-short{display:none;}
+
+/* ── Hero punch chips ── */
+.h-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.h-chip {
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gilt);
+  border: 1px solid rgba(var(--gold-rgb), 0.35);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  background: rgba(var(--gold-rgb), 0.06);
+  white-space: nowrap;
+}

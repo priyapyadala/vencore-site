@@ -1,0 +1,25 @@
+---
+import type { ProjectProcessStep } from '../lib/content';
+
+interface Props {
+  steps: ProjectProcessStep[];
+}
+
+const { steps } = Astro.props;
+if (!steps?.length) return null;
+---
+
+<div class="cs-process rv">
+  <div class="lbl">Process</div>
+  <h2 class="sh2 cs-process__title">Concept → site → <em>finish</em></h2>
+  <ol class="cs-process__grid">
+    {steps.map((step) => (
+      <li class="cs-process__step">
+        <figure class="cs-process__fig">
+          <img src={step.src} alt={step.alt} loading="lazy" decoding="async" width="640" height="480" />
+          <figcaption class="cs-process__cap">{step.label}</figcaption>
+        </figure>
+      </li>
+    ))}
+  </ol>
+</div>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CTABand from '../../components/CTABand.astro';
+import ProgrammeBand from '../../components/ProgrammeBand.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import { titleCase } from '../../lib/format';
 import { getProjects } from '../../lib/content';
@@ -28,7 +29,7 @@ const filters = [
   <PageHero
     variant="pg-hero--projects"
     title="Selected <em>Work</em>"
-    intro="Portfolio and case studies across residential, commercial, hospitality, retail, and healthcare typologies."
+    intro="Ongoing and recently completed programmes across Hyderabad, plus selected case studies."
     bgImage="/images/hero/projects-hero.jpeg"
     crumbs={[
       { label: 'Home', href: '/' },
@@ -36,8 +37,17 @@ const filters = [
     ]}
   />
 
-  <section class="sec">
+  <ProgrammeBand />
+
+  <section class="sec" id="case-studies">
     <div class="container">
+      <div class="s2-head rv">
+        <div>
+          <div class="lbl">Case Studies</div>
+          <h2 class="sh2">Featured <em>programmes</em></h2>
+        </div>
+        <p class="s2-sub">Illustrative project pages across residential, corporate, hospitality, retail, and healthcare typologies.</p>
+      </div>
       <div class="proj-filters-wrap rv">
         <div class="proj-filters" role="group" aria-label="Filter projects by category">
           {filters.map((f, i) => (
@@ -109,7 +119,7 @@ const filters = [
     color: var(--muted);
     font-size: var(--text-body);
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .proj-filters { flex-wrap: wrap; overflow-x: visible; }
   }
 </style>

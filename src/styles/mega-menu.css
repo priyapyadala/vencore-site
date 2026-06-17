@@ -67,7 +67,7 @@ body {
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1279px) {
   .nav-mega-panel { display: none !important; }
 }
 

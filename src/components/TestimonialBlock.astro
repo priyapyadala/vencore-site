@@ -1,0 +1,21 @@
+---
+import type { ProjectTestimonial } from '../lib/content';
+
+interface Props {
+  testimonial: ProjectTestimonial;
+  project?: string;
+}
+
+const { testimonial, project } = Astro.props;
+---
+
+<blockquote class="cs-testimonial rv">
+  <span class="cs-testimonial__mark" aria-hidden="true">"</span>
+  <p class="cs-testimonial__quote">{testimonial.quote}</p>
+  <footer class="cs-testimonial__foot">
+    <cite class="cs-testimonial__cite">
+      {testimonial.name}, {testimonial.role}
+    </cite>
+    {project && <span class="cs-testimonial__project">{project}</span>}
+  </footer>
+</blockquote>

@@ -3,15 +3,18 @@
 :root {
   --ink-deep: #0a0908;
 
-  /* Cognac-tinted borders (derived from --cognac #5c3318) */
-  --border-subtle: rgba(92, 51, 24, 0.08);
-  --border-default: rgba(92, 51, 24, 0.1);
-  --border-medium: rgba(92, 51, 24, 0.12);
-  --border-strong: rgba(92, 51, 24, 0.14);
-  --border-cognac-09: rgba(92, 51, 24, 0.09);
-  --border-cognac-15: rgba(92, 51, 24, 0.15);
-  --border-cognac-25: rgba(92, 51, 24, 0.25);
-  --surface-cognac-06: rgba(92, 51, 24, 0.06);
+  /* Bronze-tinted UI borders (labels, light chrome) */
+  --border-subtle: rgba(var(--bronze-rgb), 0.1);
+  --border-default: rgba(var(--charcoal-rgb), 0.1);
+  --border-medium: rgba(var(--charcoal-rgb), 0.12);
+  --border-strong: rgba(var(--charcoal-rgb), 0.14);
+  --border-cognac-09: rgba(var(--cognac-rgb), 0.09);
+  --border-cognac-15: rgba(var(--cognac-rgb), 0.15);
+  --border-cognac-25: rgba(var(--cognac-rgb), 0.25);
+  --border-bronze-12: rgba(var(--bronze-rgb), 0.12);
+  --border-bronze-18: rgba(var(--bronze-rgb), 0.18);
+  --surface-cognac-06: rgba(var(--cognac-rgb), 0.06);
+  --surface-bronze-06: rgba(var(--bronze-rgb), 0.06);
 
   /* Gold-tinted borders & fills (use --gold-rgb) */
   --border-gold-subtle: rgba(var(--gold-rgb), 0.12);
@@ -27,14 +30,14 @@
   /* Dark / hero panel surfaces */
   --surface-dark-14: rgba(0, 0, 0, 0.14);
   --surface-dark-22: rgba(0, 0, 0, 0.22);
-  --border-on-dark: rgba(247, 240, 228, 0.1);
-  --border-on-dark-strong: rgba(247, 240, 228, 0.12);
-  --text-on-dark-faint: rgba(247, 240, 228, 0.5);
-  --text-on-dark-muted: rgba(247, 240, 228, 0.55);
-  --text-on-dark-secondary: rgba(247, 240, 228, 0.72);
+  --border-on-dark: rgba(251, 247, 239, 0.1);
+  --border-on-dark-strong: rgba(251, 247, 239, 0.12);
+  --text-on-dark-faint: rgba(251, 247, 239, 0.5);
+  --text-on-dark-muted: rgba(251, 247, 239, 0.55);
+  --text-on-dark-secondary: rgba(251, 247, 239, 0.72);
 
-  /* Ink-tinted shadows */
-  --shadow-tint-rgb: 35, 21, 9;
+  /* Umber-tinted shadows */
+  --shadow-tint-rgb: 34, 28, 23;
   --shadow-card: 0 12px 32px rgba(var(--shadow-tint-rgb), 0.07);
   --shadow-card-hover: 0 20px 48px rgba(var(--shadow-tint-rgb), 0.09);
   --shadow-elevated-form: 0 18px 48px rgba(var(--shadow-tint-rgb), 0.06);
@@ -42,18 +45,18 @@
   --shadow-card-sm: 0 8px 24px rgba(var(--shadow-tint-rgb), 0.06);
   --shadow-card-md: 0 10px 28px rgba(var(--shadow-tint-rgb), 0.06);
   --shadow-card-tight: 0 14px 36px rgba(var(--shadow-tint-rgb), 0.07);
-  --surface-overlay-dark: rgba(var(--charcoal-rgb), 0.68);
-  --gradient-overlay-bottom: linear-gradient(180deg, transparent 45%, rgba(var(--charcoal-rgb), 0.5) 100%);
-  --text-gold-dim: rgba(226, 192, 110, 0.4);
-  --border-on-dark-hover: rgba(247, 240, 228, 0.35);
-  --surface-on-dark-hover: rgba(247, 240, 228, 0.06);
-  --border-gilt-divider: rgba(224, 192, 120, 0.35);
+  --surface-overlay-dark: rgba(var(--charcoal-rgb), 0.58);
+  --gradient-overlay-bottom: linear-gradient(180deg, transparent 45%, rgba(var(--charcoal-rgb), 0.42) 100%);
+  --text-gold-dim: rgba(var(--gold-light-rgb), 0.45);
+  --border-on-dark-hover: rgba(251, 247, 239, 0.35);
+  --surface-on-dark-hover: rgba(251, 247, 239, 0.06);
+  --border-gilt-divider: rgba(var(--gold-light-rgb), 0.35);
 
   /* Interactive */
   --link: var(--cognac);
   --link-hover: var(--gold);
-  --link-underline: rgba(174, 124, 94, 0.42);
-  --accent-ui: var(--copper);
+  --link-underline: rgba(var(--cognac-rgb), 0.38);
+  --accent-ui: var(--bronze);
   --accent-ui-hover: var(--gold);
 
   /* Form & status */
@@ -61,8 +64,8 @@
   --color-error-muted: #6b2e2e;
   --color-error-bg: rgba(139, 48, 48, 0.03);
   --color-error-border: rgba(139, 48, 48, 0.55);
-  --color-success-bg: rgba(92, 51, 24, 0.08);
-  --color-success-border: rgba(92, 51, 24, 0.15);
+  --color-success-bg: rgba(var(--cognac-rgb), 0.08);
+  --color-success-border: rgba(var(--cognac-rgb), 0.15);
 
   /* WhatsApp (contact channels) */
   --wa-green: #1a6b45;
@@ -74,18 +77,18 @@
   /* Card surfaces on light sections */
   --surface-card: var(--ivory);
   --surface-card-muted: var(--warm);
-  --surface-section-alt: var(--chalk);
+  --surface-section-alt: var(--warm);
 
-  /* Neutral borders (less cognac dominance on light UI) */
+  /* Neutral borders (light UI) */
   --border-neutral: rgba(var(--charcoal-rgb), 0.08);
   --border-neutral-medium: rgba(var(--charcoal-rgb), 0.12);
 
   /* Align legacy semantic aliases */
-  --color-border: var(--border-default);
+  --color-border: var(--border-neutral);
   --color-border-accent: var(--border-gold-medium);
 }
 
-/* Content links — consistent cognac → gold */
+/* Content links — cognac → gold */
 .legal-prose a,
 .prose-muted a,
 .ins-related a,
