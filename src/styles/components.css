@@ -216,9 +216,10 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   .nav-svc[open] > summary{background:rgba(var(--gold-rgb),.06);}
   .nav-svc > summary .nav-caret{margin-left:auto;opacity:.55;}
   .nav-svc__list{
-    max-height:18rem;
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
+    /* No inner scroll — outer nav-links panel handles all scrolling.
+       Nested overflow-y:auto causes iOS to trap touch events inside
+       the list, preventing access to items above/below it. */
+    overflow:visible;
   }
   .nav-svc__list a{
     display:block;padding:1rem 1.2rem 1rem 1.75rem;min-height:44px;
