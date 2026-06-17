@@ -206,21 +206,20 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   .nav-svc__list li:last-child a{border-bottom:none;}
 }
 @media(max-width:1279px){
+  /* On mobile the services accordion is always expanded — no <details> toggle.
+     This sidesteps iOS Safari's unreliable <details> behaviour inside
+     position:fixed + overflow:auto + transform containers. */
   .nav-svc{width:100%;border-bottom:1px solid rgba(var(--cognac-rgb),.07);}
   .nav-svc > summary{
     width:100%;padding:1rem 1.2rem!important;min-height:44px;
     font-size:.72rem!important;letter-spacing:.14em!important;
     color:var(--bronze)!important;justify-content:space-between;
+    pointer-events:none; /* label only — links below are the tap targets */
   }
   .nav-svc > summary::after{display:none;}
-  .nav-svc[open] > summary{background:rgba(var(--gold-rgb),.06);}
-  .nav-svc > summary .nav-caret{margin-left:auto;opacity:.55;}
-  .nav-svc__list{
-    /* No inner scroll — outer nav-links panel handles all scrolling.
-       Nested overflow-y:auto causes iOS to trap touch events inside
-       the list, preventing access to items above/below it. */
-    overflow:visible;
-  }
+  .nav-svc > summary .nav-caret{display:none;}
+  /* Always show — list is outside <details> so no UA-stylesheet hiding */
+  .nav-svc__list{display:block!important;}
   .nav-svc__list a{
     display:block;padding:1rem 1.2rem 1rem 1.75rem;min-height:44px;
     font-size:.68rem!important;letter-spacing:.1em!important;

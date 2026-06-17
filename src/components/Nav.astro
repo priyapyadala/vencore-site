@@ -59,13 +59,15 @@ function navCurrent(key: string) {
               <div class="nav-mega-preview-cap" id="mega-cap">{services[0]?.label ?? ''}</div>
             </div>
           </div>
-          <ul class="nav-svc__list">
-            <li class="nav-svc__all"><a href="/services">All Services</a></li>
-            {services.map((svc) => (
-              <li><a href={`/services/${svc.slug}`}>{svc.label}</a></li>
-            ))}
-          </ul>
         </details>
+        <!-- Mobile-only service list: sits outside <details> so it is always
+             in the DOM flow regardless of iOS <details> toggle behaviour. -->
+        <ul class="nav-svc__list" id="nav-svc-list">
+          <li class="nav-svc__all"><a href="/services">All Services</a></li>
+          {services.map((svc) => (
+            <li><a href={`/services/${svc.slug}`}>{svc.label}</a></li>
+          ))}
+        </ul>
 
         <a href="/projects" class:list={[{ active: current === 'projects' }]} data-nav="projects" aria-current={navCurrent('projects')}>Projects</a>
         <a href="/insights" class:list={[{ active: current === 'insights' }]} data-nav="insights" aria-current={navCurrent('insights')}>Insights</a>

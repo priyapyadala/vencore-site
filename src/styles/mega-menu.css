@@ -57,9 +57,9 @@ body {
     text-transform: uppercase; z-index: 2;
   }
 }
-/* Desktop: mega panel only — hide legacy simple dropdown list */
+/* Desktop: mega panel only — hide the mobile service list */
 @media (min-width: 1024px) {
-  .nav-mega .nav-svc__list {
+  #nav-svc-list {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
