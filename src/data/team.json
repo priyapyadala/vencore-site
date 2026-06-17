@@ -2,13 +2,13 @@
   "leadership": [
     {
       "initials": "VK",
-      "name": "Shri Venkatesh Kancha",
+      "name": "Venkatesh Kancha",
       "role": "Founder & Managing Director",
       "bio": "Second-generation builder steering Vencore's design-led execution practice — from plotted developments to turnkey interior programmes across Hyderabad."
     },
     {
       "initials": "VU",
-      "name": "Shri Venugopal Kancha",
+      "name": "Venugopal Kancha",
       "role": "Founder & Managing Director",
       "bio": "Co-founder with deep roots in the group's construction legacy — accountable for client relationships, programme governance, and delivery standards."
     }
@@ -54,7 +54,7 @@
     },
     {
       "year": "2018",
-      "title": "Surya Devara Infrastructures",
+      "title": "Surya Devara Infrastructures Pvt Ltd",
       "text": "Founded in 2018 (formerly Aditi Housing and Constructions Pvt Ltd, since rebranded), strengthening infrastructure and project execution capability across the group.",
       "tags": ["Surya Devara Infrastructures Pvt Ltd"]
     },
@@ -62,7 +62,7 @@
       "year": "Present",
       "title": "Vencore Design Co.",
       "text": "The evolved design-forward arm — interior fit-outs, turnkey execution, and built-space delivery under one accountable leadership desk.",
-      "tags": ["Vencore Design Co."]
+      "tags": ["Vencore Design LLP"]
     }
   ]
 }

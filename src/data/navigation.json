@@ -10,13 +10,7 @@
       "label": "Commercial & Corporate",
       "slug": "commercial",
       "preview": "/images/reference/service-03.jpg",
-      "description": "Corporate floors, lobbies & fit-outs"
-    },
-    {
-      "label": "Office Spaces",
-      "slug": "office",
-      "preview": "/images/reference/service-04.jpg",
-      "description": "Workplace design & agile environments"
+      "description": "Corporate floors, offices, lobbies & fit-outs"
     },
     {
       "label": "Hospitality",

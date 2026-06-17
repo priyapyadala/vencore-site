@@ -5,8 +5,6 @@ import '../styles/contact.css';
 
 const waUrl =
   'https://wa.me/917093127880?text=Hi%20Vencore%20Design%20Co.%2C%20I%27d%20like%20to%20discuss%20a%20project.';
-const mapsUrl =
-  'https://maps.google.com/maps?q=Vaishnavi+Cymbol+Financial+District+Nanakramguda+Hyderabad';
 
 const expectSteps = [
   {
@@ -158,7 +156,6 @@ const contactLd = {
           Financial District, Nanakramguda,<br/>
           Hyderabad – 500032, Telangana
         </p>
-        <a href={mapsUrl} class="map-link" target="_blank" rel="noopener noreferrer">Open in Google Maps ↗</a>
       </div>
 
       <p class="contact-badge">Response within <span>2 business days</span></p>
@@ -211,7 +208,6 @@ const contactLd = {
               <option value="">Select programme type…</option>
               <option value="residential">Residential — villa / apartment</option>
               <option value="commercial">Commercial &amp; corporate</option>
-              <option value="office">Office &amp; workplace</option>
               <option value="hospitality">Hospitality</option>
               <option value="retail">Retail &amp; F&amp;B</option>
               <option value="healthcare">Healthcare</option>
@@ -329,29 +325,14 @@ const contactLd = {
         <p class="contact-map-band__hours">Mon – Sat · 10:00 – 19:00 IST</p>
       </div>
       <div class="contact-map-band__visual">
-        <img
-          src="/images/hero/contact-hero.jpeg"
-          alt="Vencore Design Co. studio — Vaishnavi Cymbol, Nanakramguda"
+        <iframe
+          class="contact-map-band__embed"
+          src="https://maps.google.com/maps?q=Vaishnavi+Cymbol+Financial+District+Nanakramguda+Hyderabad&output=embed"
+          title="Vencore Design Co. studio location"
           loading="lazy"
-          decoding="async"
-          width="800"
-          height="533"
-          class="contact-map-band__photo"
-        />
-        <a
-          href={mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-map-frame contact-map-frame--link"
-        >
-          <span class="contact-map-frame__pin" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.25"/></svg>
-          </span>
-          <span class="contact-map-frame__text">
-            <span class="contact-map-frame__addr">Vaishnavi Cymbol, Financial District,<br/>Nanakramguda, Hyderabad — Telangana</span>
-            <span class="contact-map-frame__cta">View location on Google Maps ↗</span>
-          </span>
-        </a>
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </section>

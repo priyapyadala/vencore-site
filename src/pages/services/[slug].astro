@@ -71,18 +71,19 @@ const heroIntro = service.scope[0] ?? service.philosophy;
         <h2 class="sh2 rv">Selected <em>projects</em></h2>
         <div class="pg2 rv">
           {related.map((proj) => (
-            <a href={`/projects/${proj.slug}`} class="proj-card-link">
-              <div class="pc2">
+            <div class="proj-card-link proj-card-link--soon">
+              <div class="pc2 pc2--soon">
                 <div class="pc2-bar"></div>
                 <ResponsiveImage src={proj.heroImage} alt={proj.title} sizes="(max-width:767px) 100vw, 33vw" width={1200} height={800} />
                 <div class="pc2-veil"></div>
+                <span class="pc2-soon" aria-hidden="true">Coming soon</span>
                 <div class="pc2-info">
                   <div class="pc2-cat">{titleCase(proj.category)}</div>
                   <div class="pc2-name">{proj.title}</div>
                   <div class="pc2-loc">{proj.location}</div>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>

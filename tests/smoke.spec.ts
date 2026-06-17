@@ -11,7 +11,8 @@ test.describe('smoke', () => {
   test('projects index lists case studies', async ({ page }) => {
     await page.goto('/projects/');
     await expect(page).toHaveTitle(/Projects/);
-    await expect(page.getByRole('link', { name: /Contemporary Villa/i })).toBeVisible();
+    await expect(page.getByText(/Contemporary Villa/i)).toBeVisible();
+    await expect(page.getByText(/Coming soon/i).first()).toBeVisible();
   });
 
   test('contact page shows enquiry form', async ({ page }) => {

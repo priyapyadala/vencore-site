@@ -675,6 +675,15 @@
   border: 1px solid var(--border-neutral);
 }
 
+.contact-map-band__embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-neutral);
+}
+
 .contact-map-frame {
   border-radius: var(--radius-sm);
   overflow: hidden;

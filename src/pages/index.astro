@@ -150,7 +150,7 @@ const testimonials = navigation.testimonials;
     <div class="s1-txt rv-r">
       <div class="lbl">Our Story</div>
       <h2 class="sh2">From <em>KLM Homes</em> to<br/>Vencore Design Co.</h2>
-      <p class="s1-p"><strong>Vencore Design Co. is a Design &amp; Build and Project Delivery firm</strong> delivering end-to-end interior fit-outs, turnkey execution, and built-space solutions across residential, commercial, and lifestyle environments. The practice is rooted in a legacy established by the late Shri Kancha Laxmaiah Mudiraj since the 1970s, and matured through <strong>KLM Homes Pvt Ltd</strong> (founded 2003) and <strong>Surya Devara Infrastructures Pvt Ltd</strong> (founded 2018, formerly Aditi Housing).<br/><br/>Led by <strong>Shri Venkatesh Kancha</strong> and <strong>Shri Venugopal Kancha</strong> as Founders &amp; Managing Directors, the same stewardship pairs design-led execution with procurement mastery and white-glove handovers across Hyderabad's growth corridors.</p>
+      <p class="s1-p"><strong>Vencore Design Co. is a Design &amp; Build and Project Delivery firm</strong> delivering end-to-end interior fit-outs, turnkey execution, and built-space solutions across residential, commercial, and lifestyle environments. The practice is rooted in a legacy established by the late Shri Kancha Laxmaiah Mudiraj since the 1970s, and matured through <strong>KLM Homes Pvt Ltd</strong> (founded 2003) and <strong>Surya Devara Infrastructures Pvt Ltd</strong> (founded 2018, formerly Aditi Housing and Constructions Pvt Ltd).<br/><br/>Led by <strong>Shri Venkatesh Kancha</strong> and <strong>Shri Venugopal Kancha</strong> as Founders &amp; Managing Directors, the same stewardship pairs design-led execution with procurement mastery and white-glove handovers across Hyderabad's growth corridors.</p>
       <a href="/about" class="s1-link">Read Our Full Story ↗</a>
     </div>
   </section>
@@ -168,18 +168,19 @@ const testimonials = navigation.testimonials;
       </div>
       <div class="pg2 pg2--mosaic rv">
         {featuredProjects.map((proj, i) => (
-          <a href={`/projects/${proj.slug}`} class="proj-card-link" class:list={{ 'proj-card-link--feat': i === 0 }}>
-            <div class="pc2">
+          <div class="proj-card-link proj-card-link--soon" class:list={{ 'proj-card-link--feat': i === 0 }}>
+            <div class="pc2 pc2--soon">
               <div class="pc2-bar"></div>
               <ResponsiveImage src={proj.heroImage} alt={proj.title} sizes="(max-width:767px) 100vw, 50vw" width={1200} height={800} />
               <div class="pc2-veil"></div>
+              <span class="pc2-soon" aria-hidden="true">Coming soon</span>
               <div class="pc2-info">
                 <div class="pc2-cat">{titleCase(proj.category)}</div>
                 <div class="pc2-name">{proj.title}</div>
                 <div class="pc2-loc">{proj.location} · {proj.year}</div>
               </div>
             </div>
-          </a>
+          </div>
         ))}
       </div>
       <div class="s2-more rv"><a href="/projects" class="btn-solid btn-sm">All projects ↗</a></div>
@@ -193,7 +194,7 @@ const testimonials = navigation.testimonials;
           <div class="lbl">Services</div>
           <h2 class="sh2">Design · Execution ·<br/><em>Delivery</em></h2>
         </div>
-        <p class="s2-sub">Six specializations — one accountable partner from brief to handover.</p>
+        <p class="s2-sub">Five specializations — one accountable partner from brief to handover.</p>
       </div>
       <div class="svc-rows svc-rows--list rv">
         {navigation.services.map((svc, i) => (

@@ -262,8 +262,15 @@ body.lightbox-open { overflow: hidden; }
 
 /* Logo — sized for slim dark nav (canonical values in components.css) */
 .nav-logo img {
-  height: clamp(1.85rem, 4vw, 2.75rem);
+  height: clamp(2.35rem, 5.5vw, 3.65rem);
   width: auto;
   display: block;
-  border-radius: 4px;
+  filter: brightness(0) invert(1);
+  opacity: 0.93;
+}
+@media (max-width: 1023px) {
+  .nav-logo img {
+    height: clamp(2.65rem, 8vw, 3.5rem);
+    opacity: 0.95;
+  }
 }
