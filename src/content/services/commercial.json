@@ -23,7 +23,11 @@
     { "src": "/images/reference/office-03.jpg", "alt": "Open-plan workplace with amber feature wall and task lighting", "category": "Office · Workplace", "name": "Feature wall workplace", "note": "Amber accent · task lighting" },
     { "src": "/images/reference/office-04.jpg", "alt": "Dark contemporary workplace with black workstations and focused zones", "category": "Office · Workplace", "name": "Dark contemporary workplace", "note": "Dark palette · focused zones" },
     { "src": "/images/reference/office-05.jpg", "alt": "Minimalist bright open workplace with clean geometry", "category": "Office · Open-plan", "name": "Minimalist open workplace", "note": "Bright · clean geometry" },
-    { "src": "/images/reference/office-06.jpg", "alt": "Collaborative open floor with warm wood flooring and open planning", "category": "Office · Collaborative", "name": "Collaborative open floor", "note": "Wood floor · open planning" }
+    { "src": "/images/reference/office-06.jpg", "alt": "Collaborative open floor with warm wood flooring and open planning", "category": "Office · Collaborative", "name": "Collaborative open floor", "note": "Wood floor · open planning" },
+    { "src": "/images/reference/concept-corporate-boardroom.jpeg", "alt": "Dark wood executive boardroom with long conference table and city views", "category": "Corporate · Boardroom", "name": "Executive boardroom", "note": "Dark wood · city view" },
+    { "src": "/images/reference/concept-corporate-collab.jpeg", "alt": "Modern corporate collaboration lounge with curved reception and biophilic elements", "category": "Corporate · Collaboration", "name": "Collaboration & reception lounge", "note": "Curved forms · biophilic" },
+    { "src": "/images/reference/concept-corporate-lounge.jpeg", "alt": "Private corporate lounge with dark joinery, leather seating and display shelving", "category": "Corporate · Lounge", "name": "Corporate executive lounge", "note": "Dark joinery · leather seating" },
+    { "src": "/images/reference/concept-corporate-media.jpeg", "alt": "Large-format media boardroom with projection wall, wood panelling and long table", "category": "Corporate · Media", "name": "Media & presentation boardroom", "note": "Projection wall · wood panels" }
   ],
   "relatedProjectSlugs": ["corporate-hitec", "office-madhapur"]
 }
