@@ -114,19 +114,25 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   .nav-actions{position:relative;gap:0;}
   .nav-ham{display:flex;z-index:363;}
   .nav-links{
-    /* Full-screen overlay — scrolls as one natural page (iOS-safe) */
     position:fixed;
-    inset:0;
-    top:0;right:0;bottom:0;left:0;
-    width:100%;max-width:none;
-    height:100vh;height:100dvh;max-height:none;
+    top:calc(var(--nav-offset, 5.75rem) + 10px);
+    right:var(--container-pad);
+    left:auto;bottom:auto;
+    width:min(17.5rem,calc(100vw - 2 * var(--container-pad)));
+    width:min(17.5rem,calc(100dvw - 2 * var(--container-pad)));
+    max-width:280px;
+    max-height:calc(100vh - var(--nav-offset, 5.75rem) - 24px);
+    max-height:calc(100dvh - var(--nav-offset, 5.75rem) - 24px);
     margin:0;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
-    padding:calc(var(--nav-offset, 5.75rem) + 10px) 0 2rem;
+    padding:.35rem 0;
     background:var(--paper);
-    border:none;border-radius:0;box-shadow:none;
+    border:1px solid rgba(var(--bronze-rgb),.1);
+    border-radius:var(--radius-md);
+    box-shadow:0 12px 40px rgba(var(--charcoal-rgb),.2),0 2px 8px rgba(var(--charcoal-rgb),.08);
     overflow-y:auto;overflow-x:hidden;
     -webkit-overflow-scrolling:touch;
-    transform:translateY(-8px);
+    transform-origin:top right;
+    transform:scale(.96) translateY(-6px);
     opacity:0;visibility:hidden;pointer-events:none;
     transition:opacity .22s ease,transform .22s ease,visibility .22s ease;
     z-index:361;
@@ -212,13 +218,13 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   }
   .nav-svc > summary::after{display:none;}
   .nav-svc > summary .nav-caret{margin-left:auto;opacity:.55;transition:transform .25s ease;}
-  /* Mobile: service list always visible (no accordion). No max-height/overflow
-     so nothing can ever clip on iOS Safari. Reliable across all iPhones. */
-  .nav-svc__list{
-    display:block!important;
-    max-height:none!important;overflow:visible!important;
-  }
-  .nav-svc > summary .nav-caret{display:none;}
+  /* Accordion via DISPLAY toggle (not max-height — max-height clips on iOS).
+     Collapsed by default; .is-open reveals the full list at natural height.
+     The dropdown panel's own overflow-y:auto handles scrolling if needed. */
+  .nav-svc__list{display:none;}
+  .nav-svc__list.is-open{display:block;}
+  .nav-svc > summary .nav-caret{margin-left:auto;opacity:.55;transition:transform .25s ease;}
+  .nav-svc:has(+ #nav-svc-list.is-open) > summary .nav-caret{transform:rotate(180deg);opacity:.8;}
   .nav-svc__list a{
     display:block;padding:1rem 1.2rem 1rem 1.75rem;min-height:44px;
     font-size:.68rem!important;letter-spacing:.1em!important;
