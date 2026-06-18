@@ -217,18 +217,13 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
   }
   .nav-svc > summary::after{display:none;}
   .nav-svc > summary .nav-caret{margin-left:auto;opacity:.55;transition:transform .25s ease;}
-  /* Collapsible accordion — list is outside <details>, toggled via .is-open.
-     Use a generously large open max-height so the last item (Healthcare) can
-     never be clipped on devices that render the rows taller (iOS Safari).
-     overflow:hidden is forced to defeat any lingering internal-scroll rule. */
+  /* Mobile: service list always visible (no accordion). No max-height/overflow
+     so nothing can ever clip on iOS Safari. Reliable across all iPhones. */
   .nav-svc__list{
-    display:block;
-    max-height:0;overflow:hidden!important;
-    transition:max-height .35s ease;
+    display:block!important;
+    max-height:none!important;overflow:visible!important;
   }
-  .nav-svc__list.is-open{max-height:80rem;}
-  /* Rotate caret when list is open (sibling of #nav-svc-list's controller) */
-  .nav-svc:has(+ #nav-svc-list.is-open) > summary .nav-caret{transform:rotate(180deg);opacity:.8;}
+  .nav-svc > summary .nav-caret{display:none;}
   .nav-svc__list a{
     display:block;padding:1rem 1.2rem 1rem 1.75rem;min-height:44px;
     font-size:.68rem!important;letter-spacing:.1em!important;
