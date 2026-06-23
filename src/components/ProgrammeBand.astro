@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  ongoing = company.ongoingProjects,
-  completed = company.completedProjects,
+  ongoing = company.ongoingProjects as ProjectItem[],
+  completed = company.completedProjects as ProjectItem[],
 } = Astro.props;
 ---
 

@@ -27,5 +27,5 @@
     { "src": "/images/reference/whatsapp-19.jpg", "alt": "Grand reception hall with multiple seating groups, chandelier and marble floor", "category": "Residential · Hall", "name": "Grand reception hall", "note": "Multiple seating · marble inlay" },
     { "src": "/images/reference/whatsapp-25.jpg", "alt": "Home media room with backlit joinery wall and dark custom sofas", "category": "Residential · Entertainment", "name": "Home media room", "note": "Backlit joinery · dark sofas" }
   ],
-  "relatedProjectSlugs": ["villa-raidurg", "apartment-jubilee"]
+  "relatedProjectSlugs": ["villa-raidurg"]
 }

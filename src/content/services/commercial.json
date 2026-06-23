@@ -29,5 +29,5 @@
     { "src": "/images/reference/concept-corporate-lounge.jpeg", "alt": "Private corporate lounge with dark joinery, leather seating and display shelving", "category": "Corporate · Lounge", "name": "Corporate executive lounge", "note": "Dark joinery · leather seating" },
     { "src": "/images/reference/concept-corporate-media.jpeg", "alt": "Large-format media boardroom with projection wall, wood panelling and long table", "category": "Corporate · Media", "name": "Media & presentation boardroom", "note": "Projection wall · wood panels" }
   ],
-  "relatedProjectSlugs": ["corporate-hitec", "office-madhapur"]
+  "relatedProjectSlugs": ["corporate-hitec"]
 }

@@ -1,5 +1,5 @@
 {
-  "title": "Contemporary Villa — Raidurg",
+  "title": "Raghava Iris Residential Project",
   "slug": "villa-raidurg",
   "category": "residential",
   "location": "Raidurg, Hyderabad",
@@ -7,65 +7,18 @@
   "area": "12,400 sq ft",
   "featuredRank": 1,
   "heroImage": "/images/reference/residential-01.jpg",
-  "overview": "A full-home turnkey programme for a premium villa — layered living spaces, bespoke joinery, and white-glove handover across 12,400 sq ft.",
-  "brief": "The client sought a contemporary family home that reads calm and collected on first arrival — generous daylight, clear circulation between formal and private zones, and finishes that withstand daily use without losing a premium feel.",
-  "approach": "We anchored the palette on warm neutrals, brushed brass, and honed stone, resolving junctions in joinery before civil works began. Lighting was layered by scene — morning task, evening entertaining, and quiet night modes — with AV and storage integrated into millwork rather than added as afterthoughts.",
-  "materials": [
-    "Honed Italian marble in formal areas",
-    "Oak-veneered joinery with concealed hardware",
-    "Brushed brass accents at touch points",
-    "Performance textiles in family zones"
-  ],
+  "overview": "A full-home residential interiors programme for Raghava Iris — full case study and site photography to be published shortly.",
   "scope": [
-    "Architecture coordination and interior concept",
-    "Bespoke kitchens, wardrobes, and joinery",
-    "Layered lighting and AV integration",
-    "Turnkey civil, MEP, and finishes"
+    "Full-home interior design and execution",
+    "Bespoke joinery and finishes",
+    "Turnkey civil, MEP, and handover"
   ],
   "execution": {
-    "timeline": "14 months — concept to handover",
-    "details": "Phased delivery across three floors with daily site leadership, vendor QC, and documented snag close-out."
+    "timeline": "In progress",
+    "details": "Project is underway. Detailed scope, materials, and site photography will be added as the programme advances toward handover."
   },
-  "outcome": {
-    "area": "12,400 sq ft",
-    "timeline": "14 months",
-    "handover": "Q4 2024",
-    "summary": "Delivered on programme with a single accountable desk from concept through snag-free handover — all three floors signed off in one coordinated close-out."
-  },
-  "processStrip": [
-    {
-      "label": "Concept",
-      "src": "/images/reference/residential-02.jpg",
-      "alt": "Villa Raidurg — concept mood and material palette"
-    },
-    {
-      "label": "Site",
-      "src": "/images/reference/residential-03.jpg",
-      "alt": "Villa Raidurg — joinery and finishes in progress"
-    },
-    {
-      "label": "Finish",
-      "src": "/images/reference/residential-04.jpg",
-      "alt": "Villa Raidurg — completed living space"
-    }
-  ],
-  "testimonial": {
-    "quote": "Vencore translated our brief into a villa that feels both contemporary and deeply personal — every junction, material, and detail was resolved before a single wall went up.",
-    "name": "Rajesh",
-    "role": "Homeowner",
-    "attribution": "first-name-role"
-  },
-  "relatedProjectSlugs": ["apartment-jubilee", "corporate-hitec"],
+  "relatedProjectSlugs": ["corporate-hitec", "retail-showroom"],
   "gallery": [
-    "/images/reference/residential-01.jpg",
-    "/images/reference/residential-02.jpg",
-    "/images/reference/residential-03.jpg",
-    "/images/reference/residential-04.jpg",
-    "/images/reference/residential-05.jpg",
-    "/images/reference/residential-06.jpg",
-    "/images/reference/whatsapp-01.jpg",
-    "/images/reference/whatsapp-02.jpg",
-    "/images/reference/whatsapp-03.jpg",
-    "/images/reference/whatsapp-04.jpg"
+    "/images/reference/residential-01.jpg"
   ]
 }

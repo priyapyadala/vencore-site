@@ -13,7 +13,8 @@ const latestInsights = getInsights().slice(0, 2);
 const heroImage = '/images/hero/services-hero.jpeg';
 const heroVideo = '/video/hero-loop.webm';
 const storyImage = '/images/hero/hero-alt-7.jpeg';
-const testimonials = navigation.testimonials;
+type Testimonial = { quote: string; name: string; role: string; project: string; attribution?: string };
+const testimonials: Testimonial[] = navigation.testimonials;
 ---
 
 <BaseLayout
@@ -72,7 +73,7 @@ const testimonials = navigation.testimonials;
           </div>
           <a href="/projects/villa-raidurg" class="h-card--compact h-mobile-featured">
             <span class="h-card-tag h-card-tag--concept">Featured</span>
-            <span class="h-card-title">Contemporary Villa — Raidurg</span>
+            <span class="h-card-title">Raghava Iris Residential Project</span>
             <span class="h-card-meta">12,400 sq ft · Turnkey</span>
             <span class="h-card-cta" aria-hidden="true">↗</span>
           </a>
@@ -80,7 +81,7 @@ const testimonials = navigation.testimonials;
         <aside class="h-side" aria-label="Featured program">
           <a href="/projects/villa-raidurg" class="h-card" style="text-decoration:none;color:inherit">
             <div class="h-card-tag h-card-tag--concept">Featured program</div>
-            <div class="h-card-title">Contemporary Villa<br/>— Raidurg</div>
+            <div class="h-card-title">Raghava Iris<br/>Residential Project</div>
             <div class="h-card-rule"></div>
             <div class="h-card-meta">Turnkey scope · 12,400 sq ft<br/><strong>Design-led execution</strong></div>
           </a>
@@ -216,27 +217,29 @@ const testimonials = navigation.testimonials;
     </div>
   </section>
 
-  <section id="s-proof" class="sec s-proof">
-    <div class="container">
-      <div class="s-proof-head rv">
-        <div class="lbl">Client voices</div>
-        <h2 class="sh2">Trusted by <em>discerning clients</em></h2>
+  {testimonials.length > 0 && (
+    <section id="s-proof" class="sec s-proof">
+      <div class="container">
+        <div class="s-proof-head rv">
+          <div class="lbl">Client voices</div>
+          <h2 class="sh2">Trusted by <em>discerning clients</em></h2>
+        </div>
+        <div class="s-proof-grid rv">
+          {testimonials.map((t) => (
+            <blockquote class="proof-card">
+              <span class="proof-mark" aria-hidden="true">"</span>
+              <p class="proof-quote">{t.quote}</p>
+              <hr class="proof-rule" />
+              <footer class="proof-foot">
+                <cite class="proof-client">{t.name}, {t.role}</cite>
+                <span class="proof-project">{t.project}</span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
       </div>
-      <div class="s-proof-grid rv">
-        {testimonials.map((t) => (
-          <blockquote class="proof-card">
-            <span class="proof-mark" aria-hidden="true">"</span>
-            <p class="proof-quote">{t.quote}</p>
-            <hr class="proof-rule" />
-            <footer class="proof-foot">
-              <cite class="proof-client">{t.name}, {t.role}</cite>
-              <span class="proof-project">{t.project}</span>
-            </footer>
-          </blockquote>
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   {latestInsights.length > 0 && (
     <section id="s-insights" class="sec sec-alt">

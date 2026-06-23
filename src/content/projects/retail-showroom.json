@@ -1,43 +1,24 @@
 {
-  "title": "Luxury Auto Showroom",
+  "title": "Manéa The Salon",
   "slug": "retail-showroom",
   "category": "retail",
   "location": "Hyderabad",
   "year": "2023",
   "area": "8,000 sq ft",
-  "featuredRank": 5,
+  "featuredRank": 4,
   "heroImage": "/images/reference/retail-01.jpg",
-  "overview": "Brand-aligned showroom with display lighting, customer lounge, and back-of-house service zones.",
-  "brief": "An automotive brand needed a showroom that puts product on a pedestal — controlled display lighting, a calm customer lounge, and back-of-house flows that do not interrupt the sales journey.",
-  "approach": "Display lighting was designed before ceiling grid lock-in. Durable floor finishes and service routes were resolved early so launch-critical civil works could run in parallel with joinery.",
-  "materials": ["Display-grade lighting", "High-traffic floor finishes", "Feature stone at reception", "Acoustic treatment in lounge"],
-  "scope": ["Showroom layout and display", "Customer lounge", "Lighting design", "Fast-track fit-out"],
-  "execution": {
-    "timeline": "5 months",
-    "details": "Launch-critical schedule with parallel civil and services works."
-  },
-  "outcome": {
-    "area": "8,000 sq ft",
-    "timeline": "5 months",
-    "handover": "Q4 2023",
-    "summary": "Showroom opened for a brand launch date with display lighting commissioned and signed off in a single client walkthrough."
-  },
-  "processStrip": [
-    { "label": "Concept", "src": "/images/reference/retail-02.jpg", "alt": "Auto showroom — display concept" },
-    { "label": "Site", "src": "/images/reference/retail-03.jpg", "alt": "Auto showroom — services and ceiling works" },
-    { "label": "Finish", "src": "/images/reference/retail-04.jpg", "alt": "Auto showroom — completed display floor" }
+  "overview": "Interior fit-out for Manéa The Salon, a premium beauty and wellness salon — completed. Full case study and site photography to be published shortly.",
+  "scope": [
+    "Salon floor and styling station layout",
+    "Reception and retail display areas",
+    "Lighting and finishes"
   ],
+  "execution": {
+    "timeline": "Completed",
+    "details": "Fit-out delivered for a premium salon brand. Full project documentation and photography to follow."
+  },
   "relatedProjectSlugs": ["corporate-hitec"],
   "gallery": [
-    "/images/reference/retail-01.jpg",
-    "/images/reference/retail-02.jpg",
-    "/images/reference/retail-03.jpg",
-    "/images/reference/retail-04.jpg",
-    "/images/reference/retail-05.jpg",
-    "/images/reference/retail-06.jpg",
-    "/images/reference/retail-07.jpg",
-    "/images/reference/retail-08.jpg",
-    "/images/reference/whatsapp-21.jpg",
-    "/images/reference/whatsapp-22.jpg"
+    "/images/reference/retail-01.jpg"
   ]
 }

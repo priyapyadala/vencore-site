@@ -31,20 +31,5 @@
       "description": "Hospitals, clinics & wellness spaces"
     }
   ],
-  "testimonials": [
-    {
-      "quote": "Vencore translated our brief into a villa that feels both contemporary and deeply personal — every junction, material, and detail was resolved before a single wall went up.",
-      "name": "Rajesh",
-      "role": "Homeowner",
-      "project": "Contemporary Villa — Raidurg",
-      "attribution": "first-name-role"
-    },
-    {
-      "quote": "They delivered our corporate floor on programme without compromising design intent. One team, one point of accountability — exactly what we needed.",
-      "name": "Priya",
-      "role": "Facilities Lead",
-      "project": "Office fit-out — Madhapur",
-      "attribution": "first-name-role"
-    }
-  ]
+  "testimonials": []
 }
