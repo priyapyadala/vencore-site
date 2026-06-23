@@ -58,20 +58,13 @@
     "Custom mixed-scope engagement on request"
   ],
   "ongoingProjects": [
-    { "name": "Raghava Iris", "meta": "Demo works (Tower-3, Landlord Share scope)" },
-    { "name": "Villa development", "meta": "Raghava Sage" },
-    { "name": "Commercial retail projects", "meta": "Shaikpet and Manikonda" },
-    { "name": "Residential & PG/hostel developments", "meta": "Raidurg" },
-    { "name": "Sowjanya Dental Clinic", "meta": "Retrofit upgrade, Himayatnagar" },
-    { "name": "Mane Salon", "meta": "Interior fit-out, Shaikpet" }
+    { "name": "Vencore Corporate Office Project" },
+    { "name": "Raghava Iris Residential Project" }
   ],
   "completedProjects": [
-    { "name": "Residential apartments", "meta": "Prashanth Hills" },
-    { "name": "Residential interiors", "meta": "Manikonda" },
-    { "name": "Residential works", "meta": "Madura Nagar" },
-    { "name": "4 PG / Hostel developments", "meta": "Raidurg" },
-    { "name": "Two Villa projects", "meta": "Raidurg (Contemporary & Neo-classic execution)" },
-    { "name": "Multiple interior and residential execution works", "meta": "Across Hyderabad" }
+    { "name": "Retrofit Works for Sowjanya Dental Clinic" },
+    { "name": "Derma Innovations" },
+    { "name": "Manéa The Salon" }
   ],
   "partners": [
     { "name": "Raghava",            "logo": "/images/partners/raghava.jpg" },
