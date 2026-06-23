@@ -1,5 +1,39 @@
 /* Vencore — components: nav, UI, home, inner pages */
 
+/* ── Floating WhatsApp button (all pages) ── */
+.wa-float{
+  position:fixed;
+  right:clamp(1rem,3vw,1.75rem);
+  bottom:clamp(1rem,3vw,1.75rem);
+  z-index:500;
+  display:flex;align-items:center;justify-content:center;
+  width:56px;height:56px;
+  border-radius:50%;
+  background:#25d366;color:#fff;
+  box-shadow:0 6px 20px rgba(37,211,102,.45),0 2px 6px rgba(0,0,0,.2);
+  transition:transform .25s ease,box-shadow .25s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.wa-float:hover,.wa-float:focus-visible{
+  transform:scale(1.08);
+  box-shadow:0 10px 28px rgba(37,211,102,.55),0 3px 8px rgba(0,0,0,.25);
+  outline:none;
+}
+.wa-float svg{position:relative;z-index:2;}
+.wa-float__pulse{
+  position:absolute;inset:0;border-radius:50%;
+  background:#25d366;z-index:1;
+  animation:wa-pulse 2.4s ease-out infinite;
+}
+@keyframes wa-pulse{
+  0%{transform:scale(1);opacity:.55;}
+  70%{transform:scale(1.7);opacity:0;}
+  100%{transform:scale(1.7);opacity:0;}
+}
+@media(prefers-reduced-motion:reduce){
+  .wa-float__pulse{animation:none;display:none;}
+}
+
 /* ── Accessibility ── */
 .skip-link{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;

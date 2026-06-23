@@ -74,12 +74,13 @@
     { "name": "Multiple interior and residential execution works", "meta": "Across Hyderabad" }
   ],
   "partners": [
-    { "name": "Hallmark Builders", "logo": "/images/partners/hallmark.png" },
-    { "name": "Domino's Pizza",    "logo": "/images/partners/dominos.png" },
-    { "name": "Tata Motors",       "logo": "/images/partners/tata.png" },
-    { "name": "Volkswagen",        "logo": "/images/partners/volkswagen.png" },
-    { "name": "Apollo Hospitals",  "logo": "/images/partners/apollo.png" },
-    { "name": "Elegance",          "logo": null },
-    { "name": "Raghava",           "logo": null }
+    { "name": "Raghava",            "logo": "/images/partners/raghava.jpg" },
+    { "name": "Hallmark Builders",  "logo": "/images/partners/hallmark.jpg" },
+    { "name": "Derma Innovations",  "logo": "/images/partners/derma.jpg" },
+    { "name": "Sowjanya Dental Hospital", "logo": "/images/partners/dental.jpg" },
+    { "name": "Aditi Housing & Constructions", "logo": "/images/partners/atidi.png" },
+    { "name": "Surya Devara Infrastructures", "logo": "/images/partners/SDI.jpg" },
+    { "name": "KLM Homes",          "logo": "/images/partners/klm.jpg" },
+    { "name": "Manéa The Salon",    "logo": "/images/partners/saloon.jpg" }
   ]
 }

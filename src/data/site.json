@@ -1,12 +1,13 @@
 {
   "contact": {
     "address": [
+      "Vencore Design LLP, Door No: 9-24/9B/2, 9th Floor,",
       "Vaishnavi Cymbol, Financial District,",
-      "Nanakramguda, Hyderabad — Telangana"
+      "Nanakramguda, Hyderabad — 500032, Telangana"
     ],
     "phone": {
-      "display": "+91 98660 14663",
-      "href": "tel:+919866014663"
+      "display": "+91 98660 14664",
+      "href": "tel:+919866014664"
     },
     "emails": [
       { "address": "hello@vencoredesign.co", "href": "mailto:hello@vencoredesign.co" },
