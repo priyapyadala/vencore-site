@@ -138,11 +138,19 @@ function navCurrent(key: string) {
     }
   });
 
-  // Close when focus moves outside the menu entirely (keyboard tabbing away).
-  mega?.addEventListener('focusout', (e) => {
-    const next = e.relatedTarget as Node | null;
-    if (mega.open && (!next || !mega.contains(next))) {
-      mega.open = false;
-    }
+  // Close when keyboard focus tabs past the menu entirely. Gated on Tab
+  // specifically (not a generic 'focusout') because Safari, unlike Chromium,
+  // doesn't move focus onto a clicked <summary>/non-form element — a plain
+  // focusout fired immediately after every click on "Services" and closed
+  // the panel before its own link could be followed, silently cancelling
+  // the navigation. Scoping to Tab sidesteps that entirely: clicks never
+  // dispatch a Tab keydown, so this only ever fires for real keyboard users.
+  mega?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    setTimeout(() => {
+      if (mega.open && !mega.contains(document.activeElement)) {
+        mega.open = false;
+      }
+    }, 0);
   });
 </script>

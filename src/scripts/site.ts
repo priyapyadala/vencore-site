@@ -137,7 +137,12 @@ function bindNav() {
     else open();
   });
   backdrop?.addEventListener('click', close);
-  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  // Defer the close so the menu-hiding style change (visibility/pointer-events,
+  // applied synchronously via CSS) doesn't race the browser's own link
+  // navigation. WebKit (Safari) cancels a pending navigation if the clicked
+  // link's container becomes hidden within the same click-event tick;
+  // Chrome/Firefox tolerate it, which is why this only broke in Safari.
+  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setTimeout(close, 0)));
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && links.classList.contains('open')) {
