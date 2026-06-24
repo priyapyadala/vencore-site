@@ -72,7 +72,11 @@ const filters = [
               <div class="pc2-info">
                 <div class="pc2-cat">{titleCase(proj.category)}</div>
                 <div class="pc2-name">{proj.title}</div>
-                <div class="pc2-loc">{proj.location} · {proj.year}</div>
+                <div class="pc2-loc">
+                  {proj.execution.timeline.toLowerCase() === 'in progress'
+                    ? 'In Progress'
+                    : `${proj.location} · ${proj.year}`}
+                </div>
               </div>
             </div>
           </div>
