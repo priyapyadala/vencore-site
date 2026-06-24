@@ -8,7 +8,11 @@ import company from '../data/company.json';
 import { titleCase } from '../lib/format';
 import { getFeaturedProjects, getInsights } from '../lib/content';
 
-const featuredProjects = getFeaturedProjects(4);
+// Homepage portfolio only shows completed work — in-progress projects
+// (e.g. Vencore Corporate Office, Raghava Iris) aren't ready to feature yet.
+const featuredProjects = getFeaturedProjects(10)
+  .filter((proj) => proj.execution.timeline.toLowerCase() !== 'in progress')
+  .slice(0, 3);
 const latestInsights = getInsights().slice(0, 2);
 const heroImage = '/images/hero/services-hero.jpeg';
 const heroVideo = '/video/hero-loop.webm';
@@ -98,29 +102,6 @@ const testimonials: Testimonial[] = navigation.testimonials;
           </defs>
           <line class="h-scroll-draw" x1="1" y1="0" x2="1" y2="40" stroke="url(#hScrollGrad)" stroke-width="1.5" pathLength="40" />
         </svg>
-      </div>
-    </div>
-    <div class="h-stats" aria-label="Trust highlights">
-      <div class="hs">
-        <div class="hs-n" data-stat="type" data-value="1970s">1970s</div>
-        <div class="hs-l">
-          <span class="hs-l-full">Family legacy</span>
-          <span class="hs-l-short">Legacy</span>
-        </div>
-      </div>
-      <div class="hs">
-        <div class="hs-n" data-stat="count" data-value="100" data-suffix="+">100+</div>
-        <div class="hs-l">
-          <span class="hs-l-full">Projects delivered</span>
-          <span class="hs-l-short">Projects</span>
-        </div>
-      </div>
-      <div class="hs">
-        <div class="hs-n hs-city" data-stat="type" data-value="Hyderabad">Hyderabad</div>
-        <div class="hs-l">
-          <span class="hs-l-full">City-wide execution</span>
-          <span class="hs-l-short">City-wide</span>
-        </div>
       </div>
     </div>
   </section>
