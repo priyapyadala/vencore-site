@@ -512,9 +512,32 @@
   border-color: rgba(var(--cognac-rgb), 0.25);
 }
 
+/* The shared .brief-form rule (components.css) makes the form a 2-column
+   grid at >=1024px for the plain/legacy contact form elsewhere on the site.
+   This premium variant lays out pairs itself via .brief-field--row, so the
+   outer grid must stay single-column — otherwise each row (and even
+   standalone fields like Email) only gets placed into one of the outer
+   grid's two columns, on top of brief-field--row's own 2-up split below,
+   compounding into fields a quarter of their intended width (most visible
+   on tablet widths like iPad's 1024px, where the page's own left/right
+   split also kicks in at the same breakpoint). */
+.contact-page .brief-form--premium {
+  grid-template-columns: 1fr;
+}
+
 .contact-page .brief-form--premium .brief-field--row {
+  grid-column: 1 / -1;
   display: grid;
   gap: 1rem;
+}
+
+/* Grid items default to min-width:auto, which resolves to the input's
+   content-based minimum width. Without overriding this, a 1fr track won't
+   shrink below that minimum, so the grid silently overflows its container
+   instead of dividing the row evenly — this is what was pushing the Phone
+   / Approx. area fields past the right edge on tablet widths. */
+.contact-page .brief-form--premium .brief-field--row > .brief-field {
+  min-width: 0;
 }
 
 @media (min-width: 1024px) {
