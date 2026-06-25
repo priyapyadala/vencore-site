@@ -9,6 +9,9 @@ const articles = getInsights();
 const topics = getInsightTopics();
 const featured = articles[0];
 
+const numberWords = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
+const lensCount = numberWords[topics.length] ?? String(topics.length);
+
 const topicDescriptions: Record<string, string> = {
   Workplace: 'Hybrid offices, agile floors, and brand-aligned corporate fit-outs.',
   Healthcare: 'Patient flow, clinical materials, and phased hospital programmes.',
@@ -162,7 +165,7 @@ const insightsLd = {
   <section class="insights-topics" aria-labelledby="themes-heading">
     <div class="insights-topics__inner rv">
       <span class="lbl">Themes we write about</span>
-      <h2 class="sh2" id="themes-heading">Three lenses on <em>delivery</em></h2>
+      <h2 class="sh2" id="themes-heading">{lensCount} lenses on <em>delivery</em></h2>
       <div class="insights-topics__grid">
         {topics.map((topic) => (
           <article class="insights-topic-card">
