@@ -1,7 +1,7 @@
 ---
 title: "Healthcare Planning — Patient-Centred Interiors"
 slug: "healthcare-planning"
-date: "2025-11-20"
+date: "2026-04-15"
 topic: "Healthcare"
 excerpt: "Designing hospitals and clinics where clinical precision meets human dignity — wayfinding, infection control, and calm environments."
 heroImage: "/images/reference/hospital-05.jpg"

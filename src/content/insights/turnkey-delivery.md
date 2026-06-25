@@ -1,7 +1,7 @@
 ---
 title: "Turnkey Delivery — One Contract, One Desk"
 slug: "turnkey-delivery"
-date: "2025-09-08"
+date: "2026-01-05"
 topic: "Delivery"
 excerpt: "Why design-build integration eliminates the seams between concept and site — and what owners should expect from a turnkey partner."
 heroImage: "/images/reference/service-02.jpg"

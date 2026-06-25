@@ -1349,6 +1349,10 @@ body.nav-open .nav-backdrop,#navbackdrop:not([hidden]){display:block;position:fi
 @media(max-width:767px){
   .ft-min-bottom{flex-direction:column;justify-content:center;text-align:center;}
 }
+/* Reserve space so the fixed WhatsApp button never sits on top of the legal links,
+   at any viewport width — the button is fixed bottom-right and the legal row is
+   right-aligned, so they share the same corner unless we pad for it. */
+.site-footer--minimal{padding-bottom:clamp(4.5rem,18vw,5.5rem);}
 
 /* ══ REVEAL ══ */
 .rv,.rv-l,.rv-r{transition:opacity .9s ease,transform .9s ease;}
