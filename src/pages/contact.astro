@@ -277,7 +277,7 @@ const contactLd = {
             name="attachment"
             accept=".pdf,.jpg,.jpeg,.png,.webp"
           />
-          <span class="brief-field__hint">PDF or image, max 10 MB. Or email drawings to <a href="mailto:hello@vencoredesign.co">hello@vencoredesign.co</a>.</span>
+          <span class="brief-field__hint">PDF or image, max 10 MB. Or email drawings to <a href="mailto:info@vencoredesign.com">info@vencoredesign.com</a>.</span>
         </div>
 
         <div class="brief-form-actions">
@@ -526,7 +526,7 @@ const contactLd = {
       return;
     }
 
-    window.location.href = `mailto:hello@vencoredesign.co?subject=${encodeURIComponent(`Vencore briefing — ${payload.typology}`)}&body=${encodeURIComponent(message)}`;
+    window.location.href = `mailto:info@vencoredesign.com?subject=${encodeURIComponent(`Vencore briefing — ${payload.typology}`)}&body=${encodeURIComponent(message)}`;
     form.classList.remove('is-sending');
     submitBtn?.removeAttribute('disabled');
     if (submitBtn) submitBtn.textContent = 'Send private briefing ↗';
