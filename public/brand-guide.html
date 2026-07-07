@@ -13,7 +13,7 @@
     font-family: 'Outfit', system-ui, sans-serif;
     color: #2f291f;
     background: #fbf7ef;
-    padding: 48px 56px;
+    padding: 44px 52px;
     max-width: 900px;
     margin: 0 auto;
     font-size: 14px;
@@ -21,280 +21,262 @@
   }
 
   @media print {
-    body { padding: 24px 32px; background: #fff; }
-    .section { break-inside: avoid; }
+    /* Force all backgrounds and colours to print */
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    body { padding: 20px 28px; background: #fff; font-size: 12px; }
+    /* Only avoid breaks on small self-contained items */
     .no-break { break-inside: avoid; }
+    .section { margin-bottom: 1.25rem; }
+    /* Swatches: 2 columns in print so role text doesn't wrap to 3+ lines */
+    .swatch-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+    .swatch-grid-3 { grid-template-columns: repeat(3, 1fr) !important; }
+    /* Spacing grid: force all 8 bars in one row */
+    .spacing-row { grid-template-columns: repeat(8, 1fr) !important; }
   }
 
-  /* Header */
+  /* ── Header ── */
   .guide-header {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.2rem;
     border-bottom: 1px solid #e8dfd3;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.75rem;
   }
   .guide-header .meta {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #9b8e82;
-    margin-bottom: 0.4rem;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #9b8e82; margin-bottom: 0.3rem;
   }
   .guide-header h1 {
     font-family: 'Cormorant', Georgia, serif;
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: #2a2219;
-    line-height: 1.1;
+    font-size: 2.4rem; font-weight: 400; color: #2a2219; line-height: 1.1;
   }
   .guide-header h1 em { color: #7a4728; }
-  .guide-header .sub {
-    font-size: 12px;
-    color: #766d63;
-    margin-top: 0.5rem;
-  }
+  .guide-header .sub { font-size: 13px; color: #766d63; margin-top: 0.4rem; }
 
-  /* Sections */
-  .section { margin-bottom: 2.5rem; }
+  /* ── Sections ── */
+  .section { margin-bottom: 1.75rem; }
   .sec-head {
-    background: #2a2219;
-    color: #fbf7ef;
-    padding: 0.5rem 1rem;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    background: #2a2219; color: #fbf7ef;
+    padding: 0.42rem 1rem; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
     border-radius: 6px 6px 0 0;
   }
   .sec-body {
-    border: 1px solid #d4c9bb;
-    border-top: none;
-    border-radius: 0 0 6px 6px;
-    padding: 1.25rem 1.5rem;
-    background: #fff;
+    border: 1px solid #d4c9bb; border-top: none;
+    border-radius: 0 0 6px 6px; padding: 1rem 1.3rem; background: #fff;
   }
 
-  /* Sub-labels */
   .sub-label {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: #9b8e82;
-    margin-bottom: 0.6rem;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.07em; color: #9b8e82; margin-bottom: 0.5rem;
   }
+  hr.divider { border: none; border-top: 1px solid #f0e9df; margin: 0.8rem 0; }
 
-  hr.divider {
-    border: none;
-    border-top: 1px solid #f0e9df;
-    margin: 1rem 0;
+  /* ── Swatches — CSS grid, no orphans ── */
+  .swatch-grid-4 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
   }
-
-  /* Swatches */
-  .swatch-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 0.75rem; }
-  .swatch { display: flex; align-items: center; gap: 8px; }
+  .swatch-grid-3 {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  }
+  .swatch-grid-2 {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  }
+  .swatch { display: flex; align-items: flex-start; gap: 8px; }
   .swatch-block {
-    width: 40px; height: 40px;
-    border-radius: 6px;
-    border: 1px solid rgba(0,0,0,0.08);
-    flex-shrink: 0;
+    width: 34px; height: 34px; border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.09); flex-shrink: 0; margin-top: 1px;
   }
-  .swatch-name { font-weight: 600; font-size: 12px; color: #2a2219; }
-  .swatch-hex { font-family: 'Courier New', monospace; font-size: 11px; color: #766d63; }
-  .swatch-role { font-size: 10px; color: #9b8e82; text-transform: uppercase; letter-spacing: 0.05em; }
+  .swatch-name { font-weight: 600; font-size: 13px; color: #2a2219; line-height: 1.3; }
+  .swatch-hex  { font-family: 'Courier New', monospace; font-size: 12px; color: #766d63; }
+  .swatch-role { font-size: 12px; color: #9b8e82; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 1px; line-height: 1.3; }
 
-  /* Ramp bar */
+  /* ── Ramp bar ── */
   .ramp-bar {
-    height: 10px;
-    border-radius: 5px;
-    background: linear-gradient(90deg, #11100e, #2a2219, #7a4728, #9b6b3d, #c7a46a, #dfc58c, #f4eee4, #fbf7ef);
-    margin: 0.75rem 0 0.25rem;
+    height: 9px; border-radius: 5px;
+    background: linear-gradient(90deg,#11100e,#2a2219,#7a4728,#9b6b3d,#c7a46a,#dfc58c,#f4eee4,#fbf7ef);
+    margin: 0.75rem 0 0.2rem;
   }
   .ramp-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 9px;
-    color: #9b8e82;
-    font-family: 'Courier New', monospace;
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: #9b8e82; font-family: 'Courier New', monospace;
   }
 
-  /* Type scale */
-  .type-row {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #f5f0e8;
-  }
-  .type-row:last-child { border-bottom: none; }
-  .type-token {
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    color: #9b8e82;
-    min-width: 100px;
-  }
+  /* ── Typography ── */
   .font-serif { font-family: 'Cormorant', Georgia, serif; }
   .font-sans  { font-family: 'Outfit', system-ui, sans-serif; }
-
-  /* Buttons */
-  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0.5rem; }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1.1rem;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border: none;
-    cursor: default;
+  .font-note  {
+    font-size: 12px; color: #5c534a; margin-top: 4px; margin-bottom: 0.85rem;
     font-family: 'Outfit', sans-serif;
+  }
+
+  /* Type scale — 2-col table: token | sample + clamp below */
+  .type-table { width: 100%; border-collapse: collapse; }
+  .type-table tr { border-bottom: 1px solid #f5f0e8; }
+  .type-table tr:last-child { border-bottom: none; }
+  .type-table td { padding: 0.35rem 0; vertical-align: middle; }
+  .type-token {
+    font-family: 'Courier New', monospace; font-size: 13px;
+    color: #5c534a; white-space: nowrap; width: 120px; padding-right: 0.75rem;
+    vertical-align: top; padding-top: 0.55rem;
+  }
+  .type-clamp {
+    display: block; font-size: 13px; color: #5c534a;
+    font-family: 'Courier New', monospace; margin-top: 3px;
+    word-break: break-all;
+  }
+
+  /* Leading/tracking 2-col */
+  .token-2col {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5px 20px; font-size: 13px; color: #2a2219;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ── Buttons ── */
+  .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0.4rem; }
+  .btn {
+    display: inline-flex; align-items: center;
+    padding: 0.42rem 0.95rem; border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; border: none; cursor: default;
+    font-family: 'Outfit', sans-serif; line-height: 1;
   }
   .btn-solid   { background: #2a2219; color: #fbf7ef; }
   .btn-outline { background: transparent; color: #9b6b3d; border: 1.5px solid #9b6b3d; }
-  .btn-ghost   { background: transparent; color: #766d63; border: 1px solid rgba(24,23,21,0.14); }
+  .btn-ghost   { background: transparent; color: #766d63; border: 1px solid rgba(24,23,21,0.16); }
 
-  /* Pills */
+  /* ── Pills ── */
   .pill {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    border: 1px solid;
+    display: inline-block; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 0.22rem 0.6rem; border-radius: 999px; border: 1px solid;
     font-family: 'Outfit', sans-serif;
   }
-  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.5rem; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.4rem; }
 
-  /* Radii */
-  .radius-row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
-  .radius-item { text-align: center; }
-  .radius-block {
-    background: #f0e9df;
-    border: 1px solid #d4c9bb;
+  /* ── Focus ring ── */
+  .focus-eg {
+    display: inline-block; padding: 0.36rem 0.82rem; border-radius: 6px;
+    font-size: 12px; border: 2px solid #c7a46a; color: #2a2219;
+    font-family: 'Outfit', sans-serif;
   }
-  .radius-val { font-size: 9px; color: #9b8e82; margin-top: 3px; font-family: 'Courier New', monospace; }
 
-  /* Spacing */
-  .spacing-row { display: flex; align-items: flex-end; gap: 8px; flex-wrap: wrap; }
-  .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .spacing-block { background: #c7a46a; opacity: 0.4; border-radius: 2px; width: 22px; }
-  .spacing-val { font-size: 9px; color: #9b8e82; font-family: 'Courier New', monospace; }
+  /* ── Border radii ── */
+  .radius-row { display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; }
+  .radius-item { text-align: center; }
+  .radius-block { background: #9b6b3d; opacity: 0.55; }
+  .radius-val { font-size: 12px; color: #2a2219; margin-top: 5px; font-family: 'Courier New', monospace; font-weight: 600; }
 
-  /* Info grid */
-  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  /* ── Spacing scale — grid so it never orphans ── */
+  .spacing-row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    align-items: flex-end;
+  }
+  .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .spacing-block { background: #9b6b3d; opacity: 0.6; border-radius: 2px; width: 100%; }
+  .spacing-val { font-size: 11px; color: #2a2219; font-family: 'Courier New', monospace; text-align: center; line-height: 1.25; font-weight: 600; }
+
+  /* ── Token key-value list — no wrapping ── */
+  .token-list {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 5px 14px; font-size: 13px;
+    font-family: 'Courier New', monospace; align-items: baseline;
+  }
+  .token-list .tk { color: #7a4728; white-space: nowrap; }
+  .token-list .tv { color: #2a2219; word-break: break-word; }
+
+  /* ── Info grid ── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
   .info-card {
-    background: #f9f4ed;
-    border: 1px solid #e8dfd3;
-    border-radius: 6px;
-    padding: 0.75rem;
+    background: #f9f4ed; border: 1px solid #e8dfd3;
+    border-radius: 6px; padding: 0.65rem 0.8rem;
   }
   .info-card.full { grid-column: 1 / -1; }
-  .info-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #9b8e82; margin-bottom: 0.3rem; }
-  .info-val { font-size: 12.5px; color: #2a2219; line-height: 1.55; }
+  .info-label {
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.07em; color: #9b8e82; margin-bottom: 0.25rem;
+  }
+  .info-val { font-size: 13px; color: #2a2219; line-height: 1.5; }
   .info-val a { color: #7a4728; text-decoration: none; }
-  .mono { font-family: 'Courier New', monospace; }
+  .mono { font-family: 'Courier New', monospace; font-size: 12px; color: #5c534a; }
+  .nowrap { white-space: nowrap; }
 
-  /* Pages grid */
-  .pages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 6px; }
+  /* ── Site pages — fixed 4-col grid ── */
+  .pages-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
+  }
   .page-card {
-    background: #f9f4ed;
-    border: 1px solid #e8dfd3;
-    border-radius: 5px;
-    padding: 0.5rem 0.65rem;
-    font-size: 12px;
-    line-height: 1.4;
+    background: #f9f4ed; border: 1px solid #e8dfd3;
+    border-radius: 5px; padding: 0.45rem 0.55rem; font-size: 13px; line-height: 1.4;
   }
-  .page-route { font-family: 'Courier New', monospace; font-size: 11px; color: #7a4728; display: block; margin-bottom: 2px; }
-
-  /* Tokens grid */
-  .token-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px 16px;
-    font-size: 11px;
-    color: #5c534a;
-    font-family: 'Courier New', monospace;
+  .page-route {
+    font-family: 'Courier New', monospace; font-size: 12px;
+    color: #7a4728; display: block; margin-bottom: 2px;
   }
 
-  /* Note */
-  .note { font-size: 11px; color: #9b8e82; margin-top: 6px; font-family: 'Courier New', monospace; }
-
-  /* Focus ring example */
-  .focus-eg {
-    display: inline-block;
-    padding: 0.4rem 0.9rem;
-    border-radius: 6px;
-    font-size: 13px;
-    border: 2px solid #c7a46a;
-    color: #2a2219;
-    font-family: 'Outfit', sans-serif;
-  }
-
-  /* Footer */
+  /* ── Footer ── */
   .guide-footer {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e8dfd3;
-    font-size: 11px;
-    color: #9b8e82;
-    display: flex;
-    justify-content: space-between;
+    margin-top: 2rem; padding-top: 0.8rem;
+    border-top: 1px solid #e8dfd3; font-size: 10px; color: #9b8e82;
+    display: flex; justify-content: space-between;
+  }
+
+  .note {
+    font-size: 11.5px; color: #766d63; margin-top: 4px;
+    font-family: 'Outfit', sans-serif;
   }
 </style>
 </head>
 <body>
 
+<!-- ── HEADER ── -->
 <div class="guide-header">
   <div class="meta">Design Handover · July 2026</div>
   <h1 class="font-serif">Vencore Design Co.<br><em>Brand &amp; UI Reference</em></h1>
-  <div class="sub">vencoredesign.com · Astro 6 static site · docs/brand-guide.html</div>
+  <div class="sub">vencore-site.vercel.app &nbsp;·&nbsp; Astro 6 static site &nbsp;·&nbsp; docs/brand-guide.html</div>
 </div>
 
 
-<!-- COLOUR PALETTE -->
-<div class="section no-break">
+<!-- ── COLOUR PALETTE ── -->
+<div class="section">
   <div class="sec-head">Colour Palette</div>
   <div class="sec-body">
 
     <div class="sub-label">Core Darks</div>
-    <div class="swatch-row">
+    <div class="swatch-grid-4 no-break">
       <div class="swatch"><div class="swatch-block" style="background:#11100e"></div><div><div class="swatch-name">Ink</div><div class="swatch-hex">#11100e</div><div class="swatch-role">Deepest text</div></div></div>
-      <div class="swatch"><div class="swatch-block" style="background:#221c17"></div><div><div class="swatch-name">Umber</div><div class="swatch-hex">#221c17</div><div class="swatch-role">Dark panels / nav bg</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#221c17"></div><div><div class="swatch-name">Umber</div><div class="swatch-hex">#221c17</div><div class="swatch-role">Dark panels</div></div></div>
       <div class="swatch"><div class="swatch-block" style="background:#2a2219"></div><div><div class="swatch-name">Espresso</div><div class="swatch-hex">#2a2219</div><div class="swatch-role">Nav / buttons</div></div></div>
       <div class="swatch"><div class="swatch-block" style="background:#2a2622"></div><div><div class="swatch-name">Heading</div><div class="swatch-hex">#2a2622</div><div class="swatch-role">--color-heading</div></div></div>
     </div>
 
     <hr class="divider">
     <div class="sub-label">Brand Warms — Primary Accent Family</div>
-    <div class="swatch-row">
-      <div class="swatch"><div class="swatch-block" style="background:#7a4728"></div><div><div class="swatch-name">Cognac</div><div class="swatch-hex">#7a4728</div><div class="swatch-role">Links · pills · editorial</div></div></div>
+    <div class="swatch-grid-4 no-break">
+      <div class="swatch"><div class="swatch-block" style="background:#7a4728"></div><div><div class="swatch-name">Cognac</div><div class="swatch-hex">#7a4728</div><div class="swatch-role">Links, pills, editorial</div></div></div>
       <div class="swatch"><div class="swatch-block" style="background:#9b6b3d"></div><div><div class="swatch-name">Bronze</div><div class="swatch-hex">#9b6b3d</div><div class="swatch-role">UI chrome accent</div></div></div>
-      <div class="swatch"><div class="swatch-block" style="background:#c7a46a"></div><div><div class="swatch-name">Antique Gold</div><div class="swatch-hex">#c7a46a</div><div class="swatch-role">--gold · focus ring · stat numbers</div></div></div>
-      <div class="swatch"><div class="swatch-block" style="background:#dfc58c"></div><div><div class="swatch-name">Soft Gold / Gilt</div><div class="swatch-hex">#dfc58c</div><div class="swatch-role">Hover · em on dark panels</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#c7a46a"></div><div><div class="swatch-name">Antique Gold</div><div class="swatch-hex">#c7a46a</div><div class="swatch-role">--gold, focus ring</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#dfc58c"></div><div><div class="swatch-name">Soft Gold</div><div class="swatch-hex">#dfc58c</div><div class="swatch-role">Hover, em on dark</div></div></div>
     </div>
 
     <hr class="divider">
     <div class="sub-label">Neutrals &amp; Surfaces</div>
-    <div class="swatch-row">
-      <div class="swatch"><div class="swatch-block" style="background:#fbf7ef;border-color:#e8dfd3"></div><div><div class="swatch-name">Ivory / Paper</div><div class="swatch-hex">#fbf7ef</div><div class="swatch-role">Page bg · on-dark text</div></div></div>
-      <div class="swatch"><div class="swatch-block" style="background:#f4eee4;border-color:#e8dfd3"></div><div><div class="swatch-name">Warm Paper</div><div class="swatch-hex">#f4eee4</div><div class="swatch-role">Alt section bg</div></div></div>
-      <div class="swatch"><div class="swatch-block" style="background:#f0e9df;border-color:#e8dfd3"></div><div><div class="swatch-name">Chalk</div><div class="swatch-hex">#f0e9df</div><div class="swatch-role">Subtle bg tint</div></div></div>
-      <div class="swatch"><div class="swatch-block" style="background:#ebe3d4;border-color:#e0d5c5"></div><div><div class="swatch-name">Cream</div><div class="swatch-hex">#ebe3d4</div><div class="swatch-role">Dividers · borders</div></div></div>
+    <div class="swatch-grid-4 no-break" style="margin-bottom:10px">
+      <div class="swatch"><div class="swatch-block" style="background:#fbf7ef;border-color:#ccc5bb"></div><div><div class="swatch-name">Ivory</div><div class="swatch-hex">#fbf7ef</div><div class="swatch-role">Page bg, on-dark text</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#f4eee4;border-color:#ccc5bb"></div><div><div class="swatch-name">Warm Paper</div><div class="swatch-hex">#f4eee4</div><div class="swatch-role">Alt section bg</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#f0e9df;border-color:#ccc5bb"></div><div><div class="swatch-name">Chalk</div><div class="swatch-hex">#f0e9df</div><div class="swatch-role">Subtle bg tint</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#ebe3d4;border-color:#bfb5a5"></div><div><div class="swatch-name">Cream</div><div class="swatch-hex">#ebe3d4</div><div class="swatch-role">Dividers, borders</div></div></div>
     </div>
-    <div class="swatch-row">
-      <div class="swatch"><div class="swatch-block" style="background:#766d63"></div><div><div class="swatch-name">Stone</div><div class="swatch-hex">#766d63</div><div class="swatch-role">Meta · muted labels</div></div></div>
-      <div class="swatch"><div class="swatch-block" style="background:#5c534a"></div><div><div class="swatch-name">Muted</div><div class="swatch-hex">#5c534a</div><div class="swatch-role">Secondary body text</div></div></div>
+    <div class="swatch-grid-3 no-break">
+      <div class="swatch"><div class="swatch-block" style="background:#766d63"></div><div><div class="swatch-name">Stone</div><div class="swatch-hex">#766d63</div><div class="swatch-role">Meta, muted labels</div></div></div>
+      <div class="swatch"><div class="swatch-block" style="background:#756c62"></div><div><div class="swatch-name">Stone Muted</div><div class="swatch-hex">#756c62</div><div class="swatch-role">--stone-muted · muted text</div></div></div>
       <div class="swatch"><div class="swatch-block" style="background:#2f291f"></div><div><div class="swatch-name">Body</div><div class="swatch-hex">#2f291f</div><div class="swatch-role">Primary body text</div></div></div>
     </div>
 
     <hr class="divider">
     <div class="sub-label">Status / Utility</div>
-    <div class="swatch-row">
+    <div class="swatch-grid-2 no-break">
       <div class="swatch"><div class="swatch-block" style="background:#8b3030"></div><div><div class="swatch-name">Error</div><div class="swatch-hex">#8b3030</div><div class="swatch-role">Form validation</div></div></div>
       <div class="swatch"><div class="swatch-block" style="background:#1a6b45"></div><div><div class="swatch-name">WhatsApp Green</div><div class="swatch-hex">#1a6b45</div><div class="swatch-role">WA float button</div></div></div>
     </div>
@@ -305,68 +287,107 @@
 </div>
 
 
-<!-- TYPOGRAPHY -->
+<!-- ── TYPOGRAPHY ── -->
 <div class="section">
   <div class="sec-head">Typography</div>
   <div class="sec-body">
 
-    <div class="sub-label" style="margin-bottom:0.8rem">Serif — Cormorant · Headings &amp; editorial</div>
-    <div class="font-serif" style="font-size:2.4rem;font-weight:400;color:#2a2219;line-height:1.05">Design that delivers.</div>
-    <div class="font-serif" style="font-size:1.4rem;font-weight:400;color:#2a2219;line-height:1.2;margin-top:4px">Turnkey <em>interiors</em> from brief to handover.</div>
-    <div class="note" style="margin-top:4px;margin-bottom:1rem">Google Fonts · Cormorant 400 Regular + Italic, 500 Medium · --font-serif</div>
+    <div class="sub-label">Serif — Cormorant · Headings &amp; editorial</div>
+    <div class="font-serif" style="font-size:2.1rem;font-weight:400;color:#2a2219;line-height:1.05">Design that delivers.</div>
+    <div class="font-serif" style="font-size:1.3rem;font-weight:400;color:#2a2219;line-height:1.2;margin-top:3px">Turnkey <em>interiors</em> from brief to handover.</div>
+    <div class="font-note">Google Fonts · Cormorant 400 Regular + Italic, 500 Medium · var(--font-serif)</div>
 
     <hr class="divider">
-    <div class="sub-label" style="margin-bottom:0.8rem">Sans — Outfit · UI, body &amp; labels</div>
-    <div class="font-sans" style="font-size:0.95rem;font-weight:400;color:#2f291f;line-height:1.65">Workplace design, healthcare planning, and turnkey delivery — from concept to commissioning.</div>
-    <div class="font-sans" style="font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#766d63;margin-top:6px">HEALTHCARE · 4 MIN READ · APRIL 2026</div>
-    <div class="note" style="margin-top:4px;margin-bottom:1rem">Google Fonts · Outfit 400 Regular, 500 Medium, 600 SemiBold · --font-sans</div>
+    <div class="sub-label">Sans — Outfit · UI, body &amp; labels</div>
+    <div class="font-sans" style="font-size:0.9rem;font-weight:400;color:#2f291f;line-height:1.65">Workplace design, healthcare planning, and turnkey delivery — from concept to commissioning.</div>
+    <div class="font-sans" style="font-size:0.67rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#766d63;margin-top:5px">HEALTHCARE · 4 MIN READ · APRIL 2026</div>
+    <div class="font-note">Google Fonts · Outfit 400 Regular, 500 Medium, 600 SemiBold · var(--font-sans)</div>
 
     <hr class="divider">
-    <div class="sub-label">Type Scale (fluid · clamp)</div>
-    <div class="type-row">
-      <span class="type-token">--text-h1</span>
-      <span class="font-serif" style="font-size:3rem;font-weight:400;color:#2a2219;line-height:1">H1</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(2.5rem, 2.2vw + 1.4rem, 4.75rem)</span>
-    </div>
-    <div class="type-row">
-      <span class="type-token">--text-h2</span>
-      <span class="font-serif" style="font-size:2.2rem;font-weight:400;color:#2a2219">Section heading</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(2rem, 1.1vw + 1.55rem, 3.25rem)</span>
-    </div>
-    <div class="type-row">
-      <span class="type-token">--text-h3</span>
-      <span class="font-serif" style="font-size:1.5rem;font-weight:500;color:#2a2219">Card featured title</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(1.375rem, 0.4vw + 1.15rem, 1.625rem)</span>
-    </div>
-    <div class="type-row">
-      <span class="type-token">--text-h4</span>
-      <span class="font-serif" style="font-size:1.2rem;font-weight:500;color:#2a2219">Sub-heading / pull quote</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(1.125rem, 0.3vw + 1rem, 1.3125rem)</span>
-    </div>
-    <div class="type-row">
-      <span class="type-token">--text-h5</span>
-      <span class="font-sans" style="font-size:1.05rem;font-weight:500;color:#2a2219">Card title</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(1rem, 0.25vw + 0.92rem, 1.125rem)</span>
-    </div>
-    <div class="type-row">
-      <span class="type-token">--text-small</span>
-      <span class="font-sans" style="font-size:0.9rem;color:#5c534a">Body copy / legal prose</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(0.875rem, 0.22vw + 0.8rem, 0.9375rem)</span>
-    </div>
-    <div class="type-row">
-      <span class="type-token">--text-label</span>
-      <span class="font-sans" style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#766d63">FILTER LABEL</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(0.6875rem, 0.18vw + 0.63rem, 0.8125rem)</span>
-    </div>
-    <div class="type-row">
-      <span class="type-token">--text-micro</span>
-      <span class="font-sans" style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#766d63">META · PILL TEXT</span>
-      <span style="font-size:10px;color:#9b8e82">clamp(0.625rem, 0.15vw + 0.58rem, 0.75rem)</span>
-    </div>
+    <div class="sub-label" style="margin-bottom:0.35rem">Type Scale (fluid · clamp)</div>
+    <table class="type-table">
+      <tr>
+        <td class="type-token">--text-h1</td>
+        <td>
+          <span class="font-serif" style="font-size:2.6rem;font-weight:400;color:#2a2219;line-height:1">H1</span>
+          <span class="type-clamp">clamp(2.5rem, 2.2vw + 1.4rem, 4.75rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-h2</td>
+        <td>
+          <span class="font-serif" style="font-size:1.9rem;font-weight:400;color:#2a2219">Section heading</span>
+          <span class="type-clamp">clamp(2rem, 1.1vw + 1.55rem, 3.25rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-h3</td>
+        <td>
+          <span class="font-serif" style="font-size:1.4rem;font-weight:500;color:#2a2219">Card featured title</span>
+          <span class="type-clamp">clamp(1.375rem, 0.4vw + 1.15rem, 1.625rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-h4</td>
+        <td>
+          <span class="font-serif" style="font-size:1.16rem;font-weight:500;color:#2a2219">Sub-heading / pull quote</span>
+          <span class="type-clamp">clamp(1.125rem, 0.3vw + 1rem, 1.3125rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-h5</td>
+        <td>
+          <span class="font-sans" style="font-size:1rem;font-weight:500;color:#2a2219">Card title</span>
+          <span class="type-clamp">clamp(1rem, 0.25vw + 0.92rem, 1.125rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-h6</td>
+        <td>
+          <span class="font-sans" style="font-size:0.875rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#2a2219">Section label</span>
+          <span class="type-clamp">clamp(0.875rem, 0.2vw + 0.82rem, 0.9375rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-body</td>
+        <td>
+          <span class="font-sans" style="font-size:0.94rem;color:#2f291f">Body copy — default paragraph text</span>
+          <span class="type-clamp">clamp(0.9375rem, 0.2vw + 0.88rem, 1.0625rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-caption</td>
+        <td>
+          <span class="font-sans" style="font-size:0.78rem;color:#766d63">Image caption · metadata line</span>
+          <span class="type-clamp">clamp(0.78rem, 0.18vw + 0.72rem, 0.8125rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-small</td>
+        <td>
+          <span class="font-sans" style="font-size:0.875rem;color:#756c62">Body copy / legal prose</span>
+          <span class="type-clamp">clamp(0.875rem, 0.22vw + 0.8rem, 0.9375rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-label</td>
+        <td>
+          <span class="font-sans" style="font-size:0.71rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#766d63">Filter Label</span>
+          <span class="type-clamp">clamp(0.6875rem, 0.18vw + 0.63rem, 0.8125rem)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="type-token">--text-micro</td>
+        <td>
+          <span class="font-sans" style="font-size:0.64rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#766d63">Meta · Pill Text</span>
+          <span class="type-clamp">clamp(0.625rem, 0.15vw + 0.58rem, 0.75rem)</span>
+        </td>
+      </tr>
+    </table>
 
     <hr class="divider">
     <div class="sub-label">Line Height &amp; Tracking Tokens</div>
-    <div class="token-grid">
+    <div class="token-2col">
       <div>--leading-tight: 1.08</div><div>--leading-snug: 1.25</div>
       <div>--leading-label: 1.35</div><div>--leading-body: 1.65</div>
       <div>--tracking-tight: -0.02em</div><div>--tracking-wide: 0.08em</div>
@@ -376,78 +397,79 @@
 </div>
 
 
-<!-- UI COMPONENTS -->
-<div class="section no-break">
+<!-- ── UI COMPONENTS ── -->
+<div class="section">
   <div class="sec-head">UI Components &amp; Tokens</div>
   <div class="sec-body">
 
     <div class="sub-label">Buttons</div>
     <div class="btn-row">
-      <span class="btn btn-solid">Request a Briefing ↗</span>
-      <span class="btn btn-outline">View Projects ↗</span>
+      <span class="btn btn-solid">Request a Briefing &nbsp;&#8594;</span>
+      <span class="btn btn-outline">View Projects &nbsp;&#8594;</span>
       <span class="btn btn-ghost">Learn More</span>
     </div>
-    <div class="note">.btn-solid — #2a2219 bg · ivory text &nbsp;|&nbsp; .btn-outline — bronze border + text &nbsp;|&nbsp; .btn-ghost — charcoal/14% border</div>
+    <div class="note">.btn-solid — #2a2219 bg · ivory text &nbsp;|&nbsp; .btn-outline — bronze border + text &nbsp;|&nbsp; .btn-ghost — charcoal/16% border</div>
 
     <hr class="divider">
     <div class="sub-label">Topic / Category Pills</div>
     <div class="pill-row">
-      <span class="pill" style="background:rgba(199,164,106,0.12);color:#7a4728;border-color:rgba(199,164,106,0.22)">Healthcare</span>
-      <span class="pill" style="background:rgba(199,164,106,0.12);color:#7a4728;border-color:rgba(199,164,106,0.22)">Workplace</span>
-      <span class="pill" style="background:rgba(199,164,106,0.12);color:#7a4728;border-color:rgba(199,164,106,0.22)">Delivery</span>
-      <span class="pill" style="background:rgba(199,164,106,0.12);color:#7a4728;border-color:rgba(199,164,106,0.22)">Retail</span>
+      <span class="pill" style="background:rgba(122,71,40,0.08);color:#7a4728;border-color:rgba(122,71,40,0.32)">Healthcare</span>
+      <span class="pill" style="background:rgba(122,71,40,0.08);color:#7a4728;border-color:rgba(122,71,40,0.32)">Workplace</span>
+      <span class="pill" style="background:rgba(122,71,40,0.08);color:#7a4728;border-color:rgba(122,71,40,0.32)">Delivery</span>
+      <span class="pill" style="background:rgba(122,71,40,0.08);color:#7a4728;border-color:rgba(122,71,40,0.32)">Retail</span>
     </div>
-    <div class="note">.ins-topic — gold-12 bg · gold-22 border · cognac text · 999px radius · uppercase · micro font</div>
+    <div class="note">.ins-topic — cognac bg tint · cognac border + text · 999px radius · uppercase · --text-micro</div>
 
     <hr class="divider">
     <div class="sub-label">Focus Ring</div>
     <div class="focus-eg">Interactive element</div>
-    <div class="note" style="margin-top:6px">--focus-ring: 2px solid var(--gold) &nbsp;|&nbsp; --focus-offset: 3px</div>
+    <div class="note" style="margin-top:5px">--focus-ring: 2px solid var(--gold) &nbsp;·&nbsp; --focus-offset: 3px</div>
 
     <hr class="divider">
     <div class="sub-label">Border Radii</div>
-    <div class="radius-row">
-      <div class="radius-item"><div class="radius-block" style="width:40px;height:40px;border-radius:4px"></div><div class="radius-val">4px · --radius-sm</div></div>
-      <div class="radius-item"><div class="radius-block" style="width:40px;height:40px;border-radius:8px"></div><div class="radius-val">8px · --radius-md</div></div>
-      <div class="radius-item"><div class="radius-block" style="width:40px;height:40px;border-radius:12px"></div><div class="radius-val">12px · --radius-lg</div></div>
-      <div class="radius-item"><div class="radius-block" style="width:72px;height:32px;border-radius:999px"></div><div class="radius-val">999px · pill</div></div>
+    <div class="radius-row no-break">
+      <div class="radius-item"><div class="radius-block" style="width:44px;height:44px;border-radius:4px"></div><div class="radius-val">4px<br>--radius-sm</div></div>
+      <div class="radius-item"><div class="radius-block" style="width:44px;height:44px;border-radius:8px"></div><div class="radius-val">8px<br>--radius-md</div></div>
+      <div class="radius-item"><div class="radius-block" style="width:44px;height:44px;border-radius:12px"></div><div class="radius-val">12px<br>--radius-lg</div></div>
+      <div class="radius-item"><div class="radius-block" style="width:80px;height:36px;border-radius:999px"></div><div class="radius-val">999px<br>pill</div></div>
     </div>
 
     <hr class="divider">
     <div class="sub-label">Spacing Scale</div>
-    <div class="spacing-row">
-      <div class="spacing-item"><div class="spacing-block" style="height:8px"></div><div class="spacing-val">--space-1<br>8px</div></div>
-      <div class="spacing-item"><div class="spacing-block" style="height:16px"></div><div class="spacing-val">--space-2<br>16px</div></div>
-      <div class="spacing-item"><div class="spacing-block" style="height:24px"></div><div class="spacing-val">--space-3<br>24px</div></div>
-      <div class="spacing-item"><div class="spacing-block" style="height:32px"></div><div class="spacing-val">--space-4<br>32px</div></div>
-      <div class="spacing-item"><div class="spacing-block" style="height:40px"></div><div class="spacing-val">--space-5<br>40px</div></div>
-      <div class="spacing-item"><div class="spacing-block" style="height:48px"></div><div class="spacing-val">--space-6<br>48px</div></div>
-      <div class="spacing-item"><div class="spacing-block" style="height:64px"></div><div class="spacing-val">--space-8<br>64px</div></div>
-      <div class="spacing-item"><div class="spacing-block" style="height:80px"></div><div class="spacing-val">--space-10<br>80px</div></div>
+    <div class="spacing-row no-break">
+      <div class="spacing-item"><div class="spacing-block" style="height:8px"></div><div class="spacing-val">8px</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:16px"></div><div class="spacing-val">16px</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:24px"></div><div class="spacing-val">24px</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:32px"></div><div class="spacing-val">32px</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:40px"></div><div class="spacing-val">40px</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:48px"></div><div class="spacing-val">48px</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:64px"></div><div class="spacing-val">64px</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:80px"></div><div class="spacing-val">80px</div></div>
     </div>
+    <div class="note" style="margin-top:6px">--space-1(8px) through --space-10(80px)</div>
 
     <hr class="divider">
     <div class="sub-label">Shadows</div>
-    <div class="token-grid">
-      <div>--shadow-card: 0 12px 32px rgba(34,28,23,0.07)</div>
-      <div>--shadow-card-hover: 0 20px 48px rgba(34,28,23,0.09)</div>
-      <div>--shadow-elevated: 0 24px 80px rgba(34,28,23,0.12)</div>
-      <div>--shadow-map: 0 12px 36px rgba(34,28,23,0.08)</div>
+    <div class="token-list no-break">
+      <span class="tk">--shadow-card</span>       <span class="tv">0 12px 32px rgba(34,28,23,0.07)</span>
+      <span class="tk">--shadow-card-hover</span>  <span class="tv">0 20px 48px rgba(34,28,23,0.09)</span>
+      <span class="tk">--shadow-elevated</span>    <span class="tv">0 24px 80px rgba(34,28,23,0.12)</span>
+      <span class="tk">--shadow-map</span>         <span class="tv">0 12px 36px rgba(34,28,23,0.08)</span>
     </div>
 
     <hr class="divider">
-    <div class="sub-label">Layout</div>
-    <div class="token-grid">
-      <div>--container-max: 1200px</div>
-      <div>--container-max-wide: 1320px</div>
-      <div>--container-pad: clamp(16px, 4vw, 40px)</div>
-      <div>--nav-offset: clamp(4.5rem, 10vw, 5.75rem)</div>
+    <div class="sub-label">Layout Tokens</div>
+    <div class="token-list no-break">
+      <span class="tk">--container-max</span>      <span class="tv">1200px</span>
+      <span class="tk">--container-max-wide</span> <span class="tv">1320px</span>
+      <span class="tk">--container-pad</span>      <span class="tv">clamp(16px, 4vw, 40px)</span>
+      <span class="tk">--nav-offset</span>         <span class="tv">clamp(4.5rem, 10vw, 5.75rem)</span>
     </div>
   </div>
 </div>
 
 
-<!-- CONTACT & BRAND -->
+<!-- ── CONTACT & BRAND ── -->
 <div class="section no-break">
   <div class="sec-head">Contact &amp; Brand Essentials</div>
   <div class="sec-body">
@@ -455,36 +477,67 @@
       <div class="info-card"><div class="info-label">Company</div><div class="info-val">Vencore Design LLP</div></div>
       <div class="info-card"><div class="info-label">Website</div><div class="info-val"><a href="https://vencoredesign.com">vencoredesign.com</a></div></div>
       <div class="info-card"><div class="info-label">Primary Email</div><div class="info-val"><a href="mailto:info@vencoredesign.com">info@vencoredesign.com</a></div></div>
-      <div class="info-card"><div class="info-label">Careers Email</div><div class="info-val"><a href="mailto:careers@vencoredesign.co">careers@vencoredesign.co</a></div></div>
+      <div class="info-card"><div class="info-label">WhatsApp</div><div class="info-val"><a href="https://wa.me/917093127880">+91 70931 27880</a></div></div>
       <div class="info-card"><div class="info-label">Phone</div><div class="info-val">+91 98660 14664</div></div>
       <div class="info-card"><div class="info-label">Instagram</div><div class="info-val"><a href="https://www.instagram.com/vencoredesignco.in/">@vencoredesignco.in</a></div></div>
       <div class="info-card full"><div class="info-label">Address</div><div class="info-val">Door No: 9-24/9B/2, 9th Floor, Vaishnavi Cymbol, Financial District, Nanakramguda, Hyderabad — 500032, Telangana</div></div>
-      <div class="info-card full"><div class="info-label">Parent Group</div><div class="info-val">KLM Homes Group — KLM Homes Pvt Ltd · Surya Devara Infrastructures Pvt Ltd</div></div>
+      <div class="info-card full"><div class="info-label">Parent Group</div><div class="info-val">KLM Homes Group — KLM Homes Pvt Ltd &nbsp;·&nbsp; Surya Devara Infrastructures Pvt Ltd</div></div>
     </div>
   </div>
 </div>
 
 
-<!-- TECH STACK -->
+<!-- ── TECH STACK ── -->
 <div class="section no-break">
   <div class="sec-head">Tech Stack &amp; Deployment</div>
   <div class="sec-body">
     <div class="info-grid">
-      <div class="info-card"><div class="info-label">Framework</div><div class="info-val">Astro 6 · TypeScript</div></div>
-      <div class="info-card"><div class="info-label">Styles</div><div class="info-val">Plain CSS · no Tailwind<br><span class="mono" style="font-size:11px">src/styles/</span></div></div>
-      <div class="info-card"><div class="info-label">Content</div><div class="info-val">JSON + Markdown<br><span class="mono" style="font-size:11px">src/content/{services,projects,insights}/</span></div></div>
-      <div class="info-card"><div class="info-label">Site Data</div><div class="info-val"><span class="mono" style="font-size:11px">src/data/site.json<br>navigation.json · team.json</span></div></div>
-      <div class="info-card"><div class="info-label">Images</div><div class="info-val"><span class="mono" style="font-size:11px">public/images/</span><br>Responsive variants auto-generated by build scripts</div></div>
-      <div class="info-card"><div class="info-label">Deploy</div><div class="info-val">Vercel · auto-deploy on push to <span class="mono">main</span></div></div>
-      <div class="info-card full"><div class="info-label">Fonts</div><div class="info-val"><span class="mono">Cormorant</span> — serif headings &nbsp;·&nbsp; <span class="mono">Outfit</span> — sans UI/body &nbsp;·&nbsp; loaded via <span class="mono">@font-face</span> in base.css</div></div>
-      <div class="info-card full"><div class="info-label">Quality Gate — run before every commit</div><div class="info-val mono" style="font-size:12px">npm run validate:images &amp;&amp; npm run build &amp;&amp; npm run check</div></div>
-      <div class="info-card full"><div class="info-label">Style Files</div><div class="info-val mono" style="font-size:11px;line-height:1.7">base.css · colors.css · typography.css · components.css · layout.css<br>hero.css · insights.css · careers.css · contact.css · mega-menu.css</div></div>
+      <div class="info-card">
+        <div class="info-label">Framework</div>
+        <div class="info-val">Astro 6 · TypeScript</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Styles</div>
+        <div class="info-val">Plain CSS · no Tailwind<br><span class="mono">src/styles/</span></div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Content</div>
+        <div class="info-val">JSON + Markdown<br><span class="mono">src/content/{services,projects,insights}/</span></div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Site Data</div>
+        <div class="info-val"><span class="mono">src/data/site.json</span><br><span class="mono">navigation.json · team.json</span></div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Images</div>
+        <div class="info-val"><span class="mono">public/images/</span><br>Responsive variants auto-generated by build scripts</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Deploy</div>
+        <div class="info-val">Vercel · auto-deploy on push to <span class="mono">main</span></div>
+      </div>
+      <div class="info-card full">
+        <div class="info-label">Fonts</div>
+        <div class="info-val">
+          <span class="mono">Cormorant</span> — serif headings &nbsp;·&nbsp;
+          <span class="mono">Outfit</span> — sans UI/body &nbsp;·&nbsp;
+          loaded via <span class="mono nowrap">@font-face</span> in <span class="mono">base.css</span>
+        </div>
+      </div>
+      <div class="info-card full">
+        <div class="info-label">Quality Gate — run before every commit</div>
+        <div class="info-val mono" style="font-size:12px">npm run validate:images &amp;&amp; npm run build &amp;&amp; npm run check</div>
+      </div>
+      <div class="info-card full">
+        <div class="info-label">Style Files</div>
+        <div class="info-val mono">base.css · colors.css · typography.css · components.css · layout.css<br>hero.css · insights.css · careers.css · contact.css · mega-menu.css</div>
+      </div>
     </div>
   </div>
 </div>
 
 
-<!-- SITE PAGES -->
+<!-- ── SITE PAGES ── -->
 <div class="section no-break">
   <div class="sec-head">Site Pages</div>
   <div class="sec-body">
@@ -510,7 +563,7 @@
 
 <div class="guide-footer">
   <span>Vencore Design Co. · Brand &amp; UI Reference · July 2026</span>
-  <span>docs/brand-guide.html · Not for external distribution</span>
+  <span>public/brand-guide.html · Not for external distribution</span>
 </div>
 
 </body>
