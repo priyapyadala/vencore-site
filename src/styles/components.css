@@ -59,8 +59,8 @@
 /* NAV — single chrome on every page */
 #nav{
   position:fixed;top:0;left:0;right:0;width:100%;z-index:400;
-  padding-block:.55rem;
-  padding-top:calc(.55rem + env(safe-area-inset-top, 0px));
+  padding-block:.28rem;
+  padding-top:calc(.28rem + env(safe-area-inset-top, 0px));
   padding-inline:0;
   background:rgba(var(--umber-rgb),.93);
   backdrop-filter:blur(16px);

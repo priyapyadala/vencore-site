@@ -260,17 +260,16 @@ body.lightbox-open { overflow: hidden; }
 }
 .contact-map { width: 100%; height: 320px; border: none; border-radius: var(--radius-md); filter: grayscale(20%) contrast(1.05); }
 
-/* Logo — sized for slim dark nav (canonical values in components.css) */
+/* Logo */
 .nav-logo img {
-  height: clamp(2.35rem, 5.5vw, 3.65rem);
+  height: clamp(2.8rem, 5.2vw, 3.8rem);
   width: auto;
   display: block;
-  filter: brightness(0) invert(1);
-  opacity: 0.93;
+  opacity: 0.92;
 }
 @media (max-width: 1023px) {
   .nav-logo img {
-    height: clamp(2.65rem, 8vw, 3.5rem);
+    height: clamp(2.8rem, 9vw, 3.5rem);
     opacity: 0.95;
   }
 }
