@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CTABand from '../../components/CTABand.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import navigation from '../../data/navigation.json';
 import company from '../../data/company.json';
 ---
@@ -94,7 +95,13 @@ import company from '../../data/company.json';
           <a href={`/services/${svc.slug}`} class="proj-card-link">
             <div class="pc2">
               <div class="pc2-bar"></div>
-              <img src={svc.preview} alt={svc.label} loading="lazy" decoding="async" width="800" height="600"/>
+              <ResponsiveImage
+                src={svc.preview}
+                alt={svc.label}
+                sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 400px"
+                width={800}
+                height={600}
+              />
               <div class="pc2-veil"></div>
               <div class="pc2-info">
                 <div class="pc2-cat">Service</div>

@@ -7,6 +7,7 @@ import navigation from '../data/navigation.json';
 import company from '../data/company.json';
 import { titleCase } from '../lib/format';
 import { getFeaturedProjects, getInsights } from '../lib/content';
+import { variantSrc } from '../lib/images';
 
 // Homepage portfolio only shows completed work — in-progress projects
 // (e.g. Vencore Corporate Office, Raghava Iris) aren't ready to feature yet.
@@ -15,7 +16,6 @@ const featuredProjects = getFeaturedProjects(10)
   .slice(0, 3);
 const latestInsights = getInsights().slice(0, 2);
 const heroImage = '/images/hero/services-hero.jpeg';
-const heroVideo = '/video/hero-loop.webm';
 const storyImage = '/images/hero/hero-alt-7.jpeg';
 type Testimonial = { quote: string; name: string; role: string; project: string; attribution?: string };
 const testimonials: Testimonial[] = navigation.testimonials;
@@ -31,17 +31,6 @@ const testimonials: Testimonial[] = navigation.testimonials;
   <section id="s0">
     <div class="h-bg" aria-hidden="true">
       <div class="h-bg-plate">
-        <video
-          class="h-bg-plate__video"
-          src={heroVideo}
-          poster={heroImage}
-          muted
-          loop
-          playsinline
-          autoplay
-          aria-hidden="true"
-          tabindex="-1"
-        />
         <ResponsiveImage
           src={heroImage}
           alt=""
@@ -183,7 +172,7 @@ const testimonials: Testimonial[] = navigation.testimonials;
           <a
             href={`/services/${svc.slug}`}
             class:list={['svc-row', 'rv', `d${i + 1}`]}
-            style={`--svc-bg:url('${svc.preview}')`}
+            style={`--svc-bg:url('${variantSrc(svc.preview, 1200)}')`}
           >
             <span class="svc-row-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
             <span class="svc-row-body">
@@ -236,7 +225,13 @@ const testimonials: Testimonial[] = navigation.testimonials;
           {latestInsights.map((article) => (
             <a href={`/insights/${article.slug}`} class="insight-editorial__item">
               <div class="insight-editorial__img">
-                <img src={article.heroImage} alt={article.title} loading="lazy" decoding="async" width="800" height="600"/>
+                <ResponsiveImage
+                  src={article.heroImage}
+                  alt={article.title}
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                  width={800}
+                  height={600}
+                />
               </div>
               <div class="insight-editorial__body">
                 <time class="insight-editorial__date" datetime={article.date}>{article.date}</time>

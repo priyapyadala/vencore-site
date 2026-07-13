@@ -1,5 +1,6 @@
 ---
 import type { ProjectProcessStep } from '../lib/content';
+import ResponsiveImage from './ResponsiveImage.astro';
 
 interface Props {
   steps: ProjectProcessStep[];
@@ -16,7 +17,13 @@ if (!steps?.length) return null;
     {steps.map((step) => (
       <li class="cs-process__step">
         <figure class="cs-process__fig">
-          <img src={step.src} alt={step.alt} loading="lazy" decoding="async" width="640" height="480" />
+          <ResponsiveImage
+            src={step.src}
+            alt={step.alt}
+            sizes="(max-width: 767px) 100vw, 33vw"
+            width={640}
+            height={480}
+          />
           <figcaption class="cs-process__cap">{step.label}</figcaption>
         </figure>
       </li>

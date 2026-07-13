@@ -99,7 +99,7 @@ async function copyPhoto(destRel, srcName) {
     await sharp(src).rotate().jpeg({ quality: 85, mozjpeg: true }).toFile(dest);
     const base = dest.replace(/\.(jpe?g)$/i, '');
     const outExt = ext === '.jpg' ? '.jpg' : '.jpeg';
-    for (const w of [480, 768, 1200]) {
+    for (const w of [480, 768, 1200, 1600]) {
       await sharp(src)
         .rotate()
         .resize({ width: w, withoutEnlargement: true })

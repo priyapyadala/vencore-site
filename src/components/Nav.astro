@@ -1,5 +1,6 @@
 ---
 import navigation from '../data/navigation.json';
+import { variantSrc } from '../lib/images';
 
 interface Props {
   current?: string;
@@ -37,7 +38,7 @@ function navCurrent(key: string) {
                 <li>
                   <a
                     href={`/services/${svc.slug}`}
-                    data-preview={svc.preview}
+                    data-slug={svc.slug}
                     data-label={svc.label}
                   >{svc.label}</a>
                 </li>
@@ -46,7 +47,7 @@ function navCurrent(key: string) {
             <div class="nav-mega-preview" id="mega-preview">
               {services.map((svc, i) => (
                 <img
-                  src={svc.preview}
+                  src={variantSrc(svc.preview, 768)}
                   alt=""
                   data-preview-id={svc.slug}
                   class:list={[{ 'is-visible': i === 0 }]}
@@ -83,14 +84,14 @@ function navCurrent(key: string) {
   const mega = document.getElementById('nav-mega') as HTMLDetailsElement | null;
   const summary = mega?.querySelector('summary');
   const cap = document.getElementById('mega-cap');
-  const links = mega?.querySelectorAll<HTMLAnchorElement>('.nav-mega-links a[data-preview]');
+  const links = mega?.querySelectorAll<HTMLAnchorElement>('.nav-mega-links a[data-slug]');
 
   function showPreview(link: HTMLAnchorElement) {
-    const preview = link.getAttribute('data-preview');
+    const slug = link.getAttribute('data-slug');
     const label = link.getAttribute('data-label');
-    if (!preview || !cap) return;
+    if (!slug || !cap) return;
     mega?.querySelectorAll('.nav-mega-preview img').forEach((img) => {
-      const match = img.getAttribute('src') === preview;
+      const match = img.getAttribute('data-preview-id') === slug;
       img.classList.toggle('is-visible', match);
       if (match && img.getAttribute('loading') === 'lazy') {
         img.setAttribute('loading', 'eager');

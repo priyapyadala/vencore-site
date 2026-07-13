@@ -11,8 +11,8 @@
     },
     "emails": [
       { "address": "info@vencoredesign.com", "href": "mailto:info@vencoredesign.com" },
-      { "address": "info@vencoredesign.com", "href": "mailto:info@vencoredesign.com" },
-      { "address": "info@vencoredesign.com", "href": "mailto:info@vencoredesign.com" }
+      { "address": "venu@vencoredesign.com", "href": "mailto:venu@vencoredesign.com" },
+      { "address": "venkatesh@vencoredesign.com", "href": "mailto:venkatesh@vencoredesign.com" }
     ],
     "maps": "https://maps.google.com/maps?q=Vaishnavi+Cymbol+Financial+District+Nanakramguda+Hyderabad"
   },
