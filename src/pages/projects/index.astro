@@ -62,25 +62,29 @@ const filters = [
       </div>
       <p id="proj-filter-empty" class="proj-filter-empty" hidden>No projects in this category yet.</p>
       <div class="pg2 rv">
-        {projects.map((proj) => (
-          <div class="proj-card-link proj-card-link--soon" data-project-category={proj.category}>
-            <div class="pc2 pc2--soon">
-              <div class="pc2-bar"></div>
-              <ResponsiveImage src={proj.heroImage} alt={proj.title} sizes="(max-width:767px) 100vw, 33vw" width={1200} height={800} />
-              <div class="pc2-veil"></div>
-              <span class="pc2-soon" aria-hidden="true">Coming soon</span>
-              <div class="pc2-info">
-                <div class="pc2-cat">{titleCase(proj.category)}</div>
-                <div class="pc2-name">{proj.title}</div>
-                <div class="pc2-loc">
-                  {proj.execution.timeline.toLowerCase() === 'in progress'
-                    ? 'In Progress'
-                    : `${proj.location} · ${proj.year}`}
+        {projects.map((proj) => {
+          const Tag = proj.comingSoon ? 'div' : 'a';
+          const linkProps = proj.comingSoon ? {} : { href: `/projects/${proj.slug}/` };
+          return (
+            <Tag class={`proj-card-link${proj.comingSoon ? ' proj-card-link--soon' : ''}`} data-project-category={proj.category} {...linkProps}>
+              <div class={`pc2${proj.comingSoon ? ' pc2--soon' : ''}`}>
+                <div class="pc2-bar"></div>
+                <ResponsiveImage src={proj.heroImage} alt={proj.title} sizes="(max-width:767px) 100vw, 33vw" width={1200} height={800} />
+                <div class="pc2-veil"></div>
+                {proj.comingSoon && <span class="pc2-soon" aria-hidden="true">Coming soon</span>}
+                <div class="pc2-info">
+                  <div class="pc2-cat">{titleCase(proj.category)}</div>
+                  <div class="pc2-name">{proj.title}</div>
+                  <div class="pc2-loc">
+                    {proj.execution.timeline.toLowerCase() === 'in progress'
+                      ? 'In Progress'
+                      : `${proj.location} · ${proj.year}`}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </Tag>
+          );
+        })}
       </div>
     </div>
   </section>

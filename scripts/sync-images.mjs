@@ -119,6 +119,38 @@ function whatsappFiles() {
     .sort();
 }
 
+/**
+ * Per-project folders: vencore_images/projects/{slug}/*.{jpg,jpeg,png}
+ * → public/images/projects/{slug}/01.jpg, 02.jpg, ... (sequential, sorted by filename).
+ */
+function projectFolders() {
+  const projectsSrcDir = path.join(srcDir, 'projects');
+  if (!fs.existsSync(projectsSrcDir)) return [];
+  return fs
+    .readdirSync(projectsSrcDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name);
+}
+
+async function syncProjectFolders() {
+  let ok = 0;
+  for (const slug of projectFolders()) {
+    const dir = path.join(srcDir, 'projects', slug);
+    const files = fs
+      .readdirSync(dir)
+      .filter((f) => /\.(jpe?g|png)$/i.test(f))
+      .sort();
+    for (let i = 0; i < files.length; i++) {
+      const dest = `projects/${slug}/${String(i + 1).padStart(2, '0')}.jpg`;
+      if (await copyPhoto(dest, path.join('projects', slug, files[i]))) {
+        console.log(`  ${files[i]} → ${dest}`);
+        ok++;
+      }
+    }
+  }
+  return ok;
+}
+
 async function main() {
   if (!fs.existsSync(srcDir)) {
     console.warn('vencore_images/ not found — using existing public/images/ (CI/Vercel).');
@@ -143,7 +175,10 @@ async function main() {
     }
   }
 
-  console.log(`Synced ${ok} images (${Object.keys(MAP).length} mapped + ${wa.length} WhatsApp) → public/images/`);
+  const projOk = await syncProjectFolders();
+  ok += projOk;
+
+  console.log(`Synced ${ok} images (${Object.keys(MAP).length} mapped + ${wa.length} WhatsApp + ${projOk} per-project) → public/images/`);
 }
 
 main().catch((err) => {

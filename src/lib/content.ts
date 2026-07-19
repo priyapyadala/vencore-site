@@ -60,6 +60,7 @@ export interface Project {
   testimonial?: ProjectTestimonial;
   relatedProjectSlugs?: string[];
   gallery: string[];
+  comingSoon: boolean;
 }
 
 export interface Insight {

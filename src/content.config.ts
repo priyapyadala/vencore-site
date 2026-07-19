@@ -70,6 +70,7 @@ const projects = defineCollection({
     testimonial: projectTestimonialSchema.optional(),
     relatedProjectSlugs: z.array(z.string()).optional(),
     gallery: z.array(z.string()),
+    comingSoon: z.boolean().default(true),
   }),
 });
 
